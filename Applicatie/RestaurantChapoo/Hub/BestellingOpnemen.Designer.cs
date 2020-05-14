@@ -38,15 +38,18 @@
             this.btn_Lunch = new System.Windows.Forms.Button();
             this.btn_Diner = new System.Windows.Forms.Button();
             this.btn_DrankenAlcoholisch = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.lbl_BestellingPlaatsen = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewWinkelwagen
             // 
+            this.listViewWinkelwagen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listViewWinkelwagen.HideSelection = false;
             this.listViewWinkelwagen.Location = new System.Drawing.Point(763, 52);
             this.listViewWinkelwagen.Name = "listViewWinkelwagen";
-            this.listViewWinkelwagen.Size = new System.Drawing.Size(217, 432);
+            this.listViewWinkelwagen.Size = new System.Drawing.Size(217, 501);
             this.listViewWinkelwagen.TabIndex = 0;
             this.listViewWinkelwagen.UseCompatibleStateImageBehavior = false;
             // 
@@ -65,11 +68,11 @@
             // 
             // btn_BestellingPlaatsen
             // 
-            this.btn_BestellingPlaatsen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_BestellingPlaatsen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_BestellingPlaatsen.BackColor = System.Drawing.Color.SpringGreen;
             this.btn_BestellingPlaatsen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingPlaatsen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(763, 527);
+            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(763, 559);
             this.btn_BestellingPlaatsen.Name = "btn_BestellingPlaatsen";
             this.btn_BestellingPlaatsen.Size = new System.Drawing.Size(217, 89);
             this.btn_BestellingPlaatsen.TabIndex = 8;
@@ -78,6 +81,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.btn_DrankenAlcoholisch);
             this.panel1.Controls.Add(this.btn_Diner);
@@ -86,7 +90,7 @@
             this.panel1.Controls.Add(this.btn_Dranken);
             this.panel1.Location = new System.Drawing.Point(-3, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(146, 607);
+            this.panel1.Size = new System.Drawing.Size(146, 596);
             this.panel1.TabIndex = 9;
             // 
             // btn_Dranken
@@ -97,7 +101,7 @@
             this.btn_Dranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Dranken.Location = new System.Drawing.Point(29, 69);
             this.btn_Dranken.Name = "btn_Dranken";
-            this.btn_Dranken.Size = new System.Drawing.Size(95, 50);
+            this.btn_Dranken.Size = new System.Drawing.Size(100, 50);
             this.btn_Dranken.TabIndex = 0;
             this.btn_Dranken.Text = "Dranken";
             this.btn_Dranken.UseVisualStyleBackColor = false;
@@ -120,7 +124,7 @@
             this.btn_Lunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Lunch.Location = new System.Drawing.Point(29, 289);
             this.btn_Lunch.Name = "btn_Lunch";
-            this.btn_Lunch.Size = new System.Drawing.Size(95, 50);
+            this.btn_Lunch.Size = new System.Drawing.Size(100, 50);
             this.btn_Lunch.TabIndex = 2;
             this.btn_Lunch.Text = "Lunch";
             this.btn_Lunch.UseVisualStyleBackColor = false;
@@ -133,7 +137,7 @@
             this.btn_Diner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Diner.Location = new System.Drawing.Point(29, 405);
             this.btn_Diner.Name = "btn_Diner";
-            this.btn_Diner.Size = new System.Drawing.Size(95, 50);
+            this.btn_Diner.Size = new System.Drawing.Size(100, 50);
             this.btn_Diner.TabIndex = 3;
             this.btn_Diner.Text = "Diner";
             this.btn_Diner.UseVisualStyleBackColor = false;
@@ -146,10 +150,32 @@
             this.btn_DrankenAlcoholisch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DrankenAlcoholisch.Location = new System.Drawing.Point(29, 177);
             this.btn_DrankenAlcoholisch.Name = "btn_DrankenAlcoholisch";
-            this.btn_DrankenAlcoholisch.Size = new System.Drawing.Size(95, 50);
+            this.btn_DrankenAlcoholisch.Size = new System.Drawing.Size(100, 50);
             this.btn_DrankenAlcoholisch.TabIndex = 4;
             this.btn_DrankenAlcoholisch.Text = "Alcoholische dranken";
             this.btn_DrankenAlcoholisch.UseVisualStyleBackColor = false;
+            // 
+            // listView1
+            // 
+            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(150, 52);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(607, 596);
+            this.listView1.TabIndex = 10;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // lbl_BestellingPlaatsen
+            // 
+            this.lbl_BestellingPlaatsen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_BestellingPlaatsen.AutoSize = true;
+            this.lbl_BestellingPlaatsen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_BestellingPlaatsen.Location = new System.Drawing.Point(1, 17);
+            this.lbl_BestellingPlaatsen.Name = "lbl_BestellingPlaatsen";
+            this.lbl_BestellingPlaatsen.Size = new System.Drawing.Size(228, 29);
+            this.lbl_BestellingPlaatsen.TabIndex = 11;
+            this.lbl_BestellingPlaatsen.Text = "Bestelling opnemen";
             // 
             // BestellingOpnemen
             // 
@@ -157,6 +183,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(982, 653);
+            this.Controls.Add(this.lbl_BestellingPlaatsen);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_BestellingPlaatsen);
             this.Controls.Add(this.btn_Uitloggen);
@@ -165,9 +193,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BestellingOpnemen";
             this.Text = "Restaurant Chapoo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,5 +212,7 @@
         private System.Windows.Forms.Button btn_Lunch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Dranken;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lbl_BestellingPlaatsen;
     }
 }
