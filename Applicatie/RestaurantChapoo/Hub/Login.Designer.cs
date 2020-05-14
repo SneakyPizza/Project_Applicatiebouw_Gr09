@@ -90,7 +90,7 @@
             this.btn_Home.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Home.FlatAppearance.BorderSize = 0;
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home.Location = new System.Drawing.Point(873, 12);
+            this.btn_Home.Location = new System.Drawing.Point(1373, 12);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(97, 34);
             this.btn_Home.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.pnl_Login.Controls.Add(this.btn_Login);
             this.pnl_Login.Controls.Add(this.txt_Gebruikersnaam);
             this.pnl_Login.Controls.Add(this.txt_Wachtwoord);
-            this.pnl_Login.Location = new System.Drawing.Point(168, 187);
+            this.pnl_Login.Location = new System.Drawing.Point(418, 187);
             this.pnl_Login.Name = "pnl_Login";
             this.pnl_Login.Size = new System.Drawing.Size(639, 224);
             this.pnl_Login.TabIndex = 7;
@@ -116,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1482, 653);
             this.Controls.Add(this.pnl_Login);
             this.Controls.Add(this.btn_Home);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -43,7 +43,7 @@
             // 
             this.lbl_Datum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Datum.AutoSize = true;
-            this.lbl_Datum.Location = new System.Drawing.Point(894, 9);
+            this.lbl_Datum.Location = new System.Drawing.Point(1394, 9);
             this.lbl_Datum.Name = "lbl_Datum";
             this.lbl_Datum.Size = new System.Drawing.Size(63, 17);
             this.lbl_Datum.TabIndex = 4;
@@ -107,7 +107,7 @@
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Management);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
-            this.pnl_Hub.Location = new System.Drawing.Point(159, 172);
+            this.pnl_Hub.Location = new System.Drawing.Point(409, 172);
             this.pnl_Hub.Name = "pnl_Hub";
             this.pnl_Hub.Size = new System.Drawing.Size(659, 290);
             this.pnl_Hub.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.lbl_WelkomstZin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_WelkomstZin.AutoSize = true;
             this.lbl_WelkomstZin.Font = new System.Drawing.Font("Viner Hand ITC", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WelkomstZin.Location = new System.Drawing.Point(262, 98);
+            this.lbl_WelkomstZin.Location = new System.Drawing.Point(512, 98);
             this.lbl_WelkomstZin.Name = "lbl_WelkomstZin";
             this.lbl_WelkomstZin.Size = new System.Drawing.Size(426, 71);
             this.lbl_WelkomstZin.TabIndex = 6;
@@ -128,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1482, 653);
             this.Controls.Add(this.lbl_WelkomstZin);
             this.Controls.Add(this.pnl_Hub);
             this.Controls.Add(this.lbl_Datum);

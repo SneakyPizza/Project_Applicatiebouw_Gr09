@@ -20,8 +20,10 @@ namespace Hub
 
         private void Btn_BestellingOpnemen_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            //Login login = new Login();
+            //login.Show();
+            BestellingOpnemen bestellingOpnemen = new BestellingOpnemen();
+            bestellingOpnemen.Show();
             this.Hide();
         }
 
