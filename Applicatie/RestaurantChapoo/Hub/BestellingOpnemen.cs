@@ -10,29 +10,47 @@ using System.Windows.Forms;
 using DAL;
 using Model;
 using Logic;
+using System.IO;
 
 namespace Hub
 {
     public partial class BestellingOpnemen : Form
     {
-        int aantal = 1;
         public BestellingOpnemen()
         {
             InitializeComponent();
-
+            listViewMenuItems.View = View.Tile;
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(32, 32);
+            //load images from file
+            String[] paths = { };
+            paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img");
+            try
+            {
+                foreach(String path in paths)
+                {
+                    imageList.Images.Add(Image.FromFile(path));
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            listViewMenuItems.SmallImageList = imageList;
+            listViewMenuItems.LargeImageList = imageList;
         }
-
         private void Btn_Dranken_Click(object sender, EventArgs e)
         {
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(1);
             listViewMenuItems.Items.Clear();
+            listViewMenuItems.TileSize = new Size(200, 50);
+
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem listViewItem = new ListViewItem(m.MenuTypeID.ToString());
-                listViewItem.SubItems.Add(m.MenuTypeName);
-                listViewItem.SubItems.Add(m.PricePP.ToString("0.00"));
-                listViewMenuItems.Items.Add(listViewItem);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 1);
+                li.SubItems.Add(m.MenuTypeName);
+                listViewMenuItems.Items.Add(li);
             }
         }
 
@@ -41,12 +59,13 @@ namespace Hub
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(2);
             listViewMenuItems.Items.Clear();
+            listViewMenuItems.TileSize = new Size(200, 50);
+
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem listViewItem = new ListViewItem(m.MenuTypeID.ToString());
-                listViewItem.SubItems.Add(m.MenuTypeName);
-                listViewItem.SubItems.Add(m.PricePP.ToString("0.00"));
-                listViewMenuItems.Items.Add(listViewItem);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 0);
+                li.SubItems.Add(m.MenuTypeName);
+                listViewMenuItems.Items.Add(li);
             }
         }
 
@@ -55,12 +74,12 @@ namespace Hub
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(3);
             listViewMenuItems.Items.Clear();
+            listViewMenuItems.TileSize = new Size(300, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem listViewItem = new ListViewItem(m.MenuTypeID.ToString());
-                listViewItem.SubItems.Add(m.MenuTypeName);
-                listViewItem.SubItems.Add(m.PricePP.ToString("0.00"));
-                listViewMenuItems.Items.Add(listViewItem);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
+                li.SubItems.Add(m.MenuTypeName);
+                listViewMenuItems.Items.Add(li);
             }
         }
 
@@ -69,12 +88,13 @@ namespace Hub
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(4);
             listViewMenuItems.Items.Clear();
+            listViewMenuItems.TileSize = new Size(300, 100);
+
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem listViewItem = new ListViewItem(m.MenuTypeID.ToString());
-                listViewItem.SubItems.Add(m.MenuTypeName);
-                listViewItem.SubItems.Add(m.PricePP.ToString("0.00"));
-                listViewMenuItems.Items.Add(listViewItem);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
+                li.SubItems.Add(m.MenuTypeName);
+                listViewMenuItems.Items.Add(li);
             }
         }
     }

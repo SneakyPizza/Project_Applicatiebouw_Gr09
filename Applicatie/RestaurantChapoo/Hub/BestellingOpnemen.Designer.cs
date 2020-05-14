@@ -38,9 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Dranken = new System.Windows.Forms.Button();
             this.listViewMenuItems = new System.Windows.Forms.ListView();
-            this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_BestellingPlaatsen = new System.Windows.Forms.Label();
             this.listViewWinkelwagen = new System.Windows.Forms.ListView();
             this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -158,30 +157,23 @@
             // 
             this.listViewMenuItems.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listViewMenuItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nr,
-            this.Naam,
-            this.Prijs});
+            this.columnHeader1,
+            this.columnHeader2});
             this.listViewMenuItems.HideSelection = false;
             this.listViewMenuItems.Location = new System.Drawing.Point(167, 52);
             this.listViewMenuItems.Name = "listViewMenuItems";
-            this.listViewMenuItems.Size = new System.Drawing.Size(840, 501);
+            this.listViewMenuItems.Size = new System.Drawing.Size(840, 559);
             this.listViewMenuItems.TabIndex = 10;
             this.listViewMenuItems.UseCompatibleStateImageBehavior = false;
-            this.listViewMenuItems.View = System.Windows.Forms.View.Details;
+            this.listViewMenuItems.View = System.Windows.Forms.View.Tile;
             // 
-            // Nr
+            // columnHeader1
             // 
-            this.Nr.Text = "Nr";
+            this.columnHeader1.Text = "";
             // 
-            // Naam
+            // columnHeader2
             // 
-            this.Naam.Text = "Naam";
-            this.Naam.Width = 384;
-            // 
-            // Prijs
-            // 
-            this.Prijs.Text = "Prijs";
-            this.Prijs.Width = 82;
+            this.columnHeader2.Text = "";
             // 
             // lbl_BestellingPlaatsen
             // 
@@ -252,11 +244,10 @@
         private System.Windows.Forms.Button btn_Dranken;
         private System.Windows.Forms.ListView listViewMenuItems;
         private System.Windows.Forms.Label lbl_BestellingPlaatsen;
-        private System.Windows.Forms.ColumnHeader Nr;
-        private System.Windows.Forms.ColumnHeader Naam;
-        private System.Windows.Forms.ColumnHeader Prijs;
         private System.Windows.Forms.ListView listViewWinkelwagen;
         private System.Windows.Forms.ColumnHeader Product;
         private System.Windows.Forms.ColumnHeader Aantal;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
