@@ -74,7 +74,7 @@ namespace Hub
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(3);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(300, 100);
+            listViewMenuItems.TileSize = new Size(330, 100);
             foreach (Model.MenuItem m in menuItems)
             {
                 ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
@@ -88,7 +88,7 @@ namespace Hub
             Logic.MenuItem_Service menuItem_Service = new Logic.MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(4);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(300, 100);
+            listViewMenuItems.TileSize = new Size(330, 100);
 
             foreach (Model.MenuItem m in menuItems)
             {
@@ -96,6 +96,18 @@ namespace Hub
                 li.SubItems.Add(m.MenuTypeName);
                 listViewMenuItems.Items.Add(li);
             }
+        }
+
+        private void listViewMenuItems_Click(object sender, EventArgs e)
+        {
+            int aantal = 1;
+
+            ListViewItem li = new ListViewItem(listViewMenuItems.FocusedItem.Text);
+
+            li.SubItems.Add(aantal.ToString());
+            listViewWinkelwagen.Items.Add(li);
+            
+
         }
     }
 }

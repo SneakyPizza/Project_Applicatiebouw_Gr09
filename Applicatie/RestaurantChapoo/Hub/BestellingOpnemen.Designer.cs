@@ -66,9 +66,9 @@
             this.btn_BestellingPlaatsen.BackColor = System.Drawing.Color.SpringGreen;
             this.btn_BestellingPlaatsen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingPlaatsen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(1013, 559);
+            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(1128, 559);
             this.btn_BestellingPlaatsen.Name = "btn_BestellingPlaatsen";
-            this.btn_BestellingPlaatsen.Size = new System.Drawing.Size(457, 52);
+            this.btn_BestellingPlaatsen.Size = new System.Drawing.Size(342, 52);
             this.btn_BestellingPlaatsen.TabIndex = 8;
             this.btn_BestellingPlaatsen.Text = "Bestelling plaatsen";
             this.btn_BestellingPlaatsen.UseVisualStyleBackColor = false;
@@ -160,12 +160,13 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listViewMenuItems.HideSelection = false;
-            this.listViewMenuItems.Location = new System.Drawing.Point(167, 52);
+            this.listViewMenuItems.Location = new System.Drawing.Point(168, 52);
             this.listViewMenuItems.Name = "listViewMenuItems";
-            this.listViewMenuItems.Size = new System.Drawing.Size(840, 559);
+            this.listViewMenuItems.Size = new System.Drawing.Size(954, 559);
             this.listViewMenuItems.TabIndex = 10;
             this.listViewMenuItems.UseCompatibleStateImageBehavior = false;
             this.listViewMenuItems.View = System.Windows.Forms.View.Tile;
+            this.listViewMenuItems.Click += new System.EventHandler(this.listViewMenuItems_Click);
             // 
             // columnHeader1
             // 
@@ -193,17 +194,17 @@
             this.Product,
             this.Aantal});
             this.listViewWinkelwagen.HideSelection = false;
-            this.listViewWinkelwagen.Location = new System.Drawing.Point(1014, 52);
+            this.listViewWinkelwagen.Location = new System.Drawing.Point(1128, 52);
             this.listViewWinkelwagen.Name = "listViewWinkelwagen";
-            this.listViewWinkelwagen.Size = new System.Drawing.Size(456, 501);
+            this.listViewWinkelwagen.Size = new System.Drawing.Size(342, 501);
             this.listViewWinkelwagen.TabIndex = 14;
             this.listViewWinkelwagen.UseCompatibleStateImageBehavior = false;
             this.listViewWinkelwagen.View = System.Windows.Forms.View.Details;
             // 
             // Product
             // 
-            this.Product.Text = "Product";
-            this.Product.Width = 265;
+            this.Product.Text = "Product nr";
+            this.Product.Width = 201;
             // 
             // Aantal
             // 
