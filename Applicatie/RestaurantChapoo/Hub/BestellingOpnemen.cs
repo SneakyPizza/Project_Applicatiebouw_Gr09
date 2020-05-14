@@ -16,5 +16,10 @@ namespace Hub
         {
             InitializeComponent();
         }
+
+        private void Btn_Dranken_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

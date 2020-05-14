@@ -40,6 +40,9 @@
             this.btn_DrankenAlcoholisch = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.lbl_BestellingPlaatsen = new System.Windows.Forms.Label();
+            this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Prijs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +108,7 @@
             this.btn_Dranken.TabIndex = 0;
             this.btn_Dranken.Text = "Dranken";
             this.btn_Dranken.UseVisualStyleBackColor = false;
+            this.btn_Dranken.Click += new System.EventHandler(this.Btn_Dranken_Click);
             // 
             // label1
             // 
@@ -158,6 +162,10 @@
             // listView1
             // 
             this.listView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nr,
+            this.Naam,
+            this.Prijs});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(150, 52);
             this.listView1.Name = "listView1";
@@ -176,6 +184,20 @@
             this.lbl_BestellingPlaatsen.Size = new System.Drawing.Size(228, 29);
             this.lbl_BestellingPlaatsen.TabIndex = 11;
             this.lbl_BestellingPlaatsen.Text = "Bestelling opnemen";
+            // 
+            // Nr
+            // 
+            this.Nr.Text = "Nr";
+            // 
+            // Naam
+            // 
+            this.Naam.Text = "Naam";
+            this.Naam.Width = 457;
+            // 
+            // Prijs
+            // 
+            this.Prijs.Text = "Prijs";
+            this.Prijs.Width = 82;
             // 
             // BestellingOpnemen
             // 
@@ -214,5 +236,8 @@
         private System.Windows.Forms.Button btn_Dranken;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label lbl_BestellingPlaatsen;
+        private System.Windows.Forms.ColumnHeader Nr;
+        private System.Windows.Forms.ColumnHeader Naam;
+        private System.Windows.Forms.ColumnHeader Prijs;
     }
 }
