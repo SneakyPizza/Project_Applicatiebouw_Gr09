@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BestellingOpnemen.resx">
+      <DependentUpon>BestellingOpnemen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hub.resx">
       <DependentUpon>Hub.cs</DependentUpon>
     </EmbeddedResource>
