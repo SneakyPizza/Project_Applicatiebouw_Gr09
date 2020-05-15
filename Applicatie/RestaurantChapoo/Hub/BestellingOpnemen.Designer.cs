@@ -44,6 +44,8 @@
             this.listViewWinkelwagen = new System.Windows.Forms.ListView();
             this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Aantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Plus = new System.Windows.Forms.Button();
+            this.btn_Min = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,12 +68,13 @@
             this.btn_BestellingPlaatsen.BackColor = System.Drawing.Color.SpringGreen;
             this.btn_BestellingPlaatsen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingPlaatsen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(1128, 559);
+            this.btn_BestellingPlaatsen.Location = new System.Drawing.Point(1238, 559);
             this.btn_BestellingPlaatsen.Name = "btn_BestellingPlaatsen";
-            this.btn_BestellingPlaatsen.Size = new System.Drawing.Size(342, 52);
+            this.btn_BestellingPlaatsen.Size = new System.Drawing.Size(232, 52);
             this.btn_BestellingPlaatsen.TabIndex = 8;
             this.btn_BestellingPlaatsen.Text = "Bestelling plaatsen";
             this.btn_BestellingPlaatsen.UseVisualStyleBackColor = false;
+            this.btn_BestellingPlaatsen.Click += new System.EventHandler(this.Btn_BestellingPlaatsen_Click);
             // 
             // panel1
             // 
@@ -203,12 +206,42 @@
             // 
             // Product
             // 
-            this.Product.Text = "Product nr";
+            this.Product.Text = "Naam";
             this.Product.Width = 201;
             // 
             // Aantal
             // 
             this.Aantal.Text = "Aantal";
+            // 
+            // btn_Plus
+            // 
+            this.btn_Plus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Plus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_Plus.FlatAppearance.BorderSize = 0;
+            this.btn_Plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Plus.Location = new System.Drawing.Point(1183, 559);
+            this.btn_Plus.Name = "btn_Plus";
+            this.btn_Plus.Size = new System.Drawing.Size(49, 52);
+            this.btn_Plus.TabIndex = 15;
+            this.btn_Plus.Text = "+";
+            this.btn_Plus.UseVisualStyleBackColor = false;
+            this.btn_Plus.Click += new System.EventHandler(this.Btn_Plus_Click);
+            // 
+            // btn_Min
+            // 
+            this.btn_Min.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Min.FlatAppearance.BorderSize = 0;
+            this.btn_Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Min.Location = new System.Drawing.Point(1128, 559);
+            this.btn_Min.Name = "btn_Min";
+            this.btn_Min.Size = new System.Drawing.Size(49, 52);
+            this.btn_Min.TabIndex = 16;
+            this.btn_Min.Text = "-";
+            this.btn_Min.UseVisualStyleBackColor = false;
+            this.btn_Min.Click += new System.EventHandler(this.Btn_Min_Click);
             // 
             // BestellingOpnemen
             // 
@@ -216,6 +249,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1482, 653);
+            this.Controls.Add(this.btn_Min);
+            this.Controls.Add(this.btn_Plus);
             this.Controls.Add(this.listViewWinkelwagen);
             this.Controls.Add(this.lbl_BestellingPlaatsen);
             this.Controls.Add(this.listViewMenuItems);
@@ -250,5 +285,7 @@
         private System.Windows.Forms.ColumnHeader Aantal;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button btn_Plus;
+        private System.Windows.Forms.Button btn_Min;
     }
 }

@@ -25,5 +25,19 @@ namespace Logic
                 return menuItems;
             }
         }
+        public List<MenuItem> GetMenuItemOnID(int MenuItemID)
+        {
+            try
+            {
+                return MenuItem_DAO.GetMenuItemOnID(MenuItemID);
+            }
+            catch(Exception e)
+            {
+                List<MenuItem> menuItems = new List<MenuItem>();
+                MenuItem menuItem = new MenuItem(1, e.ToString(), DateTime.Now, 3);
+                menuItems.Add(menuItem);
+                return menuItems;
+            }
+        }
     }
 }
