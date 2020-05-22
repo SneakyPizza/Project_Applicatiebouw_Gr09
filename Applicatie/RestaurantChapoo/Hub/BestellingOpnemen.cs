@@ -142,7 +142,7 @@ namespace Hub
             //menuitem_dao PlaceOrder() maken
             //stored procedure PlaceOrder maken
             //class Order maken
-            //via deze knop voor alle items in list een Order maken -> in lijst stoppen
+            //via deze knop voor alle items in list een Order maken en in lijst stoppen
         }
     }
 }
