@@ -21,50 +21,37 @@ namespace Logic
                 //set as curret login
                 //set parameters
                 //check the role
-                CurrentEmployee = new Employee(dt.Rows[0].Field<int>("EmployeeID"),
+                CurrentEmployee = new Employee(
+                    dt.Rows[0].Field<int>("EmployeeID"),
                     dt.Rows[0].Field<string>("FirstName"), 
                     dt.Rows[0].Field<string>("LastName"), 
-                    dt.Rows[0].Field<string>("Email"), 
+                    dt.Rows[0].Field<string>("EmailAdress"), 
                     //dt.Rows[0].Field<string>("Password"), 
                     dt.Rows[0].Field<int>("FunctionID"), 
-                    dt.Rows[0].Field<string>("FunctionName"));
+                    dt.Rows[0].Field<string>("FunctionName")
+                    );
 
                 //CheckRole(CurrentEmployee);
                 return true;
             }
-
             return false;
-            
         }
 
         private bool CheckUser(string password, DataTable dt)
         {
-            if (password == dt.Rows[1].Field<string>("Password"))
+            try
             {
-                return true;
+                if (password == dt.Rows[0].Field<string>("Password"))
+                {
+                    return true;
+                }
             }
-            return false;
-        }
+            catch
+            {
+                return false;
+            }
 
-        public void RedirectUser(Employee e) 
-        {
-            int i = e.FunctionID;
-            switch (i)
-            {
-                
-                case 1: //Owner
-                    break;
-                case 2: //Waiter
-                    break;
-                case 3: //Chef
-                    break;
-                case 4: //Wine-Expert
-                    break;
-                case 5: //Barman
-                    break;
-                default:
-                    break;
-            }
+            return false;
         }
 
         public Employee CurrentEmployee { get; private set; }

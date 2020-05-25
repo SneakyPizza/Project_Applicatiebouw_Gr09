@@ -46,7 +46,7 @@ namespace DAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
+                //Print.ErrorLog(e);
                 return null;
                 throw;
             }

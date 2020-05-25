@@ -43,7 +43,7 @@
             // txt_Username
             // 
             this.txt_Username.Location = new System.Drawing.Point(193, 79);
-            this.txt_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Username.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Username.Name = "txt_Username";
             this.txt_Username.Size = new System.Drawing.Size(160, 20);
             this.txt_Username.TabIndex = 0;
@@ -51,10 +51,11 @@
             // txt_Password
             // 
             this.txt_Password.Location = new System.Drawing.Point(193, 110);
-            this.txt_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Password.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(160, 20);
             this.txt_Password.TabIndex = 1;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -82,7 +83,7 @@
             this.btn_Login.FlatAppearance.BorderSize = 0;
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Login.Location = new System.Drawing.Point(212, 145);
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(123, 28);
             this.btn_Login.TabIndex = 5;
@@ -97,7 +98,7 @@
             this.btn_Home.FlatAppearance.BorderSize = 0;
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Location = new System.Drawing.Point(1030, 10);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(73, 28);
             this.btn_Home.TabIndex = 6;
@@ -114,7 +115,7 @@
             this.pnl_Login.Controls.Add(this.txt_Username);
             this.pnl_Login.Controls.Add(this.txt_Password);
             this.pnl_Login.Location = new System.Drawing.Point(314, 152);
-            this.pnl_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Login.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Login.Name = "pnl_Login";
             this.pnl_Login.Size = new System.Drawing.Size(479, 182);
             this.pnl_Login.TabIndex = 7;
@@ -129,7 +130,7 @@
             this.Controls.Add(this.btn_Home);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

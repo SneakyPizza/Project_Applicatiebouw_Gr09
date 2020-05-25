@@ -11,13 +11,13 @@ namespace DAL
 {
     public class Login_DAO: Base
     {
-        public DataTable GetEmployee(string username, string password)
+        public DataTable GetEmployee(string email, string password)
         {
-            SqlParameter sp1 = new SqlParameter("", username);
-            SqlParameter sp2 = new SqlParameter("", password);
+            SqlParameter sp1 = new SqlParameter("@email", email);
+            SqlParameter sp2 = new SqlParameter("@password", password);
             SqlParameter[] sps = new SqlParameter[] { sp1, sp2 };
 
-            return ExecuteQuery("", sps);
+            return ExecuteQuery("GetEmployee", sps);
         }
     }
 }
