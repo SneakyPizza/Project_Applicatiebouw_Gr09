@@ -8,13 +8,13 @@ namespace Model
 {
     public class Employee
     {
-        public Employee(int id, string firstname, string lastname, string email, string password, int functionID, string functionName)
+        public Employee(int id, string firstname, string lastname, string email, int functionID, string functionName)
         {
             Id = id;
             Firstname = firstname;
             Lastname = lastname;
             Email = email;
-            Password = password;
+            //Password = password;
             FunctionID = functionID;
             FunctionName = functionName;
         }
@@ -23,7 +23,6 @@ namespace Model
         public string Firstname { get; private set; }
         public string Lastname { get; private set; }
         public string Email { get; private set; }
-        public string Password { get; private set; }
         public int FunctionID { get; private set; }
         public string FunctionName { get; private set; }
     }

@@ -28,14 +28,18 @@ namespace Hub
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            string username = txt_Username.Text;
-            string password = txt_Password.Text;
             if(!string.IsNullOrWhiteSpace(txt_Username.Text) && !string.IsNullOrWhiteSpace(txt_Password.Text))
             {
-                login_Service.ValidateUser(username, password);
+                string username = txt_Username.Text;
+                string password = txt_Password.Text;
+                if(login_Service.ValidateUser(username, password))
+                {
+                    //check role
+                    //redirect user
+                }
             } else
             {
-                //Display incorrect validation
+                //Display Incorrect login error
             }
             
         }
