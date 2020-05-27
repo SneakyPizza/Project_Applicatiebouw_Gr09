@@ -37,5 +37,35 @@ namespace DAL
             }
             return menuItems;
         }
+        public int GetMenuItemID(string menuItemName)
+        {
+            SqlParameter sqlParameter1 = new SqlParameter("@menuItemName", menuItemName);
+            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1 };
+            return GetMenuItemInt(ExecuteQuery("GetMenuItemID", sqlp));
+        }
+        private int GetReservationInt(DataTable dataTable)
+        {
+            int ID = 0;
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                ID += (int)dataRow["ReservationID"];
+            }
+            return ID;
+        }
+        private int GetMenuItemInt(DataTable dataTable)
+        {
+            int ID = 0;
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                ID += (int)dataRow["MenuItemID"];
+            }
+            return ID;
+        }
+        public int GetReservationID(int tableID)
+        {
+            SqlParameter sqlParameter1 = new SqlParameter("@tableID", tableID);
+            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1 };
+            return GetReservationInt(ExecuteQuery("GetReservationID", sqlp));
+        }
     }
 }

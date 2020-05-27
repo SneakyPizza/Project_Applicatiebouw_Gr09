@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BestellingOpnemen));
-            this.btn_Uitloggen = new System.Windows.Forms.Button();
+            this.btn_Home = new System.Windows.Forms.Button();
             this.btn_BestellingPlaatsen = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_DrankenAlcoholisch = new System.Windows.Forms.Button();
@@ -46,21 +46,24 @@
             this.Aantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Plus = new System.Windows.Forms.Button();
             this.btn_Min = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmb_Tafelnr = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_Uitloggen
+            // btn_Home
             // 
-            this.btn_Uitloggen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Uitloggen.BackColor = System.Drawing.Color.Gainsboro;
-            this.btn_Uitloggen.FlatAppearance.BorderSize = 0;
-            this.btn_Uitloggen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Uitloggen.Location = new System.Drawing.Point(1373, 12);
-            this.btn_Uitloggen.Name = "btn_Uitloggen";
-            this.btn_Uitloggen.Size = new System.Drawing.Size(97, 34);
-            this.btn_Uitloggen.TabIndex = 7;
-            this.btn_Uitloggen.Text = "Uitloggen";
-            this.btn_Uitloggen.UseVisualStyleBackColor = false;
+            this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_Home.FlatAppearance.BorderSize = 0;
+            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Home.Location = new System.Drawing.Point(1373, 12);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Size = new System.Drawing.Size(97, 34);
+            this.btn_Home.TabIndex = 7;
+            this.btn_Home.Text = "Home";
+            this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // btn_BestellingPlaatsen
             // 
@@ -243,12 +246,33 @@
             this.btn_Min.UseVisualStyleBackColor = false;
             this.btn_Min.Click += new System.EventHandler(this.Btn_Min_Click);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 620);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Tafelnr:";
+            // 
+            // cmb_Tafelnr
+            // 
+            this.cmb_Tafelnr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmb_Tafelnr.FormattingEnabled = true;
+            this.cmb_Tafelnr.Location = new System.Drawing.Point(72, 613);
+            this.cmb_Tafelnr.Name = "cmb_Tafelnr";
+            this.cmb_Tafelnr.Size = new System.Drawing.Size(53, 24);
+            this.cmb_Tafelnr.TabIndex = 19;
+            // 
             // BestellingOpnemen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1482, 653);
+            this.Controls.Add(this.cmb_Tafelnr);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Min);
             this.Controls.Add(this.btn_Plus);
             this.Controls.Add(this.listViewWinkelwagen);
@@ -256,7 +280,7 @@
             this.Controls.Add(this.listViewMenuItems);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_BestellingPlaatsen);
-            this.Controls.Add(this.btn_Uitloggen);
+            this.Controls.Add(this.btn_Home);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BestellingOpnemen";
@@ -270,7 +294,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_Uitloggen;
+        private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Button btn_BestellingPlaatsen;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_DrankenAlcoholisch;
@@ -287,5 +311,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btn_Plus;
         private System.Windows.Forms.Button btn_Min;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_Tafelnr;
     }
 }

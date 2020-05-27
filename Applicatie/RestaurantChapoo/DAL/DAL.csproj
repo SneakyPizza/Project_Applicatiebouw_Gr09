@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="MenuItem_DAO.cs" />
+    <Compile Include="MenuOrder_DAO.cs" />
+    <Compile Include="Order_DAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
