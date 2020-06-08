@@ -12,6 +12,7 @@ namespace Logic
     public class Login_Service
     {
         private Login_DAO login_DAO = new Login_DAO();
+        private static Login_Service _uniqueLoginService;
         public bool ValidateUser(string username, string password)
         {
             DataTable dt = login_DAO.GetEmployee(username, password);
@@ -35,6 +36,20 @@ namespace Logic
                 return true;
             }
             return false;
+        }
+
+        public static Login_Service GetLoginService()
+        {
+            if (_uniqueLoginService == null)
+            {
+                _uniqueLoginService = new Login_Service();
+            }
+            return _uniqueLoginService;
+        }
+
+        public void LogoutEmployee()
+        {
+            CurrentEmployee = null;
         }
 
         private bool CheckUser(string password, DataTable dt)

@@ -15,16 +15,18 @@ namespace Hub
     public partial class Login : Form
     {
         private Login_Service login_Service = new Login_Service();
+        private static Login _uniqueLogin;
         public Login()
         {
+            _uniqueLogin = this;
             InitializeComponent();
         }
 
         private void Btn_Home_Click(object sender, EventArgs e)
         {
-            Hub hub = new Hub();
+            Hub hub = Hub.GetHubScreen();
             hub.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -38,7 +40,8 @@ namespace Hub
                     //check role
                     //redirect user
                     RedirectLogin(login_Service.CurrentEmployee);
-                    
+                    txt_Username.Text = String.Empty;
+                    txt_Password.Text = String.Empty;
                 }
             } else
             {
@@ -53,14 +56,14 @@ namespace Hub
             switch (i)
             {
                 case 1: //Owner
-                    BestellingOpnemen o1 = new BestellingOpnemen();
+                    Hub o1 = Hub.GetHubScreen();
                     o1.Show();
-                    this.Close();
+                    this.Hide();
                     break;
                 case 2: //Waiter
-                    BestellingOpnemen o2 = new BestellingOpnemen();
+                    Hub o2 = Hub.GetHubScreen();
                     o2.Show();
-                    this.Close();
+                    this.Hide();
                     break;
                 case 3: //Chef
                     break;
@@ -71,6 +74,15 @@ namespace Hub
                 default:
                     break;
             }
+        }
+
+        public static Login GetLoginScreen()
+        {
+            if(_uniqueLogin == null)
+            {
+                _uniqueLogin = new Login();
+            }
+            return _uniqueLogin;
         }
     }
 }

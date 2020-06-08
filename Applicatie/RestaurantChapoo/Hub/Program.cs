@@ -16,7 +16,7 @@ namespace Hub
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Hub());
+            Application.Run(new Login());
         }
     }
 }

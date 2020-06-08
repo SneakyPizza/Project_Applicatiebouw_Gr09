@@ -7,15 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace Hub
 {
     public partial class Hub : Form
     {
+        private static Hub _uniqueHub;
         public Hub()
         {
+            _uniqueHub = this;
             InitializeComponent();
             lbl_Datum.Text = DateTime.Now.ToString("d");
+        }
+
+        public static Hub GetHubScreen()
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            //lbl_.Text = service.CurrentEmployee.FunctionName;
+            _uniqueHub.lbl_User.Text = service.CurrentEmployee.FunctionName;
+
+            if (_uniqueHub == null)
+            {
+                _uniqueHub = new Hub();
+            }
+            return _uniqueHub;
         }
 
         private void Btn_BestellingOpnemen_Click(object sender, EventArgs e)
@@ -29,7 +45,16 @@ namespace Hub
 
         private void Btn_Management_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            Login login = Login.GetLoginScreen();
+            login.Show();
+            this.Hide();
+        }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            Login login = Login.GetLoginScreen();
+            Login_Service loginservice = Login_Service.GetLoginService();
+            loginservice.LogoutEmployee();
             login.Show();
             this.Hide();
         }
