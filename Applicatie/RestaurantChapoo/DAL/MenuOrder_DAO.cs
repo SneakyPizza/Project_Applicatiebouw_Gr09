@@ -13,11 +13,11 @@ namespace DAL
     {
         public void PlaceMenuOrder(int amount, int orderID, int menuItemID)
         {
-            SqlParameter sqlParameter1 = new SqlParameter("@amount", amount);
-            SqlParameter sqlParameter2 = new SqlParameter("@orderID", orderID);
-            SqlParameter sqlParameter3 = new SqlParameter("@menuItemID", menuItemID);
-            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3 };
-            ExecuteQuery("PlaceMenuOrder", sqlp);
+                SqlParameter sqlParameter1 = new SqlParameter("@amount", amount);
+                SqlParameter sqlParameter2 = new SqlParameter("@orderID", orderID);
+                SqlParameter sqlParameter3 = new SqlParameter("@menuItemID", menuItemID);
+                SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3 };
+                ExecuteEditQuery("PlaceMenuOrder", sqlp);
         }
     }
 }

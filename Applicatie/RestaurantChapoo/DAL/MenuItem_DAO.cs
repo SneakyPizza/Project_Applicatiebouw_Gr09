@@ -48,7 +48,7 @@ namespace DAL
             int ID = 0;
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                ID += (int)dataRow["ReservationID"];
+                ID = (int)dataRow["ReservationID"];
             }
             return ID;
         }
@@ -57,7 +57,7 @@ namespace DAL
             int ID = 0;
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                ID += (int)dataRow["MenuItemID"];
+                ID = (int)dataRow["MenuItemID"];
             }
             return ID;
         }

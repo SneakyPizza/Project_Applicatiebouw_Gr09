@@ -29,9 +29,9 @@ namespace DAL
         private int GetInt(DataTable dataTable)
         {
             int reservationID = 0;
-            foreach (DataRow dataRow in dataTable.Rows)
+            foreach (DataRow dataRow in dataTable.Rows) 
             {
-                reservationID += (int)dataRow["ReservationID"];
+                reservationID = (int)dataRow["ReservationID"];
             }
             return reservationID;
         }

@@ -18,7 +18,7 @@ namespace DAL
             SqlParameter sqlParameter3 = new SqlParameter("@paymentID", paymentID);
             SqlParameter sqlParameter4 = new SqlParameter("@employeeID", employeeID);
             SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4 };
-            ExecuteQuery("PlaceOrder", sqlp);
+            ExecuteEditQuery("PlaceOrder", sqlp);
         }
     }
 }

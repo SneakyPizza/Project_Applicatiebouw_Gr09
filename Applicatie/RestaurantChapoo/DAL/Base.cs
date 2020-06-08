@@ -27,6 +27,7 @@ namespace DAL
         {
             conn.Close();
         }
+        // For Select Queries
         protected DataTable ExecuteQuery(String query, params SqlParameter[] sqlParameters)
         {
             SqlCommand command = new SqlCommand();
@@ -55,6 +56,30 @@ namespace DAL
                 CloseConnection();
             }
             return dataTable;
+        }
+
+        // For Insert/Update/Delete Queries 
+        protected void ExecuteEditQuery(String query, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.Parameters.AddRange(sqlParameters);
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                // Print.ErrorLog(e);
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
         }
     }
 }

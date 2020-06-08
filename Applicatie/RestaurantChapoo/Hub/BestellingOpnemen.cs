@@ -27,7 +27,7 @@ namespace Hub
             imageList.ImageSize = new Size(32, 32);
             //load images from file
             String[] paths = { };
-            paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
+            paths = Directory.GetFiles("C:/Users/larsd/OneDrive/Documenten/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
             try
             {
                 foreach(String path in paths)
@@ -140,27 +140,47 @@ namespace Hub
 
         private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //Lijst met MenuOrder aanmaken voor elk item in lijst. Al deze items versturen naar db én voor elke item Order aanmaken in db
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
-            Table_Service table_Service = new Table_Service();
-            int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
-            try //nieuwe order aanmaken voor betreffende tafel
+            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items == null)
             {
-                Order_DAO order_DAO = new Order_DAO();
-                order_DAO.PlaceOrder(0, reservationID, 0, 2); //employeeID (2) nog aanpassen
+                MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception error)
+            else
             {
-                MessageBox.Show("Error: {0}", error.Message);
-            }
+                MenuItem_Service menuItem_Service = new MenuItem_Service();
+                Table_Service table_Service = new Table_Service();
+                int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
+                if (reservationID == 0)
+                {
+                    MessageBox.Show("Er is geen reservering voor deze tafel.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Order_DAO order_DAO = new Order_DAO();
+                    try //nieuwe order aanmaken voor betreffende tafel
+                    {
+                        order_DAO.PlaceOrder(0, reservationID, 1, 2); //employeeID (2) nog aanpassen
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: {0}", error.Message);
+                    }
 
-            List<MenuOrder> menuOrders = new List<MenuOrder>();
-            foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
-            {
-                Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 0, menuItem_Service.GetMenuItemID(li.Text));
-                menuOrders.Add(menuOrder);
-            }
-            MessageBox.Show(menuOrders[1].MenuItemID.ToString()); //fixen dat MenuItemID goed doorkomt
+                    List<MenuOrder> menuOrders = new List<MenuOrder>();
+                    MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
+                    foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
+                    {
+                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 50, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
+                        menuOrders.Add(menuOrder);
+                    }
+                    foreach(MenuOrder menuOrder in menuOrders) //alle menuOrders naar db sturen
+                    {
+                        menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
+                    }
+                    OrderPlaced();
+                }
 
+
+            }
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
@@ -178,6 +198,12 @@ namespace Hub
             {
                 cmb_Tafelnr.Items.Add(t.TableID);
             }
+        }
+        private void OrderPlaced()
+        {
+            MessageBox.Show("Bestelling geplaatst.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listViewWinkelwagen.Items.Clear();
+            cmb_Tafelnr.SelectedItem = null;
         }
     }
 }
