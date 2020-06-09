@@ -45,10 +45,9 @@
             // 
             this.lbl_Datum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Datum.AutoSize = true;
-            this.lbl_Datum.Location = new System.Drawing.Point(11, 9);
-            this.lbl_Datum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Datum.Location = new System.Drawing.Point(1159, 11);
             this.lbl_Datum.Name = "lbl_Datum";
-            this.lbl_Datum.Size = new System.Drawing.Size(48, 13);
+            this.lbl_Datum.Size = new System.Drawing.Size(72, 20);
             this.lbl_Datum.TabIndex = 4;
             this.lbl_Datum.Text = "<datum>";
             // 
@@ -57,10 +56,12 @@
             this.btn_Bar.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Bar.FlatAppearance.BorderSize = 0;
             this.btn_Bar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bar.Location = new System.Drawing.Point(322, 37);
-            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2);
+
+            this.btn_Bar.Location = new System.Drawing.Point(483, 58);
+            this.btn_Bar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Bar.Name = "btn_Bar";
-            this.btn_Bar.Size = new System.Drawing.Size(82, 81);
+            this.btn_Bar.Size = new System.Drawing.Size(124, 125);
+
             this.btn_Bar.TabIndex = 2;
             this.btn_Bar.Text = "Bar";
             this.btn_Bar.UseVisualStyleBackColor = false;
@@ -70,10 +71,10 @@
             this.btn_Management.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Management.FlatAppearance.BorderSize = 0;
             this.btn_Management.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Management.Location = new System.Drawing.Point(196, 137);
-            this.btn_Management.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Management.Location = new System.Drawing.Point(295, 211);
+            this.btn_Management.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Management.Name = "btn_Management";
-            this.btn_Management.Size = new System.Drawing.Size(82, 81);
+            this.btn_Management.Size = new System.Drawing.Size(124, 125);
             this.btn_Management.TabIndex = 3;
             this.btn_Management.Text = "Management";
             this.btn_Management.UseVisualStyleBackColor = false;
@@ -84,10 +85,12 @@
             this.btn_BestellingOpnemen.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_BestellingOpnemen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingOpnemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BestellingOpnemen.Location = new System.Drawing.Point(196, 37);
-            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2);
+
+            this.btn_BestellingOpnemen.Location = new System.Drawing.Point(295, 58);
+            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_BestellingOpnemen.Name = "btn_BestellingOpnemen";
-            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(82, 81);
+            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(124, 125);
+
             this.btn_BestellingOpnemen.TabIndex = 1;
             this.btn_BestellingOpnemen.Text = "Bestelling opnemen";
             this.btn_BestellingOpnemen.UseVisualStyleBackColor = false;
@@ -98,10 +101,10 @@
             this.btn_Keuken.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Keuken.FlatAppearance.BorderSize = 0;
             this.btn_Keuken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Keuken.Location = new System.Drawing.Point(76, 37);
-            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Keuken.Location = new System.Drawing.Point(114, 58);
+            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Keuken.Name = "btn_Keuken";
-            this.btn_Keuken.Size = new System.Drawing.Size(82, 81);
+            this.btn_Keuken.Size = new System.Drawing.Size(124, 125);
             this.btn_Keuken.TabIndex = 0;
             this.btn_Keuken.Text = "Keuken";
             this.btn_Keuken.UseVisualStyleBackColor = false;
@@ -114,10 +117,10 @@
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Management);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
-            this.pnl_Hub.Location = new System.Drawing.Point(307, 140);
-            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2);
+            this.pnl_Hub.Location = new System.Drawing.Point(256, 139);
+            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Hub.Name = "pnl_Hub";
-            this.pnl_Hub.Size = new System.Drawing.Size(494, 236);
+            this.pnl_Hub.Size = new System.Drawing.Size(741, 362);
             this.pnl_Hub.TabIndex = 5;
             // 
             // lbl_WelkomstZin
@@ -125,10 +128,9 @@
             this.lbl_WelkomstZin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_WelkomstZin.AutoSize = true;
             this.lbl_WelkomstZin.Font = new System.Drawing.Font("Viner Hand ITC", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WelkomstZin.Location = new System.Drawing.Point(384, 80);
-            this.lbl_WelkomstZin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_WelkomstZin.Location = new System.Drawing.Point(372, 46);
             this.lbl_WelkomstZin.Name = "lbl_WelkomstZin";
-            this.lbl_WelkomstZin.Size = new System.Drawing.Size(338, 57);
+            this.lbl_WelkomstZin.Size = new System.Drawing.Size(501, 84);
             this.lbl_WelkomstZin.TabIndex = 6;
             this.lbl_WelkomstZin.Text = "Restaurant Chapoo";
             // 
@@ -163,15 +165,16 @@
             this.ClientSize = new System.Drawing.Size(1112, 531);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.lbl_User);
+
             this.Controls.Add(this.lbl_WelkomstZin);
             this.Controls.Add(this.pnl_Hub);
             this.Controls.Add(this.lbl_Datum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Hub";
             this.Text = "Restaurant Chapoo";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnl_Hub.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

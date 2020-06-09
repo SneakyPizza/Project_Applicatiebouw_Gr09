@@ -39,5 +39,16 @@ namespace Logic
                 return menuItems;
             }
         }
+        public int GetMenuItemID(string MenuItemName)
+        {
+            try
+            {
+                return MenuItem_DAO.GetMenuItemID(MenuItemName);
+            }
+            catch (Exception e)
+            {
+                return 999;
+            }
+        }
     }
 }

@@ -8,18 +8,16 @@ namespace Model
 {
     public class Order
     {
-
-        public Order(int orderID, int orderstatus, int tableID, List<MenuItem> orderItems)
+        public Order(int orderStatus, int reservationID, int paymentID, int employeeID)
         {
-            OrderID = orderID;
-            Orderstatus = orderstatus;
-            TableID = tableID;
-            OrderItems = orderItems;
+            this.OrderStatus = orderStatus;
+            this.ReservationID = reservationID;
+            this.PaymentID = paymentID;
+            this.EmployeeID = employeeID;
         }
-
-        public int OrderID { get; }
-        public int Orderstatus { get; }
-        public int TableID { get; }
-        public List<MenuItem> OrderItems { get; }
+        public int OrderStatus { get; private set; }
+        public int ReservationID { get; private set; }
+        public int PaymentID { get; private set; }
+        public int EmployeeID { get; private set; }
     }
 }
