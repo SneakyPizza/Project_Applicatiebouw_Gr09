@@ -20,5 +20,18 @@ namespace DAL
             SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4 };
             ExecuteEditQuery("PlaceOrder", sqlp);
         }
+        public int GetMostRecentOrderID()
+        {
+           return GetOrderIDInt(ExecuteQuery("GetMostRecentOrderID"));
+        }
+        private int GetOrderIDInt(DataTable dataTable)
+        {
+            int ID = 0;
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                ID = (int)dataRow["OrderID"];
+            }
+            return ID;
+        }
     }
 }

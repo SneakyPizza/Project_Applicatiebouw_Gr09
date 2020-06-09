@@ -77,7 +77,7 @@ CREATE TABLE MenuType(
 
 CREATE TABLE MenuItem(
     MenuItemID int NOT NULL PRIMARY KEY IDENTITY(1,1),
-    MenuItemName nvarchar(30) NOT NULL,
+    MenuItemName nvarchar(120) NOT NULL,
     ShelfLife datetime NOT NULL,
 	Stock int NOT NULL,
     PricePP money NOT NULL,

@@ -145,8 +145,9 @@ namespace Hub
             }
         }
 
-        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //Lijst met MenuOrder aanmaken voor elk item in lijst. Al deze items versturen naar db én voor elke item Order aanmaken in db
+        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e)
         {
+            int recentOrderID = 0;
             if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items == null)
             {
                 MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -171,12 +172,12 @@ namespace Hub
                     {
                         MessageBox.Show("Error: {0}", error.Message);
                     }
-
+                    recentOrderID = GetMostRecentOrderID();
                     List<MenuOrder> menuOrders = new List<MenuOrder>();
                     MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
                     foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
                     {
-                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 2, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
+                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
                         menuOrders.Add(menuOrder);
                     }
                     foreach(MenuOrder menuOrder in menuOrders) //alle menuOrders naar db sturen
@@ -213,5 +214,11 @@ namespace Hub
             listViewWinkelwagen.Items.Clear();
             cmb_Tafelnr.SelectedItem = null;
         }
+        private int GetMostRecentOrderID()
+        {
+            Order_Service order_Service = new Order_Service();
+            return order_Service.GetMostRecentOrderID();
+        }
+
     }
 }
