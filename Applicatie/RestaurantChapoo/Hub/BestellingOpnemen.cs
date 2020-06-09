@@ -12,7 +12,6 @@ using Model;
 using Logic;
 using System.IO;
 
-
 namespace Hub
 {
     public partial class BestellingOpnemen : Form
@@ -22,27 +21,29 @@ namespace Hub
         {
             InitializeComponent();
             FillComboBox();
+            lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
             ImageList imageList = new ImageList();
             imageList.ImageSize = new Size(32, 32);
             //load images from file
-            String[] paths = { };
-            paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
+
             try
             {
-                foreach(String path in paths)
+                String[] paths = { };
+                paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
+                foreach (String path in paths)
                 {
                     imageList.Images.Add(Image.FromFile(path));
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("De afbeeldingen kunnen niet worden geladen. De menukaarten worden zonder afbeeldingen getoond.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             listViewMenuItems.SmallImageList = imageList;
             listViewMenuItems.LargeImageList = imageList;
         }
-        private void Btn_Dranken_Click(object sender, EventArgs e)
+        private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
         {
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(1);
@@ -52,12 +53,12 @@ namespace Hub
             foreach (Model.MenuItem m in menuItems)
             {
                 ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 1);
-                li.SubItems.Add(m.MenuTypeName);
+                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_DrankenAlcoholisch_Click(object sender, EventArgs e)
+        private void Btn_DrankenAlcoholisch_Click(object sender, EventArgs e) //laad alcohol items
         {
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(2);
@@ -67,36 +68,36 @@ namespace Hub
             foreach (Model.MenuItem m in menuItems)
             {
                 ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 0);
-                li.SubItems.Add(m.MenuTypeName);
+                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_Lunch_Click(object sender, EventArgs e)
+        private void Btn_Lunch_Click(object sender, EventArgs e) //laad lunch items
         {
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(3);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(330, 100);
+            listViewMenuItems.TileSize = new Size(450, 100);
             foreach (Model.MenuItem m in menuItems)
             {
                 ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
-                li.SubItems.Add(m.MenuTypeName);
+                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_Diner_Click(object sender, EventArgs e)
+        private void Btn_Diner_Click(object sender, EventArgs e) //laad diner items
         {
             MenuItem_Service menuItem_Service = new MenuItem_Service();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(4);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(330, 100);
+            listViewMenuItems.TileSize = new Size(450, 100);
 
             foreach (Model.MenuItem m in menuItems)
             {
                 ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
-                li.SubItems.Add(m.MenuTypeName);
+                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
@@ -126,29 +127,45 @@ namespace Hub
 
         private void Btn_Plus_Click(object sender, EventArgs e)
         {
-            int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
-            aantal++;
-            listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+            if (listViewWinkelwagen.FocusedItem == null)
+            {
+                MessageBox.Show("Geef eerst aan van welk item je het aantal wilt verhogen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
+                aantal++;
+                listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+            }
+
         }
 
         private void Btn_Min_Click(object sender, EventArgs e)
         {
-            int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
-            aantal--;
-            if (aantal > 0)
+            if (listViewWinkelwagen.FocusedItem == null)
             {
-                listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+                MessageBox.Show("Geef eerst aan van welk item je het aantal wilt verlagen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                listViewWinkelwagen.Items.Remove(listViewWinkelwagen.FocusedItem);
+                int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
+                aantal--;
+                if (aantal > 0)
+                {
+                    listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+                }
+                else
+                {
+                    listViewWinkelwagen.Items.Remove(listViewWinkelwagen.FocusedItem);
+                }
             }
+
         }
 
         private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e)
         {
             int recentOrderID = 0;
-            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items == null)
+            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items.Count == 0)
             {
                 MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -177,7 +194,7 @@ namespace Hub
                     MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
                     foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
                     {
-                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
+                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text));
                         menuOrders.Add(menuOrder);
                     }
                     foreach(MenuOrder menuOrder in menuOrders) //alle menuOrders naar db sturen
@@ -186,9 +203,8 @@ namespace Hub
                         menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
                     }
                     OrderPlaced();
+                    btn_Dranken.PerformClick();
                 }
-
-
             }
         }
 
