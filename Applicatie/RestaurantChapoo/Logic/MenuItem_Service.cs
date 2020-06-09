@@ -20,7 +20,7 @@ namespace Logic
             catch(Exception e)
             {
                 List<MenuItem> menuItems = new List<MenuItem>();
-                MenuItem menuItem = new MenuItem(1, e.ToString(), DateTime.Now, 3);
+                MenuItem menuItem = new MenuItem(1, e.ToString(), DateTime.Now, 5, 3);
                 menuItems.Add(menuItem);
                 return menuItems;
             }
@@ -34,7 +34,7 @@ namespace Logic
             catch(Exception e)
             {
                 List<MenuItem> menuItems = new List<MenuItem>();
-                MenuItem menuItem = new MenuItem(1, e.ToString(), DateTime.Now, 3);
+                MenuItem menuItem = new MenuItem(1, e.ToString(), DateTime.Now, 5, 3);
                 menuItems.Add(menuItem);
                 return menuItems;
             }

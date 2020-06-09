@@ -27,7 +27,7 @@ namespace Hub
             imageList.ImageSize = new Size(32, 32);
             //load images from file
             String[] paths = { };
-            paths = Directory.GetFiles("C:/Users/larsd/OneDrive/Documenten/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
+            paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
             try
             {
                 foreach(String path in paths)
@@ -110,9 +110,16 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems) 
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeName);
-                li.SubItems.Add(aantal.ToString());
-                listViewWinkelwagen.Items.Add(li);
+                if (m.Stock > 0)
+                {
+                    ListViewItem li = new ListViewItem(m.MenuTypeName);
+                    li.SubItems.Add(aantal.ToString());
+                    listViewWinkelwagen.Items.Add(li);
+                }
+                else
+                {
+                    MessageBox.Show("Dit item is niet op voorraad.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
@@ -158,7 +165,7 @@ namespace Hub
                     Order_DAO order_DAO = new Order_DAO();
                     try //nieuwe order aanmaken voor betreffende tafel
                     {
-                        order_DAO.PlaceOrder(0, reservationID, 1, 2); //employeeID (2) nog aanpassen
+                        order_DAO.PlaceOrder(1, reservationID, 1, 2); //employeeID (2) nog aanpassen
                     }
                     catch (Exception error)
                     {
@@ -169,12 +176,13 @@ namespace Hub
                     MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
                     foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
                     {
-                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 50, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
+                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 2, menuItem_Service.GetMenuItemID(li.Text)); //orderID nog aanpassen
                         menuOrders.Add(menuOrder);
                     }
                     foreach(MenuOrder menuOrder in menuOrders) //alle menuOrders naar db sturen
                     {
                         menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
+                        menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
                     }
                     OrderPlaced();
                 }
