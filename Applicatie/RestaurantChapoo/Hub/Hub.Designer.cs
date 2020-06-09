@@ -58,7 +58,7 @@
             this.btn_Bar.FlatAppearance.BorderSize = 0;
             this.btn_Bar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Bar.Location = new System.Drawing.Point(322, 37);
-            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Bar.Name = "btn_Bar";
             this.btn_Bar.Size = new System.Drawing.Size(82, 81);
             this.btn_Bar.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.btn_Management.FlatAppearance.BorderSize = 0;
             this.btn_Management.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Management.Location = new System.Drawing.Point(196, 137);
-            this.btn_Management.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Management.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Management.Name = "btn_Management";
             this.btn_Management.Size = new System.Drawing.Size(82, 81);
             this.btn_Management.TabIndex = 3;
@@ -85,7 +85,7 @@
             this.btn_BestellingOpnemen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingOpnemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_BestellingOpnemen.Location = new System.Drawing.Point(196, 37);
-            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_BestellingOpnemen.Name = "btn_BestellingOpnemen";
             this.btn_BestellingOpnemen.Size = new System.Drawing.Size(82, 81);
             this.btn_BestellingOpnemen.TabIndex = 1;
@@ -99,7 +99,7 @@
             this.btn_Keuken.FlatAppearance.BorderSize = 0;
             this.btn_Keuken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Keuken.Location = new System.Drawing.Point(76, 37);
-            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Keuken.Name = "btn_Keuken";
             this.btn_Keuken.Size = new System.Drawing.Size(82, 81);
             this.btn_Keuken.TabIndex = 0;
@@ -115,7 +115,7 @@
             this.pnl_Hub.Controls.Add(this.btn_Management);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
             this.pnl_Hub.Location = new System.Drawing.Point(307, 140);
-            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Hub.Name = "pnl_Hub";
             this.pnl_Hub.Size = new System.Drawing.Size(494, 236);
             this.pnl_Hub.TabIndex = 5;
@@ -151,7 +151,7 @@
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(66, 56);
             this.btn_Login.TabIndex = 4;
-            this.btn_Login.Text = "Login";
+            this.btn_Login.Text = "Logout";
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.lbl_Datum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Hub";
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

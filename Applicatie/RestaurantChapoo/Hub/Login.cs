@@ -24,9 +24,12 @@ namespace Hub
 
         private void Btn_Home_Click(object sender, EventArgs e)
         {
+            //Remove home button from loginscreen. user needs to log in. 
+            /*
             Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Hide();
+            */
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
