@@ -29,14 +29,11 @@ namespace Hub
 
             try
             {
-                String[] paths = { };
-                paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
-                foreach (String path in paths)
-                {
-                    imageList.Images.Add(Image.FromFile(path));
-                }
+                imageList.Images.Add(Properties.Resources._18plusdranken);
+                imageList.Images.Add(Properties.Resources.dranken);
+                imageList.Images.Add(Properties.Resources.food);
             }
-            catch (Exception e)
+            catch (Exception e) //afbeeldingen kunnen niet worden gevonden/geladen
             {
                 MessageBox.Show("De afbeeldingen kunnen niet worden geladen. De menukaarten worden zonder afbeeldingen getoond.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -81,7 +78,7 @@ namespace Hub
             listViewMenuItems.TileSize = new Size(450, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 5);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -96,13 +93,13 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 4);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void listViewMenuItems_Click(object sender, EventArgs e)
+        private void listViewMenuItems_Click(object sender, EventArgs e) //klik menu item aan -> stuur naar winkelwagen
         {
             int aantal = 1;
             int menuItemID = int.Parse(listViewMenuItems.FocusedItem.Text);
@@ -125,7 +122,7 @@ namespace Hub
 
         }
 
-        private void Btn_Plus_Click(object sender, EventArgs e)
+        private void Btn_Plus_Click(object sender, EventArgs e) //winkelwagen item verhogen
         {
             if (listViewWinkelwagen.FocusedItem == null)
             {
@@ -140,7 +137,7 @@ namespace Hub
 
         }
 
-        private void Btn_Min_Click(object sender, EventArgs e)
+        private void Btn_Min_Click(object sender, EventArgs e) //winkelwagen item verlagen
         {
             if (listViewWinkelwagen.FocusedItem == null)
             {
@@ -162,10 +159,10 @@ namespace Hub
 
         }
 
-        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e)
+        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //bestellingen versturen naar db
         {
             int recentOrderID = 0;
-            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items.Count == 0)
+            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items.Count == 0) //check of alle velden zijn ingevuld
             {
                 MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -185,25 +182,25 @@ namespace Hub
                     {
                         order_DAO.PlaceOrder(1, reservationID, 1, 2); //employeeID (2) nog aanpassen
                     }
-                    catch (Exception error)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Error: {0}", error.Message);
+                        MessageBox.Show("Order kan niet worden geplaatst. Neem contact op met de it-afdeling en laat de volgende foutmelding zien: " + ex.Message, "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     recentOrderID = GetMostRecentOrderID();
                     List<MenuOrder> menuOrders = new List<MenuOrder>();
                     MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
-                    foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
+                    foreach (ListViewItem li in listViewWinkelwagen.Items) //Lijst met MenuOrders maken vanuit winkelwagen
                     {
                         Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text));
                         menuOrders.Add(menuOrder);
                     }
-                    foreach(MenuOrder menuOrder in menuOrders) //alle menuOrders naar db sturen
+                    foreach(MenuOrder menuOrder in menuOrders) //lijst met menuOrders naar db sturen
                     {
                         menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
                         menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
                     }
-                    OrderPlaced();
-                    btn_Dranken.PerformClick();
+                    OrderPlaced(); 
+                    btn_Dranken.PerformClick(); //zet scherm weer op default
                 }
             }
         }
@@ -214,7 +211,7 @@ namespace Hub
             hub.Show();
             this.Close();
         }
-        private void FillComboBox()
+        private void FillComboBox() //combobox vullen met alle tafelnummers
         {
             Table_Service table_Service = new Table_Service();
             List<Table> tables = table_Service.GetAllTables();
@@ -224,7 +221,7 @@ namespace Hub
                 cmb_Tafelnr.Items.Add(t.TableID);
             }
         }
-        private void OrderPlaced()
+        private void OrderPlaced() //winkelwagen legen, tafelnr op default
         {
             MessageBox.Show("Bestelling geplaatst.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listViewWinkelwagen.Items.Clear();

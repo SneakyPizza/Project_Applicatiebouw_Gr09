@@ -20,7 +20,7 @@ namespace Logic
             catch (Exception e)
             {
                 List<Table> tables = new List<Table>();
-                Table table = new Table(99);
+                Table table = new Table(99, 0);
                 tables.Add(table);
                 return tables;
             }
