@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using Logic;
 using Model;
 
 namespace Logic
@@ -38,3 +39,5 @@ namespace Logic
         }
     }
 }
+
+

@@ -25,7 +25,7 @@ namespace Hub
             listViewMenuItems.View = View.Tile;
             ImageList imageList = new ImageList();
             imageList.ImageSize = new Size(32, 32);
-            //load images from file
+            //load images from resources
 
             try
             {
@@ -78,7 +78,7 @@ namespace Hub
             listViewMenuItems.TileSize = new Size(450, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 5);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 2);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -93,7 +93,7 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 4);
+                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 2);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
