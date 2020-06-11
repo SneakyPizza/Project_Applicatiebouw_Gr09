@@ -56,5 +56,29 @@ namespace DAL
             }
             return dataTable;
         }
+
+        //For Insert/update/delete query
+        protected void ExecuteEditQuery(String query, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.Parameters.AddRange(sqlParameters);
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                // Print.ErrorLog(e);
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
 }

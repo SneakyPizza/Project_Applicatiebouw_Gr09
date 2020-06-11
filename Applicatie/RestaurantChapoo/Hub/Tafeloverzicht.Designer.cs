@@ -53,18 +53,18 @@
             this.lbl_tafel10 = new System.Windows.Forms.Label();
             this.lvOverzicht = new System.Windows.Forms.ListView();
             this.columnStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBeschrijving = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnTafelNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Home = new System.Windows.Forms.Button();
+            this.GroupBox = new System.Windows.Forms.GroupBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).BeginInit();
+            this.GroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tafel1
             // 
             this.tafel1.BackColor = System.Drawing.Color.Transparent;
-            this.tafel1.Image = global::Hub.Properties.Resources.table1;
-            this.tafel1.Location = new System.Drawing.Point(13, 211);
+            this.tafel1.Location = new System.Drawing.Point(1, 19);
             this.tafel1.Name = "tafel1";
             this.tafel1.Size = new System.Drawing.Size(85, 36);
             this.tafel1.TabIndex = 0;
@@ -72,8 +72,7 @@
             // 
             // tafel2
             // 
-            this.tafel2.Image = global::Hub.Properties.Resources.table1;
-            this.tafel2.Location = new System.Drawing.Point(124, 211);
+            this.tafel2.Location = new System.Drawing.Point(139, 19);
             this.tafel2.Name = "tafel2";
             this.tafel2.Size = new System.Drawing.Size(85, 36);
             this.tafel2.TabIndex = 1;
@@ -81,26 +80,25 @@
             // 
             // tafel3
             // 
-            this.tafel3.Image = global::Hub.Properties.Resources.table1;
-            this.tafel3.Location = new System.Drawing.Point(243, 211);
+            this.tafel3.Location = new System.Drawing.Point(282, 19);
             this.tafel3.Name = "tafel3";
             this.tafel3.Size = new System.Drawing.Size(85, 36);
             this.tafel3.TabIndex = 2;
             this.tafel3.UseVisualStyleBackColor = true;
+            this.tafel3.Click += new System.EventHandler(this.tafel3_Click);
             // 
             // tafel4
             // 
-            this.tafel4.Image = global::Hub.Properties.Resources.table1;
-            this.tafel4.Location = new System.Drawing.Point(358, 211);
+            this.tafel4.Location = new System.Drawing.Point(423, 19);
             this.tafel4.Name = "tafel4";
             this.tafel4.Size = new System.Drawing.Size(85, 36);
             this.tafel4.TabIndex = 3;
             this.tafel4.UseVisualStyleBackColor = true;
+            this.tafel4.Click += new System.EventHandler(this.tafel4_Click);
             // 
             // tafel5
             // 
-            this.tafel5.Image = global::Hub.Properties.Resources.table1;
-            this.tafel5.Location = new System.Drawing.Point(472, 211);
+            this.tafel5.Location = new System.Drawing.Point(567, 19);
             this.tafel5.Name = "tafel5";
             this.tafel5.Size = new System.Drawing.Size(85, 36);
             this.tafel5.TabIndex = 4;
@@ -108,8 +106,7 @@
             // 
             // tafel6
             // 
-            this.tafel6.Image = global::Hub.Properties.Resources.table1;
-            this.tafel6.Location = new System.Drawing.Point(13, 315);
+            this.tafel6.Location = new System.Drawing.Point(1, 123);
             this.tafel6.Name = "tafel6";
             this.tafel6.Size = new System.Drawing.Size(85, 36);
             this.tafel6.TabIndex = 5;
@@ -117,8 +114,7 @@
             // 
             // tafel7
             // 
-            this.tafel7.Image = global::Hub.Properties.Resources.table1;
-            this.tafel7.Location = new System.Drawing.Point(124, 315);
+            this.tafel7.Location = new System.Drawing.Point(139, 123);
             this.tafel7.Name = "tafel7";
             this.tafel7.Size = new System.Drawing.Size(85, 36);
             this.tafel7.TabIndex = 6;
@@ -126,8 +122,7 @@
             // 
             // tafel8
             // 
-            this.tafel8.Image = global::Hub.Properties.Resources.table1;
-            this.tafel8.Location = new System.Drawing.Point(243, 315);
+            this.tafel8.Location = new System.Drawing.Point(282, 123);
             this.tafel8.Name = "tafel8";
             this.tafel8.Size = new System.Drawing.Size(85, 36);
             this.tafel8.TabIndex = 7;
@@ -135,8 +130,7 @@
             // 
             // tafel9
             // 
-            this.tafel9.Image = global::Hub.Properties.Resources.table1;
-            this.tafel9.Location = new System.Drawing.Point(358, 315);
+            this.tafel9.Location = new System.Drawing.Point(423, 123);
             this.tafel9.Name = "tafel9";
             this.tafel9.Size = new System.Drawing.Size(85, 36);
             this.tafel9.TabIndex = 8;
@@ -144,8 +138,7 @@
             // 
             // tafel10
             // 
-            this.tafel10.Image = global::Hub.Properties.Resources.table1;
-            this.tafel10.Location = new System.Drawing.Point(472, 315);
+            this.tafel10.Location = new System.Drawing.Point(567, 123);
             this.tafel10.Name = "tafel10";
             this.tafel10.Size = new System.Drawing.Size(85, 36);
             this.tafel10.TabIndex = 9;
@@ -173,7 +166,7 @@
             // lbl_tafel1
             // 
             this.lbl_tafel1.AutoSize = true;
-            this.lbl_tafel1.Location = new System.Drawing.Point(38, 250);
+            this.lbl_tafel1.Location = new System.Drawing.Point(26, 58);
             this.lbl_tafel1.Name = "lbl_tafel1";
             this.lbl_tafel1.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel1.TabIndex = 12;
@@ -182,7 +175,7 @@
             // lbl_tafel2
             // 
             this.lbl_tafel2.AutoSize = true;
-            this.lbl_tafel2.Location = new System.Drawing.Point(149, 250);
+            this.lbl_tafel2.Location = new System.Drawing.Point(163, 58);
             this.lbl_tafel2.Name = "lbl_tafel2";
             this.lbl_tafel2.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel2.TabIndex = 13;
@@ -191,7 +184,7 @@
             // lbl_tafel3
             // 
             this.lbl_tafel3.AutoSize = true;
-            this.lbl_tafel3.Location = new System.Drawing.Point(268, 250);
+            this.lbl_tafel3.Location = new System.Drawing.Point(307, 58);
             this.lbl_tafel3.Name = "lbl_tafel3";
             this.lbl_tafel3.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel3.TabIndex = 14;
@@ -200,7 +193,7 @@
             // lbl_tafel4
             // 
             this.lbl_tafel4.AutoSize = true;
-            this.lbl_tafel4.Location = new System.Drawing.Point(383, 250);
+            this.lbl_tafel4.Location = new System.Drawing.Point(448, 58);
             this.lbl_tafel4.Name = "lbl_tafel4";
             this.lbl_tafel4.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel4.TabIndex = 15;
@@ -209,7 +202,7 @@
             // lbl_tafel5
             // 
             this.lbl_tafel5.AutoSize = true;
-            this.lbl_tafel5.Location = new System.Drawing.Point(497, 250);
+            this.lbl_tafel5.Location = new System.Drawing.Point(589, 58);
             this.lbl_tafel5.Name = "lbl_tafel5";
             this.lbl_tafel5.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel5.TabIndex = 16;
@@ -218,7 +211,7 @@
             // lbl_tafel6
             // 
             this.lbl_tafel6.AutoSize = true;
-            this.lbl_tafel6.Location = new System.Drawing.Point(38, 354);
+            this.lbl_tafel6.Location = new System.Drawing.Point(26, 162);
             this.lbl_tafel6.Name = "lbl_tafel6";
             this.lbl_tafel6.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel6.TabIndex = 17;
@@ -227,7 +220,7 @@
             // lbl_tafel7
             // 
             this.lbl_tafel7.AutoSize = true;
-            this.lbl_tafel7.Location = new System.Drawing.Point(149, 354);
+            this.lbl_tafel7.Location = new System.Drawing.Point(164, 162);
             this.lbl_tafel7.Name = "lbl_tafel7";
             this.lbl_tafel7.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel7.TabIndex = 18;
@@ -236,7 +229,7 @@
             // lbl_tafel8
             // 
             this.lbl_tafel8.AutoSize = true;
-            this.lbl_tafel8.Location = new System.Drawing.Point(268, 354);
+            this.lbl_tafel8.Location = new System.Drawing.Point(307, 162);
             this.lbl_tafel8.Name = "lbl_tafel8";
             this.lbl_tafel8.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel8.TabIndex = 19;
@@ -245,7 +238,7 @@
             // lbl_tafel9
             // 
             this.lbl_tafel9.AutoSize = true;
-            this.lbl_tafel9.Location = new System.Drawing.Point(383, 354);
+            this.lbl_tafel9.Location = new System.Drawing.Point(448, 162);
             this.lbl_tafel9.Name = "lbl_tafel9";
             this.lbl_tafel9.Size = new System.Drawing.Size(40, 13);
             this.lbl_tafel9.TabIndex = 20;
@@ -254,7 +247,7 @@
             // lbl_tafel10
             // 
             this.lbl_tafel10.AutoSize = true;
-            this.lbl_tafel10.Location = new System.Drawing.Point(491, 354);
+            this.lbl_tafel10.Location = new System.Drawing.Point(586, 162);
             this.lbl_tafel10.Name = "lbl_tafel10";
             this.lbl_tafel10.Size = new System.Drawing.Size(46, 13);
             this.lbl_tafel10.TabIndex = 21;
@@ -262,83 +255,101 @@
             // 
             // lvOverzicht
             // 
+            this.lvOverzicht.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvOverzicht.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnStatus,
-            this.columnItem,
-            this.columnBeschrijving,
-            this.columnAantal});
+            this.columnTafelNummer});
             this.lvOverzicht.HideSelection = false;
-            this.lvOverzicht.Location = new System.Drawing.Point(641, 107);
+            this.lvOverzicht.Location = new System.Drawing.Point(927, 83);
             this.lvOverzicht.Name = "lvOverzicht";
-            this.lvOverzicht.Size = new System.Drawing.Size(366, 452);
+            this.lvOverzicht.Size = new System.Drawing.Size(325, 452);
             this.lvOverzicht.TabIndex = 22;
             this.lvOverzicht.UseCompatibleStateImageBehavior = false;
             this.lvOverzicht.View = System.Windows.Forms.View.Details;
             // 
             // columnStatus
             // 
-            this.columnStatus.DisplayIndex = 3;
+            this.columnStatus.DisplayIndex = 1;
             this.columnStatus.Text = "Status";
+            this.columnStatus.Width = 174;
             // 
-            // columnItem
+            // columnTafelNummer
             // 
-            this.columnItem.DisplayIndex = 0;
-            this.columnItem.Text = "Item";
-            // 
-            // columnBeschrijving
-            // 
-            this.columnBeschrijving.DisplayIndex = 1;
-            this.columnBeschrijving.Text = "Beschrijving";
-            this.columnBeschrijving.Width = 181;
-            // 
-            // columnAantal
-            // 
-            this.columnAantal.DisplayIndex = 2;
-            this.columnAantal.Text = "Aantal";
+            this.columnTafelNummer.DisplayIndex = 0;
+            this.columnTafelNummer.Text = "Tafelnummer";
+            this.columnTafelNummer.Width = 147;
             // 
             // btn_Home
             // 
-            this.btn_Home.Location = new System.Drawing.Point(932, 13);
+            this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.Location = new System.Drawing.Point(1177, 12);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(75, 23);
             this.btn_Home.TabIndex = 23;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = true;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
+            // 
+            // GroupBox
+            // 
+            this.GroupBox.Controls.Add(this.tafel1);
+            this.GroupBox.Controls.Add(this.tafel2);
+            this.GroupBox.Controls.Add(this.tafel3);
+            this.GroupBox.Controls.Add(this.lbl_tafel10);
+            this.GroupBox.Controls.Add(this.tafel4);
+            this.GroupBox.Controls.Add(this.lbl_tafel9);
+            this.GroupBox.Controls.Add(this.tafel5);
+            this.GroupBox.Controls.Add(this.lbl_tafel8);
+            this.GroupBox.Controls.Add(this.tafel6);
+            this.GroupBox.Controls.Add(this.lbl_tafel7);
+            this.GroupBox.Controls.Add(this.tafel7);
+            this.GroupBox.Controls.Add(this.lbl_tafel6);
+            this.GroupBox.Controls.Add(this.tafel8);
+            this.GroupBox.Controls.Add(this.lbl_tafel5);
+            this.GroupBox.Controls.Add(this.tafel9);
+            this.GroupBox.Controls.Add(this.lbl_tafel4);
+            this.GroupBox.Controls.Add(this.tafel10);
+            this.GroupBox.Controls.Add(this.lbl_tafel3);
+            this.GroupBox.Controls.Add(this.lbl_tafel1);
+            this.GroupBox.Controls.Add(this.lbl_tafel2);
+            this.GroupBox.Location = new System.Drawing.Point(194, 242);
+            this.GroupBox.Name = "GroupBox";
+            this.GroupBox.Size = new System.Drawing.Size(654, 180);
+            this.GroupBox.TabIndex = 24;
+            this.GroupBox.TabStop = false;
+            this.GroupBox.Text = "Tafels:";
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_refresh.Location = new System.Drawing.Point(927, 541);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(325, 35);
+            this.btn_refresh.TabIndex = 25;
+            this.btn_refresh.Text = "Refresh Orders";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // Tafeloverzicht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1019, 571);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.GroupBox);
             this.Controls.Add(this.btn_Home);
             this.Controls.Add(this.lvOverzicht);
-            this.Controls.Add(this.lbl_tafel10);
-            this.Controls.Add(this.lbl_tafel9);
-            this.Controls.Add(this.lbl_tafel8);
-            this.Controls.Add(this.lbl_tafel7);
-            this.Controls.Add(this.lbl_tafel6);
-            this.Controls.Add(this.lbl_tafel5);
-            this.Controls.Add(this.lbl_tafel4);
-            this.Controls.Add(this.lbl_tafel3);
-            this.Controls.Add(this.lbl_tafel2);
-            this.Controls.Add(this.lbl_tafel1);
             this.Controls.Add(this.lbl_tafeloverzicht);
             this.Controls.Add(this.ChapooIMG);
-            this.Controls.Add(this.tafel10);
-            this.Controls.Add(this.tafel9);
-            this.Controls.Add(this.tafel8);
-            this.Controls.Add(this.tafel7);
-            this.Controls.Add(this.tafel6);
-            this.Controls.Add(this.tafel5);
-            this.Controls.Add(this.tafel4);
-            this.Controls.Add(this.tafel3);
-            this.Controls.Add(this.tafel2);
-            this.Controls.Add(this.tafel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tafeloverzicht";
             this.Text = "Restaurant Chapoo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).EndInit();
+            this.GroupBox.ResumeLayout(false);
+            this.GroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,10 +380,10 @@
         private System.Windows.Forms.Label lbl_tafel9;
         private System.Windows.Forms.Label lbl_tafel10;
         private System.Windows.Forms.ListView lvOverzicht;
-        private System.Windows.Forms.ColumnHeader columnItem;
-        private System.Windows.Forms.ColumnHeader columnBeschrijving;
-        private System.Windows.Forms.ColumnHeader columnAantal;
         private System.Windows.Forms.Button btn_Home;
+        private System.Windows.Forms.ColumnHeader columnTafelNummer;
         private System.Windows.Forms.ColumnHeader columnStatus;
+        private System.Windows.Forms.GroupBox GroupBox;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

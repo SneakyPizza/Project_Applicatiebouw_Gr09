@@ -17,6 +17,23 @@ namespace Hub
             InitializeComponent();
         }
 
+        private static Afreken _uniqueAfreken;
+        public static Afreken GetAfrekenScreen()
+        {
+            if (_uniqueAfreken == null)
+            {
+                _uniqueAfreken = new Afreken();
+            }
+            return _uniqueAfreken;
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            Hub hub = new Hub();
+            hub.Show();
+            this.Hide();
+        }
+
 
     }
 }

@@ -21,7 +21,8 @@ namespace DAL
             foreach (DataRow dataRow in dataTable.Rows)
             {
                 int tableID = (int)dataRow["TableID"];
-                Table table = new Table(tableID);
+                int tableStatus = Convert.ToInt32(dataRow["TableStatus"]);
+                Table table = new Table(tableID, tableStatus);
                 tables.Add(table);
             }
             return tables;
@@ -31,7 +32,7 @@ namespace DAL
             int reservationID = 0;
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                reservationID += (int)dataRow["ReservationID"];
+                reservationID = (int)dataRow["ReservationID"];
             }
             return reservationID;
         }

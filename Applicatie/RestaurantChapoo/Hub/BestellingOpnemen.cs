@@ -22,22 +22,19 @@ namespace Hub
         {
             InitializeComponent();
             FillComboBox();
+
             listViewMenuItems.View = View.Tile;
             ImageList imageList = new ImageList();
             imageList.ImageSize = new Size(32, 32);
-            //load images from file
-            String[] paths = { };
-            paths = Directory.GetFiles("C:/Users/larsd/Documents/GitHub/Project_Applicatiebouw_Gr09/Applicatie/img"); // path aanpassen
+            //load images from resources
+
             try
             {
-                foreach(String path in paths)
-                {
-                    imageList.Images.Add(Image.FromFile(path));
-                }
+                
             }
-            catch (Exception e)
+            catch (Exception e) //afbeeldingen kunnen niet worden gevonden/geladen
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("De afbeeldingen kunnen niet worden geladen. De menukaarten worden zonder afbeeldingen getoond.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             listViewMenuItems.SmallImageList = imageList;
             listViewMenuItems.LargeImageList = imageList;

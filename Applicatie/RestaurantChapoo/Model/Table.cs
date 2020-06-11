@@ -8,11 +8,13 @@ namespace Model
 {
     public class Table
     {
-        public Table(int tableID)
+        public Table(int tableID, int tablestatus)
         {
             this.TableID = tableID;
+            this.TableStatus = tablestatus;
         }
         public int TableID { get; private set; }
+        public int TableStatus { get; private set; }
 
     }
 }

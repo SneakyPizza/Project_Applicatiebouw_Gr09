@@ -31,15 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Afreken));
             this.ChapooIMG = new System.Windows.Forms.PictureBox();
             this.lvBestellingen = new System.Windows.Forms.ListView();
-            this.btn_afreken = new System.Windows.Forms.Button();
             this.ColumnNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_afreken = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.lbl_afrekenen = new System.Windows.Forms.Label();
             this.lvTafels = new System.Windows.Forms.ListView();
             this.ColumnTafelnummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBedrag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAchternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnBedrag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.radioButtonPIN = new System.Windows.Forms.RadioButton();
+            this.radioButtonContant = new System.Windows.Forms.RadioButton();
+            this.textBoxFooi = new System.Windows.Forms.TextBox();
+            this.lbl_Fooi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,26 +58,18 @@
             // 
             // lvBestellingen
             // 
+            this.lvBestellingen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvBestellingen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColumnNaam,
             this.ColumnAantal});
             this.lvBestellingen.HideSelection = false;
-            this.lvBestellingen.Location = new System.Drawing.Point(728, 82);
+            this.lvBestellingen.Location = new System.Drawing.Point(931, 120);
             this.lvBestellingen.Name = "lvBestellingen";
-            this.lvBestellingen.Size = new System.Drawing.Size(282, 382);
+            this.lvBestellingen.Size = new System.Drawing.Size(321, 282);
             this.lvBestellingen.TabIndex = 1;
             this.lvBestellingen.UseCompatibleStateImageBehavior = false;
             this.lvBestellingen.View = System.Windows.Forms.View.Details;
-            // 
-            // btn_afreken
-            // 
-            this.btn_afreken.BackColor = System.Drawing.Color.SpringGreen;
-            this.btn_afreken.Location = new System.Drawing.Point(728, 470);
-            this.btn_afreken.Name = "btn_afreken";
-            this.btn_afreken.Size = new System.Drawing.Size(282, 53);
-            this.btn_afreken.TabIndex = 2;
-            this.btn_afreken.Text = "Afrekenen";
-            this.btn_afreken.UseVisualStyleBackColor = false;
             // 
             // ColumnNaam
             // 
@@ -83,15 +79,29 @@
             // ColumnAantal
             // 
             this.ColumnAantal.Text = "Aantal";
+            this.ColumnAantal.Width = 98;
+            // 
+            // btn_afreken
+            // 
+            this.btn_afreken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_afreken.BackColor = System.Drawing.Color.SpringGreen;
+            this.btn_afreken.Location = new System.Drawing.Point(931, 508);
+            this.btn_afreken.Name = "btn_afreken";
+            this.btn_afreken.Size = new System.Drawing.Size(321, 53);
+            this.btn_afreken.TabIndex = 2;
+            this.btn_afreken.Text = "Afrekenen";
+            this.btn_afreken.UseVisualStyleBackColor = false;
             // 
             // btn_Home
             // 
-            this.btn_Home.Location = new System.Drawing.Point(935, 12);
+            this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.Location = new System.Drawing.Point(1177, 13);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(75, 24);
             this.btn_Home.TabIndex = 4;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = true;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // lbl_afrekenen
             // 
@@ -110,9 +120,9 @@
             this.columnAchternaam,
             this.columnBedrag});
             this.lvTafels.HideSelection = false;
-            this.lvTafels.Location = new System.Drawing.Point(13, 82);
+            this.lvTafels.Location = new System.Drawing.Point(12, 120);
             this.lvTafels.Name = "lvTafels";
-            this.lvTafels.Size = new System.Drawing.Size(709, 441);
+            this.lvTafels.Size = new System.Drawing.Size(876, 441);
             this.lvTafels.TabIndex = 6;
             this.lvTafels.UseCompatibleStateImageBehavior = false;
             this.lvTafels.View = System.Windows.Forms.View.Details;
@@ -122,22 +132,64 @@
             this.ColumnTafelnummer.Text = "Tafelnummer";
             this.ColumnTafelnummer.Width = 110;
             // 
-            // columnBedrag
-            // 
-            this.columnBedrag.Text = "Te betalen bedrag:";
-            this.columnBedrag.Width = 108;
-            // 
             // columnAchternaam
             // 
             this.columnAchternaam.Text = "Achternaam";
-            this.columnAchternaam.Width = 108;
+            this.columnAchternaam.Width = 148;
+            // 
+            // columnBedrag
+            // 
+            this.columnBedrag.Text = "Te betalen bedrag:";
+            this.columnBedrag.Width = 120;
+            // 
+            // radioButtonPIN
+            // 
+            this.radioButtonPIN.AutoSize = true;
+            this.radioButtonPIN.Location = new System.Drawing.Point(931, 417);
+            this.radioButtonPIN.Name = "radioButtonPIN";
+            this.radioButtonPIN.Size = new System.Drawing.Size(43, 17);
+            this.radioButtonPIN.TabIndex = 7;
+            this.radioButtonPIN.TabStop = true;
+            this.radioButtonPIN.Text = "PIN";
+            this.radioButtonPIN.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonContant
+            // 
+            this.radioButtonContant.AutoSize = true;
+            this.radioButtonContant.Location = new System.Drawing.Point(931, 440);
+            this.radioButtonContant.Name = "radioButtonContant";
+            this.radioButtonContant.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonContant.TabIndex = 8;
+            this.radioButtonContant.TabStop = true;
+            this.radioButtonContant.Text = "Contant";
+            this.radioButtonContant.UseVisualStyleBackColor = true;
+            // 
+            // textBoxFooi
+            // 
+            this.textBoxFooi.Location = new System.Drawing.Point(1001, 482);
+            this.textBoxFooi.Name = "textBoxFooi";
+            this.textBoxFooi.Size = new System.Drawing.Size(111, 20);
+            this.textBoxFooi.TabIndex = 9;
+            // 
+            // lbl_Fooi
+            // 
+            this.lbl_Fooi.AutoSize = true;
+            this.lbl_Fooi.Location = new System.Drawing.Point(928, 485);
+            this.lbl_Fooi.Name = "lbl_Fooi";
+            this.lbl_Fooi.Size = new System.Drawing.Size(66, 13);
+            this.lbl_Fooi.TabIndex = 10;
+            this.lbl_Fooi.Text = "Voer Fooi in:";
             // 
             // Afreken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1022, 535);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lbl_Fooi);
+            this.Controls.Add(this.textBoxFooi);
+            this.Controls.Add(this.radioButtonContant);
+            this.Controls.Add(this.radioButtonPIN);
             this.Controls.Add(this.lvTafels);
             this.Controls.Add(this.lbl_afrekenen);
             this.Controls.Add(this.btn_Home);
@@ -147,6 +199,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Afreken";
             this.Text = "Restaurant Chapoo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +219,9 @@
         private System.Windows.Forms.ColumnHeader ColumnTafelnummer;
         private System.Windows.Forms.ColumnHeader columnBedrag;
         private System.Windows.Forms.ColumnHeader columnAchternaam;
+        private System.Windows.Forms.RadioButton radioButtonPIN;
+        private System.Windows.Forms.RadioButton radioButtonContant;
+        private System.Windows.Forms.TextBox textBoxFooi;
+        private System.Windows.Forms.Label lbl_Fooi;
     }
 }

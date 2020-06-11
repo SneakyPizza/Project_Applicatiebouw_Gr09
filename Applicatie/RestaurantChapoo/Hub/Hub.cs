@@ -29,8 +29,15 @@ namespace Hub
 
         private void Btn_Management_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            Tafeloverzicht tafeloverzicht = new Tafeloverzicht();
+            tafeloverzicht.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Afreken afreken = new Afreken();
+            afreken.Show();
             this.Hide();
         }
     }
