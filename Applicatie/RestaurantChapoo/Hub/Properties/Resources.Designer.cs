@@ -63,9 +63,29 @@ namespace Hub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon _18plusdranken {
+            get {
+                object obj = ResourceManager.GetObject("_18plusdranken", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon dranken {
             get {
                 object obj = ResourceManager.GetObject("dranken", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon food {
+            get {
+                object obj = ResourceManager.GetObject("food", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

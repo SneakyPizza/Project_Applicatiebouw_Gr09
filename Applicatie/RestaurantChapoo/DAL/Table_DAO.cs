@@ -17,14 +17,15 @@ namespace DAL
         }
         private List<Table> GetAllData(DataTable dataTable)
         {
-            List<Table> tables = new List<Table>();
-            foreach (DataRow dataRow in dataTable.Rows)
-            {
-                int tableID = (int)dataRow["TableID"];
-                Table table = new Table(tableID);
-                tables.Add(table);
-            }
-            return tables;
+                List<Table> tables = new List<Table>();
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    int tableID = (int)dataRow["TableID"];
+                    int tableStatus = Convert.ToInt32(dataRow["TableStatus"]);
+                    Table table = new Table(tableID, tableStatus);
+                    tables.Add(table);
+                }
+                return tables;
         }
         private int GetInt(DataTable dataTable)
         {

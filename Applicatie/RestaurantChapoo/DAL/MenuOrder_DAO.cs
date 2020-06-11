@@ -19,5 +19,12 @@ namespace DAL
                 SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3 };
                 ExecuteEditQuery("PlaceMenuOrder", sqlp);
         }
+        public void UpdateStock(int amount, int menuItemID)
+        {
+            SqlParameter sqlParameter1 = new SqlParameter("@amount", amount);
+            SqlParameter sqlParameter2 = new SqlParameter("@menuItemID", menuItemID);
+            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2 };
+            ExecuteEditQuery("UpdateStock", sqlp);
+        }
     }
 }
