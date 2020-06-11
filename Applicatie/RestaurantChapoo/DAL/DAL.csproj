@@ -63,7 +63,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bar_DAO.cs" />
     <Compile Include="Base.cs" />
+    <Compile Include="Login_DAO.cs" />
     <Compile Include="MenuItem_DAO.cs" />
     <Compile Include="MenuOrder_DAO.cs" />
     <Compile Include="Order_DAO.cs" />

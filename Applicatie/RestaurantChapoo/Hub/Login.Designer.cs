@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.txt_Gebruikersnaam = new System.Windows.Forms.TextBox();
-            this.txt_Wachtwoord = new System.Windows.Forms.TextBox();
+            this.txt_Username = new System.Windows.Forms.TextBox();
+            this.txt_Password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
@@ -40,35 +40,40 @@
             this.pnl_Login.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_Gebruikersnaam
+            // txt_Username
             // 
-            this.txt_Gebruikersnaam.Location = new System.Drawing.Point(257, 97);
-            this.txt_Gebruikersnaam.Name = "txt_Gebruikersnaam";
-            this.txt_Gebruikersnaam.Size = new System.Drawing.Size(212, 22);
-            this.txt_Gebruikersnaam.TabIndex = 0;
+            this.txt_Username.Location = new System.Drawing.Point(193, 79);
+            this.txt_Username.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Username.Name = "txt_Username";
+            this.txt_Username.Size = new System.Drawing.Size(160, 20);
+            this.txt_Username.TabIndex = 0;
             // 
-            // txt_Wachtwoord
+            // txt_Password
             // 
-            this.txt_Wachtwoord.Location = new System.Drawing.Point(257, 135);
-            this.txt_Wachtwoord.Name = "txt_Wachtwoord";
-            this.txt_Wachtwoord.Size = new System.Drawing.Size(212, 22);
-            this.txt_Wachtwoord.TabIndex = 1;
+            this.txt_Password.Location = new System.Drawing.Point(193, 110);
+            this.txt_Password.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Password.Name = "txt_Password";
+            this.txt_Password.Size = new System.Drawing.Size(160, 20);
+            this.txt_Password.TabIndex = 1;
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 102);
+            this.label1.Location = new System.Drawing.Point(79, 83);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Gebruikersnaam";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 140);
+            this.label2.Location = new System.Drawing.Point(79, 114);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 17);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Wachtwoord";
             // 
@@ -77,12 +82,14 @@
             this.btn_Login.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Login.FlatAppearance.BorderSize = 0;
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Login.Location = new System.Drawing.Point(283, 178);
+            this.btn_Login.Location = new System.Drawing.Point(212, 145);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(164, 34);
+            this.btn_Login.Size = new System.Drawing.Size(123, 28);
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = false;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // btn_Home
             // 
@@ -90,9 +97,10 @@
             this.btn_Home.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Home.FlatAppearance.BorderSize = 0;
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Home.Location = new System.Drawing.Point(1373, 12);
+            this.btn_Home.Location = new System.Drawing.Point(1182, 10);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(97, 34);
+            this.btn_Home.Size = new System.Drawing.Size(73, 28);
             this.btn_Home.TabIndex = 6;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = false;
@@ -104,23 +112,25 @@
             this.pnl_Login.Controls.Add(this.label1);
             this.pnl_Login.Controls.Add(this.label2);
             this.pnl_Login.Controls.Add(this.btn_Login);
-            this.pnl_Login.Controls.Add(this.txt_Gebruikersnaam);
-            this.pnl_Login.Controls.Add(this.txt_Wachtwoord);
-            this.pnl_Login.Location = new System.Drawing.Point(418, 187);
+            this.pnl_Login.Controls.Add(this.txt_Username);
+            this.pnl_Login.Controls.Add(this.txt_Password);
+            this.pnl_Login.Location = new System.Drawing.Point(390, 227);
+            this.pnl_Login.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Login.Name = "pnl_Login";
-            this.pnl_Login.Size = new System.Drawing.Size(639, 224);
+            this.pnl_Login.Size = new System.Drawing.Size(479, 182);
             this.pnl_Login.TabIndex = 7;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(1482, 653);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pnl_Login);
             this.Controls.Add(this.btn_Home);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -132,8 +142,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_Gebruikersnaam;
-        private System.Windows.Forms.TextBox txt_Wachtwoord;
+        private System.Windows.Forms.TextBox txt_Username;
+        private System.Windows.Forms.TextBox txt_Password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Login;
