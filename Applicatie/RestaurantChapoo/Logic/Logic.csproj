@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bar_Service.cs" />
+    <Compile Include="KitchenBar_Service.cs" />
     <Compile Include="Login_Service.cs" />
     <Compile Include="MenuItem_Service.cs" />
     <Compile Include="Program.cs" />

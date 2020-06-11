@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,12 @@
     </Compile>
     <Compile Include="BestellingOpnemen.Designer.cs">
       <DependentUpon>BestellingOpnemen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomOrderControl.Designer.cs">
+      <DependentUpon>CustomOrderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Hub.cs">
       <SubType>Form</SubType>
@@ -74,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BestellingOpnemen.resx">
       <DependentUpon>BestellingOpnemen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomOrderControl.resx">
+      <DependentUpon>CustomOrderControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hub.resx">
       <DependentUpon>Hub.cs</DependentUpon>

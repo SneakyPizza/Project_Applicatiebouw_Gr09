@@ -24,8 +24,6 @@ namespace Hub
         public static Hub GetHubScreen()
         {
             Login_Service service = Login_Service.GetLoginService();
-            //lbl_.Text = service.CurrentEmployee.FunctionName;
-            _uniqueHub.lbl_User.Text = service.CurrentEmployee.FunctionName;
 
             if (_uniqueHub == null)
             {
@@ -56,6 +54,13 @@ namespace Hub
             Login_Service loginservice = Login_Service.GetLoginService();
             loginservice.LogoutEmployee();
             login.Show();
+            this.Hide();
+        }
+
+        private void btn_Keuken_Click(object sender, EventArgs e)
+        {
+            KeukenBar kb = KeukenBar.GetKeukenBar();
+            kb.Show();
             this.Hide();
         }
     }

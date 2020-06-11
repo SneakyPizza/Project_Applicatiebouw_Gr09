@@ -13,7 +13,7 @@ namespace DAL
         public DataTable GetOpenOrders()
         {
             //Getting all open orders.
-            return ExecuteQuery("");
+            return ExecuteQuery("GetKitchenBarOrders");
         }
     }
 }
