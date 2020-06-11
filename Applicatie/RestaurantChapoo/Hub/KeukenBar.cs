@@ -43,10 +43,18 @@ namespace Hub
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
             foreach(KitchenBarOrder kbo in orders)
             {
-                CustomOrderControl card = new CustomOrderControl(kbo.TableID, kbo.OrderItems);
+
                 //listView1.Items.Add(card);
-                listBox1.Items.Add(card);
+                //listBox1.Items.Add(card);
                 
+            }
+
+            for(int i = 0; i < orders.Count; i++)
+            {
+               /* CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems);
+                dgv_UserControl.Controls.Add(card);
+                card.Location = dgv_UserControl.GetCellDisplayRectangle(0, i, false).Location;
+                card.Size = dgv_UserControl.GetCellDisplayRectangle(0, i, false).Size; */
             }
         }
     }

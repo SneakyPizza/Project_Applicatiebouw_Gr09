@@ -17,6 +17,7 @@ namespace Hub
     public partial class BestellingOpnemen : Form
     {
         List<Model.MenuItem> winkelwagen = new List<Model.MenuItem>();
+        private static BestellingOpnemen _uniqueOrderScreen;
         public BestellingOpnemen()
         {
             InitializeComponent();
@@ -39,6 +40,15 @@ namespace Hub
             }
             listViewMenuItems.SmallImageList = imageList;
             listViewMenuItems.LargeImageList = imageList;
+        }
+
+        public static BestellingOpnemen GetOrderScreen()
+        {
+            if(_uniqueOrderScreen == null)
+            {
+                _uniqueOrderScreen = new BestellingOpnemen();
+            }
+            return _uniqueOrderScreen;
         }
         private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
         {
@@ -170,6 +180,7 @@ namespace Hub
             {
                 MenuItem_Service menuItem_Service = new MenuItem_Service();
                 Table_Service table_Service = new Table_Service();
+                Login_Service s = Login_Service.GetLoginService();
                 int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
                 if (reservationID == 0)
                 {
@@ -180,7 +191,7 @@ namespace Hub
                     Order_DAO order_DAO = new Order_DAO();
                     try //nieuwe order aanmaken voor betreffende tafel
                     {
-                        order_DAO.PlaceOrder(1, reservationID, 1, 2); //employeeID (2) nog aanpassen
+                        order_DAO.PlaceOrder(1, reservationID, 1, s.CurrentEmployee.Id); //employeeID (2) nog aanpassen
                     }
                     catch (Exception ex)
                     {

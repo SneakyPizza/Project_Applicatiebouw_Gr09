@@ -108,6 +108,7 @@ namespace Logic
                              dt.Rows[i].Field<int>("MenuItemID"),
                              dt.Rows[i].Field<string>("MenuItemName"),
                              dt.Rows[i].Field<DateTime>("ShelfLife"),
+                             1,
                              dt.Rows[i].Field<decimal>("PricePP")
                             );
                             orderitems.Add(mitem);
@@ -134,6 +135,7 @@ namespace Logic
                      dt.Rows[i].Field<int>("MenuItemID"),
                      dt.Rows[i].Field<string>("MenuItemName"),
                      dt.Rows[i].Field<DateTime>("ShelfLife"),
+                     1,
                      dt.Rows[i].Field<decimal>("PricePP")
                     );
                      orderitems.Add(item);

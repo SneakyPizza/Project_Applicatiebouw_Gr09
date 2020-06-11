@@ -14,12 +14,14 @@ namespace Hub
 {
     public partial class Login : Form
     {
-        private Login_Service login_Service = new Login_Service();
+        
         private static Login _uniqueLogin;
+        private Login_Service _login_service;
         public Login()
         {
             _uniqueLogin = this;
             InitializeComponent();
+            _login_service = Login_Service.GetLoginService();
         }
 
         private void Btn_Home_Click(object sender, EventArgs e)
@@ -38,11 +40,11 @@ namespace Hub
             {
                 string username = txt_Username.Text;
                 string password = txt_Password.Text;
-                if(login_Service.ValidateUser(username, password))
+                if(_login_service.ValidateUser(username, password))
                 {
                     //check role
                     //redirect user
-                    RedirectLogin(login_Service.CurrentEmployee);
+                    RedirectLogin(_login_service.CurrentEmployee);
                     txt_Username.Text = String.Empty;
                     txt_Password.Text = String.Empty;
                 }
@@ -69,12 +71,24 @@ namespace Hub
                     this.Hide();
                     break;
                 case 3: //Chef
+                    Hub o3 = Hub.GetHubScreen();
+                    o3.Show();
+                    this.Hide();
                     break;
                 case 4: //Wine-Expert
+                    Hub o4 = Hub.GetHubScreen();
+                    o4.Show();
+                    this.Hide();
                     break;
                 case 5: //Barman
+                    Hub o5 = Hub.GetHubScreen();
+                    o5.Show();
+                    this.Hide();
                     break;
                 default:
+                    Hub o = Hub.GetHubScreen();
+                    o.Show();
+                    this.Hide();
                     break;
             }
         }

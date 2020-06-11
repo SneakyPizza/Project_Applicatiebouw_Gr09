@@ -34,9 +34,10 @@
             this.btn_Home = new System.Windows.Forms.Button();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dgv_UserControl = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_UserControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -74,19 +75,20 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(1025, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(239, 621);
+            this.panel2.Size = new System.Drawing.Size(250, 621);
             this.panel2.TabIndex = 2;
             // 
-            // listBox1
+            // dgv_UserControl
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 69);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(862, 459);
-            this.listBox1.TabIndex = 3;
+            this.dgv_UserControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_UserControl.Location = new System.Drawing.Point(12, 69);
+            this.dgv_UserControl.Name = "dgv_UserControl";
+            this.dgv_UserControl.Size = new System.Drawing.Size(931, 480);
+            this.dgv_UserControl.TabIndex = 4;
             // 
             // KeukenBar
             // 
@@ -94,7 +96,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dgv_UserControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -105,6 +107,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_UserControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,6 +119,6 @@
         private System.Windows.Forms.Button btn_Home;
         private System.ServiceProcess.ServiceController serviceController1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dgv_UserControl;
     }
 }
