@@ -50,6 +50,7 @@
             this.pic_Logo = new System.Windows.Forms.PictureBox();
             this.pnl_Header = new System.Windows.Forms.Panel();
             this.lbl_Datum = new System.Windows.Forms.Label();
+            this.lbl_CurrentEmployee = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.pnl_Header.SuspendLayout();
@@ -281,6 +282,7 @@
             this.pnl_Header.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Header.BackColor = System.Drawing.Color.White;
+            this.pnl_Header.Controls.Add(this.lbl_CurrentEmployee);
             this.pnl_Header.Controls.Add(this.lbl_Datum);
             this.pnl_Header.Controls.Add(this.pic_Logo);
             this.pnl_Header.Controls.Add(this.btn_Home);
@@ -299,6 +301,15 @@
             this.lbl_Datum.Size = new System.Drawing.Size(63, 17);
             this.lbl_Datum.TabIndex = 21;
             this.lbl_Datum.Text = "<datum>";
+            // 
+            // lbl_CurrentEmployee
+            // 
+            this.lbl_CurrentEmployee.AutoSize = true;
+            this.lbl_CurrentEmployee.Location = new System.Drawing.Point(154, 33);
+            this.lbl_CurrentEmployee.Name = "lbl_CurrentEmployee";
+            this.lbl_CurrentEmployee.Size = new System.Drawing.Size(52, 17);
+            this.lbl_CurrentEmployee.TabIndex = 22;
+            this.lbl_CurrentEmployee.Text = "<user>";
             // 
             // BestellingOpnemen
             // 
@@ -352,5 +363,6 @@
         private System.Windows.Forms.PictureBox pic_Logo;
         private System.Windows.Forms.Panel pnl_Header;
         private System.Windows.Forms.Label lbl_Datum;
+        private System.Windows.Forms.Label lbl_CurrentEmployee;
     }
 }
