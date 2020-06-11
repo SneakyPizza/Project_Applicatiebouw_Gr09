@@ -46,23 +46,15 @@ namespace Hub
 
             for(int i = 0; i < orders.Count; i++)
             {
-
                 CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems);
                 tlp_OrderGrid.Controls.Add(card);
                 card.Show();
             }
         }
 
-        private DataTable CreateField(int rows)
+        private void checkPageRequest()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add(new DataColumn("Order"));
 
-            for(int i = 0; i < rows; i++)
-            {
-                dt.Rows.Add(new object[] { "" });
-            }
-            return dt;
         }
     }
 }
