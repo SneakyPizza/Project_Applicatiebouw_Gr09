@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,13 @@ namespace Hub
         public KeukenBar()
         {
             InitializeComponent();
+            tlp_OrderGrid.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
             CreateOrders();
         }
 
         public static KeukenBar GetKeukenBar()
         {
-            if(_uniqueKeukenBar == null)
+            if (_uniqueKeukenBar == null)
             {
                 _uniqueKeukenBar = new KeukenBar();
             }
@@ -41,21 +43,26 @@ namespace Hub
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
-            foreach(KitchenBarOrder kbo in orders)
-            {
-
-                //listView1.Items.Add(card);
-                //listBox1.Items.Add(card);
-                
-            }
 
             for(int i = 0; i < orders.Count; i++)
             {
-               /* CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems);
-                dgv_UserControl.Controls.Add(card);
-                card.Location = dgv_UserControl.GetCellDisplayRectangle(0, i, false).Location;
-                card.Size = dgv_UserControl.GetCellDisplayRectangle(0, i, false).Size; */
+
+                CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems);
+                tlp_OrderGrid.Controls.Add(card);
+                card.Show();
             }
+        }
+
+        private DataTable CreateField(int rows)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("Order"));
+
+            for(int i = 0; i < rows; i++)
+            {
+                dt.Rows.Add(new object[] { "" });
+            }
+            return dt;
         }
     }
 }

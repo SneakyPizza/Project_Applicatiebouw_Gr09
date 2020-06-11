@@ -20,6 +20,13 @@ namespace Hub
 
             TableNumber = tablenr;
             MenuItems = menuItems;
+            /*
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            */
+
+            lbl_tableNumber.Text = tablenr.ToString();
 
             foreach(Model.MenuItem mi in menuItems)
             {
