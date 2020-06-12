@@ -42,9 +42,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Hub.Properties.Resources.Knipsel;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 51);
+            this.pictureBox1.Size = new System.Drawing.Size(195, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -57,16 +58,18 @@
             this.panel1.Controls.Add(this.btn_Home);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 62);
+            this.panel1.Size = new System.Drawing.Size(1685, 76);
             this.panel1.TabIndex = 1;
             // 
             // btn_Home
             // 
             this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Home.Location = new System.Drawing.Point(1177, 11);
+            this.btn_Home.Location = new System.Drawing.Point(1569, 14);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(75, 23);
+            this.btn_Home.Size = new System.Drawing.Size(100, 28);
             this.btn_Home.TabIndex = 1;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = true;
@@ -83,6 +86,7 @@
             // 
             // tlp_OrderGrid
             // 
+
             this.tlp_OrderGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tlp_OrderGrid.AutoScroll = true;
             this.tlp_OrderGrid.ColumnCount = 3;
@@ -90,27 +94,30 @@
             this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.07386F));
             this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
             this.tlp_OrderGrid.Location = new System.Drawing.Point(3, 62);
+
             this.tlp_OrderGrid.Name = "tlp_OrderGrid";
             this.tlp_OrderGrid.RowCount = 1;
             this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_OrderGrid.Size = new System.Drawing.Size(1028, 621);
+
             this.tlp_OrderGrid.TabIndex = 3;
             // 
             // KeukenBar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1685, 838);
             this.Controls.Add(this.tlp_OrderGrid);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KeukenBar";
             this.Text = "Restaurant Chapoo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

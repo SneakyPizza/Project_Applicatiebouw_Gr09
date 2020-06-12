@@ -50,9 +50,9 @@ namespace Hub
                 }
             } else
             {
-                //Display Incorrect login error
+                MessageBox.Show("Ongeldige gebruikersnaam en/of wachtwoord.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void RedirectLogin(Employee e)
@@ -60,33 +60,39 @@ namespace Hub
             int i = e.FunctionID;
             switch (i)
             {
-                case 1: //Owner
+                case 1: //Ober
                     Hub o1 = Hub.GetHubScreen();
+                    o1.GetColor();
                     o1.Show();
                     this.Hide();
                     break;
-                case 2: //Waiter
+                case 2: //Chef-kok
                     Hub o2 = Hub.GetHubScreen();
+                    o2.GetColor();
                     o2.Show();
                     this.Hide();
                     break;
-                case 3: //Chef
+                case 3: //Wijn-expert
                     Hub o3 = Hub.GetHubScreen();
+                    o3.GetColor();
                     o3.Show();
                     this.Hide();
                     break;
-                case 4: //Wine-Expert
+                case 4: //Barman
                     Hub o4 = Hub.GetHubScreen();
+                    o4.GetColor();
                     o4.Show();
                     this.Hide();
                     break;
-                case 5: //Barman
+                case 5: //Eigenaar
                     Hub o5 = Hub.GetHubScreen();
+                    o5.GetColor();
                     o5.Show();
                     this.Hide();
                     break;
                 default:
                     Hub o = Hub.GetHubScreen();
+                    o.GetColor();
                     o.Show();
                     this.Hide();
                     break;

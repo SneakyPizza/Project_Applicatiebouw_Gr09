@@ -44,8 +44,9 @@ namespace Logic
                              dt.Rows[i].Field<int>("MenuItemID"),
                              dt.Rows[i].Field<string>("MenuItemName"),
                              dt.Rows[i].Field<DateTime>("ShelfLife"),
-                             1,
-                             dt.Rows[i].Field<decimal>("PricePP")
+                             dt.Rows[i].Field<int>("Amount"),
+                             dt.Rows[i].Field<decimal>("PricePP"),
+                             dt.Rows[i].Field<int>("MenuTypeID")
                             );
                             orderitems.Add(mitem);
                         }
@@ -68,11 +69,12 @@ namespace Logic
                     }
 
                     MenuItem item = new MenuItem(
-                     dt.Rows[i].Field<int>("MenuItemID"),
-                     dt.Rows[i].Field<string>("MenuItemName"),
-                     dt.Rows[i].Field<DateTime>("ShelfLife"),
-                     1,
-                     dt.Rows[i].Field<decimal>("PricePP")
+                             dt.Rows[i].Field<int>("MenuItemID"),
+                             dt.Rows[i].Field<string>("MenuItemName"),
+                             dt.Rows[i].Field<DateTime>("ShelfLife"),
+                             dt.Rows[i].Field<int>("Amount"),
+                             dt.Rows[i].Field<decimal>("PricePP"),
+                             dt.Rows[i].Field<int>("MenuTypeID")
                     );
                      orderitems.Add(item);
                 }

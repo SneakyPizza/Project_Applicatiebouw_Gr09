@@ -22,6 +22,8 @@ namespace Hub
         {
             InitializeComponent();
             FillComboBox();
+            Login_Service login_Service = Login_Service.GetLoginService();
+            lbl_CurrentEmployee.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
             lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
             ImageList imageList = new ImageList();
@@ -211,14 +213,14 @@ namespace Hub
                         menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
                     }
                     OrderPlaced(); 
-                    btn_Dranken.PerformClick(); //zet scherm weer op default
+                    this.Refresh(); //zet scherm weer op default
                 }
             }
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            Hub hub = new Hub();
+            Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Close();
         }
