@@ -36,22 +36,21 @@ namespace Hub
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(txt_Username.Text) && !string.IsNullOrWhiteSpace(txt_Password.Text))
-            {
-                string username = txt_Username.Text;
-                string password = txt_Password.Text;
-                if(_login_service.ValidateUser(username, password))
-                {
-                    //check role
-                    //redirect user
-                    RedirectLogin(_login_service.CurrentEmployee);
-                    txt_Username.Text = String.Empty;
-                    txt_Password.Text = String.Empty;
-                }
-            } else
-            {
-                MessageBox.Show("Ongeldige gebruikersnaam en/of wachtwoord.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+             string username = txt_Username.Text;
+             string password = txt_Password.Text;
+             if(_login_service.ValidateUser(username, password))
+             {
+                 //check role
+                 //redirect user
+                 RedirectLogin(_login_service.CurrentEmployee);
+                 txt_Username.Text = String.Empty;
+                 txt_Password.Text = String.Empty;
+             }
+             else
+             {
+                 MessageBox.Show("Ongeldige gebruikersnaam en/of wachtwoord.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }
 
         }
 

@@ -66,7 +66,7 @@ namespace Hub
                     MakeKitchenOrders();
                     break;
                 case "Bar":
-                    MakeKitchenOrders();
+                    MakeBarOrders();
                     break;
                 default:
                     break;
@@ -74,7 +74,7 @@ namespace Hub
             this.Refresh();
         }
 
-        private void MakeBarOrders()
+        public void MakeBarOrders()
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();

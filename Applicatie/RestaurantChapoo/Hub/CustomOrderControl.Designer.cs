@@ -40,9 +40,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 4);
+            this.label1.Location = new System.Drawing.Point(8, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(62, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tafel:";
             // 
@@ -50,18 +51,20 @@
             // 
             this.lbl_tableNumber.AutoSize = true;
             this.lbl_tableNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tableNumber.Location = new System.Drawing.Point(60, 4);
+            this.lbl_tableNumber.Location = new System.Drawing.Point(80, 5);
+            this.lbl_tableNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tableNumber.Name = "lbl_tableNumber";
-            this.lbl_tableNumber.Size = new System.Drawing.Size(69, 20);
+            this.lbl_tableNumber.Size = new System.Drawing.Size(86, 25);
             this.lbl_tableNumber.TabIndex = 1;
             this.lbl_tableNumber.Text = "Nummer";
             // 
             // lv_menuItems
             // 
             this.lv_menuItems.HideSelection = false;
-            this.lv_menuItems.Location = new System.Drawing.Point(3, 51);
+            this.lv_menuItems.Location = new System.Drawing.Point(4, 63);
+            this.lv_menuItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lv_menuItems.Name = "lv_menuItems";
-            this.lv_menuItems.Size = new System.Drawing.Size(344, 172);
+            this.lv_menuItems.Size = new System.Drawing.Size(457, 211);
             this.lv_menuItems.TabIndex = 2;
             this.lv_menuItems.UseCompatibleStateImageBehavior = false;
             this.lv_menuItems.View = System.Windows.Forms.View.Details;
@@ -71,11 +74,12 @@
             this.btn_Cancel.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(-1, 253);
+            this.btn_Cancel.Location = new System.Drawing.Point(-1, 311);
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(175, 33);
+            this.btn_Cancel.Size = new System.Drawing.Size(233, 41);
             this.btn_Cancel.TabIndex = 3;
-            this.btn_Cancel.Text = "Annuleren ";
+            this.btn_Cancel.Text = "Annuleren";
             this.btn_Cancel.UseVisualStyleBackColor = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
@@ -84,9 +88,10 @@
             this.btn_Confirm.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirm.Location = new System.Drawing.Point(176, 253);
+            this.btn_Confirm.Location = new System.Drawing.Point(235, 311);
+            this.btn_Confirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Confirm.Name = "btn_Confirm";
-            this.btn_Confirm.Size = new System.Drawing.Size(175, 33);
+            this.btn_Confirm.Size = new System.Drawing.Size(233, 41);
             this.btn_Confirm.TabIndex = 4;
             this.btn_Confirm.Text = "Gereed";
             this.btn_Confirm.UseVisualStyleBackColor = false;
@@ -96,15 +101,16 @@
             // 
             this.lbl_DinerType.AutoSize = true;
             this.lbl_DinerType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_DinerType.Location = new System.Drawing.Point(264, 28);
+            this.lbl_DinerType.Location = new System.Drawing.Point(352, 34);
+            this.lbl_DinerType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_DinerType.Name = "lbl_DinerType";
-            this.lbl_DinerType.Size = new System.Drawing.Size(83, 20);
+            this.lbl_DinerType.Size = new System.Drawing.Size(104, 25);
             this.lbl_DinerType.TabIndex = 5;
             this.lbl_DinerType.Text = "Menu type";
             // 
             // CustomOrderControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -114,8 +120,9 @@
             this.Controls.Add(this.lv_menuItems);
             this.Controls.Add(this.lbl_tableNumber);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CustomOrderControl";
-            this.Size = new System.Drawing.Size(350, 285);
+            this.Size = new System.Drawing.Size(467, 351);
             this.ResumeLayout(false);
             this.PerformLayout();
 
