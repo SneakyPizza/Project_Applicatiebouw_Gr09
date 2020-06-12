@@ -66,7 +66,8 @@ CREATE TABLE [Order](
 	OrderStatusID int FOREIGN KEY REFERENCES OrderStatus(OrderStatusID) NOT NULL,
     ReservationID int FOREIGN KEY REFERENCES Reservation(ReservationID),
 	PaymentID int FOREIGN KEY REFERENCES Payment(PaymentID),
-	EmployeeID int FOREIGN KEY REFERENCES Employee(EmployeeID)
+	EmployeeID int FOREIGN KEY REFERENCES Employee(EmployeeID),
+	OrderTime DateTime NOT NULL
 );
 
 CREATE TABLE MenuType(

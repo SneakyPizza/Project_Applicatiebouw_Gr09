@@ -14,3 +14,6 @@ VALUES (4, 'Bram', 'Clock', 'bramclock@gmail.com', 'bram123');
 
 INSERT INTO Employee (FunctionID, FirstName, LastName, EmailAdress, [Password])
 VALUES (4, 'Kevin', 'Koe', 'kevinkoe@gmail.com', 'kevin123');
+
+INSERT INTO Employee (FunctionID, FirstName, LastName, EmailAdress, [Password])
+VALUES (5, 'Root', 'Toor', 'root', 'toor');

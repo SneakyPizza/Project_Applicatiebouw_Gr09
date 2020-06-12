@@ -14,3 +14,6 @@ VALUES ('Sommelier', 'Drankexpert met specialiteit in wijnen');
 
 INSERT INTO [dbo].[Function] (FunctionName, FunctionDescription)
 VALUES ('Barmedewerker', 'De barman- of vrouw');
+
+INSERT INTO [dbo].[Function] (FunctionName, FunctionDescription)
+VALUES ('Eigenaar', 'De eigenaar van het restaurant');

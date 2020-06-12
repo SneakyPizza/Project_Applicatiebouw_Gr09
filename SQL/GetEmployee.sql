@@ -11,8 +11,8 @@ GO
 -- =============================================
 CREATE PROCEDURE [GetEmployee]
 	-- Add the parameters for the stored procedure here
-	@email nvarchar(200),
-	@password nvarchar(200)
+	@email nvarchar(500),
+	@password nvarchar(500)
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
