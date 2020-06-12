@@ -49,12 +49,11 @@ namespace Hub
 
             for(int i = 0; i < orders.Count; i++)
             {
-                CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems, "Test orders", orders[i].OrderID);
+                CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems, orders[i].OrderID, orders[i].OrderTime);
                 tlp_OrderGrid.Controls.Add(card);
                 card.Show();
             }
         }
-
         public void ReloadPage(string OrderType)
         {
             Login_Service service = Login_Service.GetLoginService();
@@ -97,7 +96,7 @@ namespace Hub
                     }
                     if (newitems.Count != 0)
                     {
-                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, "Dranken", order.OrderID);
+                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, order.OrderID, order.OrderTime);
                         tlp_OrderGrid.Controls.Add(card);
                         card.Show();
                         newitems = null;
@@ -129,14 +128,12 @@ namespace Hub
                     }
                     if (newitems.Count != 0)
                     {
-                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, "", order.OrderID);
+                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, order.OrderID, order.OrderTime);
                         tlp_OrderGrid.Controls.Add(card);
                         card.Show();
                         newitems = null;
                     }
                 }
-
-
             }
         }
     }

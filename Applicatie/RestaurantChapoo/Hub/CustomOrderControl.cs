@@ -14,17 +14,15 @@ namespace Hub
 {
     public partial class CustomOrderControl : UserControl
     {
-        public CustomOrderControl(int tablenr, List<Model.MenuItem> menuItems, string menutype, int orderid)
+        public CustomOrderControl(int tablenr, List<Model.MenuItem> menuItems, int orderid, DateTime orderTime)
         {
             InitializeComponent();
 
             TableNumber = tablenr;
             MenuItems = menuItems;
             OrderID = orderid;
-            lbl_DinerType.Text = OrderID.ToString();
+            lbl_OrderTime.Text = orderTime.ToString("t");
             lbl_tableNumber.Text = tablenr.ToString();
-            lv_menuItems.Columns.Add("Gerecht");
-            lv_menuItems.Columns.Add("Aantal");
             
 
             foreach(Model.MenuItem mi in menuItems)
@@ -36,8 +34,8 @@ namespace Hub
 
                 lv_menuItems.Items.Add(ii);
             }
-            lv_menuItems.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lv_menuItems.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+            //this.lv_menuItems.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            //this.lv_menuItems.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         public int TableNumber
