@@ -68,7 +68,7 @@ namespace Hub
                 KeukenBar kb = KeukenBar.GetKeukenBar();
                 kb.ReloadPage("Bar");
             }
-
+            MessageBox.Show("Bestelling gereed gemeld.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -86,6 +86,7 @@ namespace Hub
                 KeukenBar kb = KeukenBar.GetKeukenBar();
                 kb.ReloadPage("Bar");
             }
+            MessageBox.Show("Bestelling geannuleerd.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

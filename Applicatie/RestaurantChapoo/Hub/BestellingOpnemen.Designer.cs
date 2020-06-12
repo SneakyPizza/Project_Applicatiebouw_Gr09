@@ -106,10 +106,10 @@
             // 
             // btn_DrankenAlcoholisch
             // 
-            this.btn_DrankenAlcoholisch.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_DrankenAlcoholisch.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_DrankenAlcoholisch.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_DrankenAlcoholisch.FlatAppearance.BorderSize = 0;
-            this.btn_DrankenAlcoholisch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DrankenAlcoholisch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_DrankenAlcoholisch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DrankenAlcoholisch.Location = new System.Drawing.Point(29, 152);
             this.btn_DrankenAlcoholisch.Margin = new System.Windows.Forms.Padding(2);
@@ -122,10 +122,10 @@
             // 
             // btn_Diner
             // 
-            this.btn_Diner.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_Diner.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_Diner.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Diner.FlatAppearance.BorderSize = 0;
-            this.btn_Diner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Diner.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Diner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Diner.Location = new System.Drawing.Point(29, 294);
             this.btn_Diner.Margin = new System.Windows.Forms.Padding(2);
@@ -138,10 +138,10 @@
             // 
             // btn_Lunch
             // 
-            this.btn_Lunch.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_Lunch.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_Lunch.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Lunch.FlatAppearance.BorderSize = 0;
-            this.btn_Lunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Lunch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Lunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Lunch.Location = new System.Drawing.Point(29, 223);
             this.btn_Lunch.Margin = new System.Windows.Forms.Padding(2);
@@ -165,10 +165,10 @@
             // 
             // btn_Dranken
             // 
-            this.btn_Dranken.BackColor = System.Drawing.Color.LightBlue;
+            this.btn_Dranken.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_Dranken.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Dranken.FlatAppearance.BorderSize = 0;
-            this.btn_Dranken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Dranken.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Dranken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Dranken.Location = new System.Drawing.Point(29, 77);
             this.btn_Dranken.Margin = new System.Windows.Forms.Padding(2);
