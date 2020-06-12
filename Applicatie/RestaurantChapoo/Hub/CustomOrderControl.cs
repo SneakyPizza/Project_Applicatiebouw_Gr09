@@ -14,14 +14,14 @@ namespace Hub
 {
     public partial class CustomOrderControl : UserControl
     {
-        public CustomOrderControl(int tablenr, List<Model.MenuItem> menuItems, string menutype, int orderid)
+        public CustomOrderControl(int tablenr, List<Model.MenuItem> menuItems, int orderid, DateTime orderTime)
         {
             InitializeComponent();
 
             TableNumber = tablenr;
             MenuItems = menuItems;
             OrderID = orderid;
-            lbl_DinerType.Text = OrderID.ToString();
+            lbl_OrderTime.Text = OrderID.ToString();
             lbl_tableNumber.Text = tablenr.ToString();
             lv_menuItems.Columns.Add("Gerecht");
             lv_menuItems.Columns.Add("Aantal");

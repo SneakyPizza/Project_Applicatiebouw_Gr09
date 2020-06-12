@@ -58,9 +58,10 @@
             // 
             this.btn_Bar.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Bar.FlatAppearance.BorderSize = 0;
-            this.btn_Bar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Bar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Bar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Bar.Location = new System.Drawing.Point(322, 37);
-            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Bar.Name = "btn_Bar";
             this.btn_Bar.Size = new System.Drawing.Size(82, 81);
             this.btn_Bar.TabIndex = 2;
@@ -72,11 +73,12 @@
             // 
             this.btn_BestellingOpnemen.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_BestellingOpnemen.FlatAppearance.BorderSize = 0;
-            this.btn_BestellingOpnemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BestellingOpnemen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_BestellingOpnemen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BestellingOpnemen.Location = new System.Drawing.Point(196, 37);
-            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_BestellingOpnemen.Name = "btn_BestellingOpnemen";
-            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(82, 81);
+            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(87, 81);
             this.btn_BestellingOpnemen.TabIndex = 1;
             this.btn_BestellingOpnemen.Text = "Bestelling opnemen";
             this.btn_BestellingOpnemen.UseVisualStyleBackColor = false;
@@ -86,9 +88,10 @@
             // 
             this.btn_Keuken.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Keuken.FlatAppearance.BorderSize = 0;
-            this.btn_Keuken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Keuken.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Keuken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Keuken.Location = new System.Drawing.Point(76, 37);
-            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Keuken.Name = "btn_Keuken";
             this.btn_Keuken.Size = new System.Drawing.Size(82, 81);
             this.btn_Keuken.TabIndex = 0;
@@ -104,7 +107,7 @@
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
             this.pnl_Hub.Location = new System.Drawing.Point(171, 90);
-            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Hub.Name = "pnl_Hub";
             this.pnl_Hub.Size = new System.Drawing.Size(494, 236);
             this.pnl_Hub.TabIndex = 5;
@@ -182,7 +185,7 @@
             this.Controls.Add(this.lbl_Datum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Hub";
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
