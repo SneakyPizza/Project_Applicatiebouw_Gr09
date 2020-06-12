@@ -35,6 +35,8 @@
             this.btn_Confirm = new System.Windows.Forms.Button();
             this.lbl_OrderTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.col_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -59,8 +61,14 @@
             // 
             // lv_menuItems
             // 
+            this.lv_menuItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col_Item,
+            this.col_Amount});
+            this.lv_menuItems.Enabled = false;
+            this.lv_menuItems.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lv_menuItems.HideSelection = false;
             this.lv_menuItems.Location = new System.Drawing.Point(3, 51);
+            this.lv_menuItems.MultiSelect = false;
             this.lv_menuItems.Name = "lv_menuItems";
             this.lv_menuItems.Size = new System.Drawing.Size(344, 172);
             this.lv_menuItems.TabIndex = 2;
@@ -113,6 +121,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Besteld om:";
             // 
+            // col_Item
+            // 
+            this.col_Item.Text = "Product";
+            this.col_Item.Width = 280;
+            // 
+            // col_Amount
+            // 
+            this.col_Amount.Text = "Aantal";
+            // 
             // CustomOrderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,5 +159,7 @@
         private System.Windows.Forms.Button btn_Confirm;
         private System.Windows.Forms.Label lbl_OrderTime;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader col_Item;
+        private System.Windows.Forms.ColumnHeader col_Amount;
     }
 }

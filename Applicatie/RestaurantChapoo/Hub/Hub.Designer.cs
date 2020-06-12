@@ -34,12 +34,13 @@
             this.btn_BestellingOpnemen = new System.Windows.Forms.Button();
             this.btn_Keuken = new System.Windows.Forms.Button();
             this.pnl_Hub = new System.Windows.Forms.Panel();
-            this.lbl_WelkomstZin = new System.Windows.Forms.Label();
             this.lbl_User = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.lbl_Ingelogd = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_Hub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Datum
@@ -47,7 +48,7 @@
             this.lbl_Datum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Datum.AutoSize = true;
             this.lbl_Datum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Datum.Location = new System.Drawing.Point(755, 2);
+            this.lbl_Datum.Location = new System.Drawing.Point(1181, 2);
             this.lbl_Datum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Datum.Name = "lbl_Datum";
             this.lbl_Datum.Size = new System.Drawing.Size(72, 20);
@@ -106,23 +107,11 @@
             this.pnl_Hub.Controls.Add(this.btn_Keuken);
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
-            this.pnl_Hub.Location = new System.Drawing.Point(171, 90);
+            this.pnl_Hub.Location = new System.Drawing.Point(384, 215);
             this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Hub.Name = "pnl_Hub";
             this.pnl_Hub.Size = new System.Drawing.Size(494, 236);
             this.pnl_Hub.TabIndex = 5;
-            // 
-            // lbl_WelkomstZin
-            // 
-            this.lbl_WelkomstZin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_WelkomstZin.AutoSize = true;
-            this.lbl_WelkomstZin.Font = new System.Drawing.Font("Viner Hand ITC", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WelkomstZin.Location = new System.Drawing.Point(248, 30);
-            this.lbl_WelkomstZin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_WelkomstZin.Name = "lbl_WelkomstZin";
-            this.lbl_WelkomstZin.Size = new System.Drawing.Size(338, 57);
-            this.lbl_WelkomstZin.TabIndex = 6;
-            this.lbl_WelkomstZin.Text = "Restaurant Chapoo";
             // 
             // lbl_User
             // 
@@ -153,7 +142,7 @@
             this.btn_logout.BackColor = System.Drawing.Color.SkyBlue;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_logout.Location = new System.Drawing.Point(717, 25);
+            this.btn_logout.Location = new System.Drawing.Point(1143, 25);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(109, 33);
             this.btn_logout.TabIndex = 7;
@@ -165,22 +154,32 @@
             // 
             this.lbl_Ingelogd.AutoSize = true;
             this.lbl_Ingelogd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Ingelogd.Location = new System.Drawing.Point(10, 11);
+            this.lbl_Ingelogd.Location = new System.Drawing.Point(11, 118);
             this.lbl_Ingelogd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Ingelogd.Name = "lbl_Ingelogd";
             this.lbl_Ingelogd.Size = new System.Drawing.Size(51, 20);
             this.lbl_Ingelogd.TabIndex = 8;
             this.lbl_Ingelogd.Text = "label1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Hub.Properties.Resources.Knipsel;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(201, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(838, 431);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Ingelogd);
             this.Controls.Add(this.btn_logout);
-            this.Controls.Add(this.lbl_WelkomstZin);
             this.Controls.Add(this.pnl_Hub);
             this.Controls.Add(this.lbl_Datum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -190,6 +189,7 @@
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnl_Hub.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,11 +201,11 @@
         private System.Windows.Forms.Button btn_BestellingOpnemen;
         private System.Windows.Forms.Button btn_Keuken;
         private System.Windows.Forms.Panel pnl_Hub;
-        private System.Windows.Forms.Label lbl_WelkomstZin;
         private System.Windows.Forms.Label lbl_User;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Label lbl_Ingelogd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

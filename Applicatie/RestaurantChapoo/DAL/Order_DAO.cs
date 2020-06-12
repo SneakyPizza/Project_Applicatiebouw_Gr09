@@ -28,7 +28,8 @@ namespace DAL
             SqlParameter sqlParameter2 = new SqlParameter("@reservationID", reservationID);
             SqlParameter sqlParameter3 = new SqlParameter("@paymentID", paymentID);
             SqlParameter sqlParameter4 = new SqlParameter("@employeeID", employeeID);
-            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4 };
+            SqlParameter sqlParameter5 = new SqlParameter("@orderTime", DateTime.Now);
+            SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4, sqlParameter5 };
             ExecuteEditQuery("PlaceOrder", sqlp);
         }
         public int GetMostRecentOrderID()

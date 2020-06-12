@@ -60,7 +60,7 @@ namespace Logic
                             dt.Rows[i - 1].Field<string>("OrderStatusName"),
                             dt.Rows[i - 1].Field<int>("TableID"),
                             new List<MenuItem>(orderitems),
-                            dt.Rows[1 - 1].Field<DateTime>("OrderTime"));
+                            dt.Rows[i - 1].Field<DateTime>("OrderTime"));
 
                             orders.Add(order);
                             orderitems.Clear();
