@@ -40,26 +40,31 @@ namespace Hub
             switch (functionID)
             {
                 case 1:
+                    btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.Red;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.SkyBlue;
                     break;
                 case 2:
+                    btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.Red;
                     btn_Keuken.BackColor = Color.SkyBlue;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 3:
+                    btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 4:
+                    btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 5:
+                    btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.SkyBlue;
                     btn_BestellingOpnemen.BackColor = Color.SkyBlue;
@@ -134,6 +139,20 @@ namespace Hub
             {
                 MessageBox.Show("Je hebt geen toestemming tot het 'Bar' scherm.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+        }
+
+        private void btn_TableOverview_Click(object sender, EventArgs e)
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            if(service.CurrentEmployee.FunctionID == 1 || service.CurrentEmployee.FunctionID == 5)
+            {
+                Tafeloverzicht to = Tafeloverzicht.GetTafeloverzichtScreen();
+                to.Show();
+                this.Hide();
+            } else
+            {
+                MessageBox.Show("Je hebt geen toestemming om op het 'Tafeloverzicht' te komen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

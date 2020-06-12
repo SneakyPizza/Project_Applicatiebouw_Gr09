@@ -61,7 +61,7 @@ namespace Hub
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            Hub hub = new Hub();
+            Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Hide();
         }
@@ -98,7 +98,7 @@ namespace Hub
         {
             if (tafel3.BackColor == Color.Red)
             {
-                BestellingOpnemen bestellingopnemen = new BestellingOpnemen();
+                BestellingOpnemen bestellingopnemen = BestellingOpnemen.GetOrderScreen();
                 bestellingopnemen.Show();
                 this.Hide();
             }
@@ -108,7 +108,7 @@ namespace Hub
         {
             if (tafel4.BackColor == Color.Red)
             {
-                BestellingOpnemen bestellingopnemen = new BestellingOpnemen();
+                BestellingOpnemen bestellingopnemen = BestellingOpnemen.GetOrderScreen();
                 bestellingopnemen.Show();
                 this.Hide();
             }
