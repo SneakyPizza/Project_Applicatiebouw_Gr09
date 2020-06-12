@@ -100,6 +100,7 @@ namespace Hub
             {
                 KeukenBar kb = KeukenBar.GetKeukenBar();
                 kb.Show();
+                kb.MakeKitchenOrders();
                 this.Hide();
             }
             else
@@ -125,6 +126,7 @@ namespace Hub
             {
                 KeukenBar kb = KeukenBar.GetKeukenBar();
                 kb.Show();
+                kb.MakeBarOrders();
                 this.Hide();
             }
             else

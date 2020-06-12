@@ -57,6 +57,7 @@ namespace Hub
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
+            //Set this order to done
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             service.UpdatebarOrder(OrderID, btn_Confirm.Text);
         }
