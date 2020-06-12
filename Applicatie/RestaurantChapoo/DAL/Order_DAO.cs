@@ -45,5 +45,22 @@ namespace DAL
             }
             return ID;
         }
+
+        private List<PendingOrder> GetOrder(DataTable dataTable)
+        {
+            List<PendingOrder> orders = new List<PendingOrder>();
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                int TableID = (int)dataRow["TableID"];
+                string OrderStatusName = (string)dataRow["OrderStatusName"];
+                PendingOrder order = new PendingOrder(TableID, OrderStatusName);
+                orders.Add(order);
+            }
+            return orders;
+        }
+        public List<PendingOrder> GetPendingOrders()
+        {
+            return GetOrder(ExecuteQuery("GetTableIDAndStatus"));
+        }
     }
 }

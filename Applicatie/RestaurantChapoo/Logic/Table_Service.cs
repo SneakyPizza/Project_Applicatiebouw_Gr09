@@ -11,7 +11,7 @@ namespace Logic
 {
     public class Table_Service
     {
-        Table_DAO Table_DAO = new Table_DAO();
+        private Table_DAO Table_DAO = new Table_DAO();
         private static Table_Service _uniqueTableService;
 
         public static Table_Service GetTableService()

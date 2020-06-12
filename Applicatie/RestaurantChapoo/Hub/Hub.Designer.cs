@@ -39,6 +39,7 @@
             this.btn_logout = new System.Windows.Forms.Button();
             this.lbl_Ingelogd = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_TableOverview = new System.Windows.Forms.Button();
             this.pnl_Hub.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             this.pnl_Hub.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnl_Hub.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_Hub.Controls.Add(this.btn_TableOverview);
             this.pnl_Hub.Controls.Add(this.btn_Keuken);
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
@@ -171,6 +173,21 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_TableOverview
+            // 
+            this.btn_TableOverview.BackColor = System.Drawing.Color.Gainsboro;
+            this.btn_TableOverview.FlatAppearance.BorderSize = 0;
+            this.btn_TableOverview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_TableOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TableOverview.Location = new System.Drawing.Point(196, 131);
+            this.btn_TableOverview.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_TableOverview.Name = "btn_TableOverview";
+            this.btn_TableOverview.Size = new System.Drawing.Size(87, 81);
+            this.btn_TableOverview.TabIndex = 3;
+            this.btn_TableOverview.Text = "Tafel overzicht";
+            this.btn_TableOverview.UseVisualStyleBackColor = false;
+            this.btn_TableOverview.Click += new System.EventHandler(this.btn_TableOverview_Click);
+            // 
             // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +223,7 @@
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Label lbl_Ingelogd;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_TableOverview;
     }
 }
 
