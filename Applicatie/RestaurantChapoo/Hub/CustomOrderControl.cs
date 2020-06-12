@@ -60,6 +60,17 @@ namespace Hub
             //Set this order to done
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             service.UpdatebarOrder(OrderID, btn_Confirm.Text);
+            if (this.MenuItems[0].MenuTypeID == 3 || this.MenuItems[0].MenuTypeID == 4)
+            {
+                KeukenBar kb = KeukenBar.GetKeukenBar();
+                kb.ReloadPage("Keuken");
+            }
+            if (MenuItems[0].MenuTypeID == 1 || MenuItems[0].MenuTypeID == 2)
+            {
+                KeukenBar kb = KeukenBar.GetKeukenBar();
+                kb.ReloadPage("Bar");
+            }
+
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -67,6 +78,16 @@ namespace Hub
             //Set this order to cancelled
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             service.UpdatebarOrder(OrderID, btn_Cancel.Text);
+            if (MenuItems[0].MenuTypeID == 3 || MenuItems[0].MenuTypeID == 4)
+            {
+                KeukenBar kb = KeukenBar.GetKeukenBar();
+                kb.ReloadPage("Keuken");
+            }
+            if (MenuItems[0].MenuTypeID == 1 || MenuItems[0].MenuTypeID == 2)
+            {
+                KeukenBar kb = KeukenBar.GetKeukenBar();
+                kb.ReloadPage("Bar");
+            }
         }
     }
 }
