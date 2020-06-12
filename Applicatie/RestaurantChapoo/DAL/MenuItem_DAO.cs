@@ -33,7 +33,8 @@ namespace DAL
                 DateTime shelfLife = (DateTime)dataRow["ShelfLife"];
                 int stock = (int)dataRow["Stock"];
                 decimal pricePP = (decimal)dataRow["PricePP"];
-                MenuItem menuItem = new MenuItem(menuItemID, menuItemName, shelfLife, stock, pricePP);
+                int menuTypeID = (int)dataRow["MenuTypeID"];
+                MenuItem menuItem = new MenuItem(menuItemID, menuItemName, shelfLife, stock, pricePP, menuTypeID);
                 menuItems.Add(menuItem);
             }
             return menuItems;
