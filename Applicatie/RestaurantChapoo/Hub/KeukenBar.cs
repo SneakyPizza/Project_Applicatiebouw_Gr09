@@ -20,7 +20,6 @@ namespace Hub
         {
             InitializeComponent();
             tlp_OrderGrid.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
-            MakeBarOrders();
         }
 
         public static KeukenBar GetKeukenBar()
@@ -53,10 +52,11 @@ namespace Hub
             }
         }
 
-        private void MakeBarOrders()
+        public void MakeBarOrders()
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
+            tlp_OrderGrid.Controls.Clear();
 
             foreach(KitchenBarOrder order in orders)
             {
@@ -84,31 +84,37 @@ namespace Hub
             }
         }
 
-        private void MakeKitchenOrders()
+        public void MakeKitchenOrders()
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
+            tlp_OrderGrid.Controls.Clear();
 
             foreach (KitchenBarOrder order in orders)
             {
-                List<Model.MenuItem> newitems = new List<Model.MenuItem>();
-                List<Model.MenuItem> items = order.OrderItems;
-                foreach (Model.MenuItem item in items)
+                if (order.Orderstatus == "Besteld" || order.Orderstatus == "Wordt bereid")
                 {
-                    
-                    if (item.MenuTypeID == 1 || item.MenuTypeID == 2)
+                    List<Model.MenuItem> newitems = new List<Model.MenuItem>();
+                    List<Model.MenuItem> items = order.OrderItems;
+                    foreach (Model.MenuItem item in items)
                     {
-                        //add to list
-                        newitems.Add(item);
+
+                        if (item.MenuTypeID == 3 || item.MenuTypeID == 4)
+                        {
+                            //add to list
+                            newitems.Add(item);
+                        }
+                    }
+                    if (newitems.Count != 0)
+                    {
+                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, "", order.OrderID);
+                        tlp_OrderGrid.Controls.Add(card);
+                        card.Show();
+                        newitems = null;
                     }
                 }
-                if (newitems.Count != 0)
-                {
-                    CustomOrderControl card = new CustomOrderControl(order.TableID, newitems,"", order.OrderID);
-                    tlp_OrderGrid.Controls.Add(card);
-                    card.Show();
-                    newitems = null;
-                }
+
+
             }
         }
     }
