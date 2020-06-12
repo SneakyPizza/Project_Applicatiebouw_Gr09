@@ -83,5 +83,26 @@ namespace Logic
             }
             return orders;
         }
+
+        public void UpdatebarOrder(int ordernr, string status)
+        {
+            int statID = 0;
+            switch (status)
+            {
+                case "Gereed":
+                    statID = 3;
+                    break;
+                case "Annuleren":
+                    statID = 4;
+                    break;
+                default:
+                    break;
+            }
+
+            if(statID != 0)
+            {
+                _bar_DAO.UpdateOrder(ordernr, statID);
+            }
+        }
     }
 }

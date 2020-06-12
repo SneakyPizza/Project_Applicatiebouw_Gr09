@@ -47,7 +47,7 @@ namespace Hub
 
             for(int i = 0; i < orders.Count; i++)
             {
-                CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems);
+                CustomOrderControl card = new CustomOrderControl(orders[i].TableID, orders[i].OrderItems, "Test orders", orders[i].OrderID);
                 tlp_OrderGrid.Controls.Add(card);
                 card.Show();
             }
@@ -60,21 +60,26 @@ namespace Hub
 
             foreach(KitchenBarOrder order in orders)
             {
-                List<Model.MenuItem> newitems = new List<Model.MenuItem>();
-                List<Model.MenuItem> items = order.OrderItems;
-                foreach(Model.MenuItem item in items)
+                if(order.Orderstatus == "Besteld" || order.Orderstatus == "Wordt bereid")
                 {
-                    if(item.MenuTypeID == 1 || item.MenuTypeID == 2)
+                    List<Model.MenuItem> newitems = new List<Model.MenuItem>();
+                    List<Model.MenuItem> items = order.OrderItems;
+                    foreach (Model.MenuItem item in items)
                     {
-                        //add to list
-                        newitems.Add(item);
+                        //Menutype 1 = drinks, Menutype 2 = Alcoholic drinks
+                        if (item.MenuTypeID == 1 || item.MenuTypeID == 2)
+                        {
+                            //add to list
+                            newitems.Add(item);
+                        }
                     }
-                }
-                if(newitems != null)
-                {
-                    CustomOrderControl card = new CustomOrderControl(order.TableID, newitems);
-                    tlp_OrderGrid.Controls.Add(card);
-                    card.Show();
+                    if (newitems.Count != 0)
+                    {
+                        CustomOrderControl card = new CustomOrderControl(order.TableID, newitems, "Dranken", order.OrderID);
+                        tlp_OrderGrid.Controls.Add(card);
+                        card.Show();
+                        newitems = null;
+                    }
                 }
             }
         }
@@ -83,6 +88,28 @@ namespace Hub
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
+
+            foreach (KitchenBarOrder order in orders)
+            {
+                List<Model.MenuItem> newitems = new List<Model.MenuItem>();
+                List<Model.MenuItem> items = order.OrderItems;
+                foreach (Model.MenuItem item in items)
+                {
+                    
+                    if (item.MenuTypeID == 1 || item.MenuTypeID == 2)
+                    {
+                        //add to list
+                        newitems.Add(item);
+                    }
+                }
+                if (newitems.Count != 0)
+                {
+                    CustomOrderControl card = new CustomOrderControl(order.TableID, newitems,"", order.OrderID);
+                    tlp_OrderGrid.Controls.Add(card);
+                    card.Show();
+                    newitems = null;
+                }
+            }
         }
     }
 }

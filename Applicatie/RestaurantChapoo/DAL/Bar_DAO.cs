@@ -15,5 +15,11 @@ namespace DAL
             //Getting all open orders.
             return ExecuteQuery("GetKitchenBarOrders");
         }
+
+        public void UpdateOrder(int orderID, int newstatusID)
+        {
+            SqlParameter[] p = new SqlParameter[] { new SqlParameter("@statusID", newstatusID), new SqlParameter("@orderID", orderID) };
+            ExecuteEditQuery("UpdateOrder", p);
+        }
     }
 }
