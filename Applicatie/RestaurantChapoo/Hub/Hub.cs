@@ -73,7 +73,7 @@ namespace Hub
             Login_Service service = Login_Service.GetLoginService();
             if (service.CurrentEmployee.FunctionID == 1 || service.CurrentEmployee.FunctionID == 5)
             {
-                BestellingOpnemen bestellingOpnemen = new BestellingOpnemen();
+                BestellingOpnemen bestellingOpnemen = BestellingOpnemen.GetOrderScreen();
                 bestellingOpnemen.Show();
                 this.Hide();
             }

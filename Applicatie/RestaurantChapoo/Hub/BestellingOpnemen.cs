@@ -54,14 +54,14 @@ namespace Hub
         }
         private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(1);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(200, 50);
+            listViewMenuItems.TileSize = new Size(300, 50);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 1);
+                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 1);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -69,14 +69,14 @@ namespace Hub
 
         private void Btn_DrankenAlcoholisch_Click(object sender, EventArgs e) //laad alcohol items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(2);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(200, 50);
+            listViewMenuItems.TileSize = new Size(300, 50);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 0);
+                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 0);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -84,13 +84,13 @@ namespace Hub
 
         private void Btn_Lunch_Click(object sender, EventArgs e) //laad lunch items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(3);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(450, 100);
+            listViewMenuItems.TileSize = new Size(600, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 2);
+                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 2);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -98,14 +98,14 @@ namespace Hub
 
         private void Btn_Diner_Click(object sender, EventArgs e) //laad diner items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(4);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(450, 100);
+            listViewMenuItems.TileSize = new Size(600, 100);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 2);
+                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 2);
                 li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
@@ -115,7 +115,7 @@ namespace Hub
         {
             int aantal = 1;
             int menuItemID = int.Parse(listViewMenuItems.FocusedItem.Text);
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItemOnID(menuItemID);
 
             foreach (Model.MenuItem m in menuItems) 
@@ -180,8 +180,8 @@ namespace Hub
             }
             else
             {
-                MenuItem_Service menuItem_Service = new MenuItem_Service();
-                Table_Service table_Service = new Table_Service();
+                MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
+                Table_Service table_Service = Table_Service.GetTableService();
                 Login_Service s = Login_Service.GetLoginService();
                 int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
                 if (reservationID == 0)
@@ -190,30 +190,28 @@ namespace Hub
                 }
                 else
                 {
-                    Order_DAO order_DAO = new Order_DAO();
-                    try //nieuwe order aanmaken voor betreffende tafel
+                    Order_Service service = Order_Service.GetOrderService();
+                    if(service.PlaceOrder(reservationID, s.CurrentEmployee.Id))
                     {
-                        order_DAO.PlaceOrder(1, reservationID, 1, s.CurrentEmployee.Id); //employeeID (2) nog aanpassen
-                    }
-                    catch (Exception ex)
+                        recentOrderID = GetMostRecentOrderID();
+                        List<MenuOrder> menuOrders = new List<MenuOrder>();
+                        MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
+                        foreach (ListViewItem li in listViewWinkelwagen.Items) //Lijst met MenuOrders maken vanuit winkelwagen
+                        {
+                            Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text));
+                            menuOrders.Add(menuOrder);
+                        }
+                        foreach (MenuOrder menuOrder in menuOrders) //lijst met menuOrders naar db sturen
+                        {
+                            menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
+                            menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
+                        }
+                        OrderPlaced();
+                        this.Refresh(); //zet scherm weer op default
+                    } else
                     {
-                        MessageBox.Show("Order kan niet worden geplaatst. Neem contact op met de it-afdeling en laat de volgende foutmelding zien: " + ex.Message, "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    recentOrderID = GetMostRecentOrderID();
-                    List<MenuOrder> menuOrders = new List<MenuOrder>();
-                    MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
-                    foreach (ListViewItem li in listViewWinkelwagen.Items) //Lijst met MenuOrders maken vanuit winkelwagen
-                    {
-                        Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text));
-                        menuOrders.Add(menuOrder);
-                    }
-                    foreach(MenuOrder menuOrder in menuOrders) //lijst met menuOrders naar db sturen
-                    {
-                        menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
-                        menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
-                    }
-                    OrderPlaced(); 
-                    this.Refresh(); //zet scherm weer op default
+                        MessageBox.Show("Niet gelukt om de order te maken.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }             
                 }
             }
         }
@@ -222,11 +220,11 @@ namespace Hub
         {
             Hub hub = Hub.GetHubScreen();
             hub.Show();
-            this.Close();
+            this.Hide();
         }
         private void FillComboBox() //combobox vullen met alle tafelnummers
         {
-            Table_Service table_Service = new Table_Service();
+            Table_Service table_Service = Table_Service.GetTableService();
             List<Table> tables = table_Service.GetAllTables();
 
             foreach(Table t in tables)
@@ -242,7 +240,7 @@ namespace Hub
         }
         private int GetMostRecentOrderID()
         {
-            Order_Service order_Service = new Order_Service();
+            Order_Service order_Service = Order_Service.GetOrderService();
             return order_Service.GetMostRecentOrderID();
         }
 

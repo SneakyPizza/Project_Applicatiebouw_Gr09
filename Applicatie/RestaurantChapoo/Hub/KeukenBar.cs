@@ -19,6 +19,9 @@ namespace Hub
         public KeukenBar()
         {
             InitializeComponent();
+
+            Login_Service login_Service = Login_Service.GetLoginService();
+            lbl_User.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
             tlp_OrderGrid.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
         }
 
@@ -52,7 +55,26 @@ namespace Hub
             }
         }
 
-        public void MakeBarOrders()
+        public void ReloadPage(string OrderType)
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            lbl_User.Text = "Ingelogd: " + service.CurrentEmployee.Firstname + " " + service.CurrentEmployee.Lastname;
+
+            switch (OrderType)
+            {
+                case "Keuken":
+                    MakeKitchenOrders();
+                    break;
+                case "Bar":
+                    MakeKitchenOrders();
+                    break;
+                default:
+                    break;
+            }
+            this.Refresh();
+        }
+
+        private void MakeBarOrders()
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
             List<KitchenBarOrder> orders = service.GetKitchenBarOrders();

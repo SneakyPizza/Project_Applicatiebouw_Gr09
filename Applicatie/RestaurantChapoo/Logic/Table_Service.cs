@@ -12,6 +12,16 @@ namespace Logic
     public class Table_Service
     {
         Table_DAO Table_DAO = new Table_DAO();
+        private static Table_Service _uniqueTableService;
+
+        public static Table_Service GetTableService()
+        {
+            if(_uniqueTableService == null)
+            {
+                _uniqueTableService = new Table_Service();
+            }
+            return _uniqueTableService;
+        }
         public List<Table> GetAllTables()
         {
             try
