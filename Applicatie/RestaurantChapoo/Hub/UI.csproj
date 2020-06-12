@@ -58,6 +58,17 @@
     </Compile>
     <Compile Include="CustomOrderControl.Designer.cs">
       <DependentUpon>CustomOrderControl.cs</DependentUpon>
+    <Compile Include="Afreken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Afreken.Designer.cs">
+      <DependentUpon>Afreken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tafeloverzicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tafeloverzicht.Designer.cs">
+      <DependentUpon>Tafeloverzicht.cs</DependentUpon>
     </Compile>
     <Compile Include="Hub.cs">
       <SubType>Form</SubType>
@@ -84,6 +95,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomOrderControl.resx">
       <DependentUpon>CustomOrderControl.cs</DependentUpon>
+    <EmbeddedResource Include="Afreken.resx">
+      <DependentUpon>Afreken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hub.resx">
       <DependentUpon>Hub.cs</DependentUpon>
@@ -104,6 +117,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Tafeloverzicht.resx">
+      <DependentUpon>Tafeloverzicht.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,6 +157,16 @@
     <Content Include="Resources\18plusdranken.ico" />
     <Content Include="Resources\favicon.ico" />
     <Content Include="Resources\food.ico" />
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chapoo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

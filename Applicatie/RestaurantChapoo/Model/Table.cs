@@ -8,10 +8,10 @@ namespace Model
 {
     public class Table
     {
-        public Table(int tableID, int tableStatus)
+        public Table(int tableID, int tablestatus)
         {
             this.TableID = tableID;
-            this.TableStatus = tableStatus;
+            this.TableStatus = tablestatus;
         }
         public int TableID { get; private set; }
         public int TableStatus { get; private set; }

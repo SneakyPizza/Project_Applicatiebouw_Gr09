@@ -104,6 +104,7 @@
             // 
             this.pnl_Hub.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnl_Hub.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_Hub.Controls.Add(this.button1);
             this.pnl_Hub.Controls.Add(this.btn_Keuken);
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
@@ -170,6 +171,20 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(322, 137);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 81);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Afrekenen";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Hub
             // 
