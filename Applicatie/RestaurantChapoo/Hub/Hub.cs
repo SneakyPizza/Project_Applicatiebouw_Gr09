@@ -40,30 +40,35 @@ namespace Hub
             switch (functionID)
             {
                 case 1:
+                    btn_Checkout.BackColor = Color.SkyBlue;
                     btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.Red;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.SkyBlue;
                     break;
                 case 2:
+                    btn_Checkout.BackColor = Color.Red;
                     btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.Red;
                     btn_Keuken.BackColor = Color.SkyBlue;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 3:
+                    btn_Checkout.BackColor = Color.Red;
                     btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 4:
+                    btn_Checkout.BackColor = Color.Red;
                     btn_TableOverview.BackColor = Color.Red;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.Red;
                     btn_BestellingOpnemen.BackColor = Color.Red;
                     break;
                 case 5:
+                    btn_Checkout.BackColor = Color.SkyBlue;
                     btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.SkyBlue;
@@ -153,6 +158,21 @@ namespace Hub
             } else
             {
                 MessageBox.Show("Je hebt geen toestemming om op het 'Tafeloverzicht' te komen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Checkout_Click(object sender, EventArgs e)
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            if (service.CurrentEmployee.FunctionID == 1 || service.CurrentEmployee.FunctionID == 5)
+            {
+                Afreken co = Afreken.GetAfrekenScreen();
+                co.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt geen toestemming om op het 'Betaalscherm' te komen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

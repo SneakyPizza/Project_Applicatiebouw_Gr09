@@ -49,6 +49,7 @@
     <Compile Include="MenuItem.cs" />
     <Compile Include="MenuOrder.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDetails.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PendingOrder.cs" />
     <Compile Include="Program.cs" />

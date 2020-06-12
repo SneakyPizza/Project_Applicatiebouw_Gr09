@@ -31,19 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Afreken));
             this.ChapooIMG = new System.Windows.Forms.PictureBox();
             this.lvBestellingen = new System.Windows.Forms.ListView();
-            this.ColumnNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColumnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_afreken = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.lbl_afrekenen = new System.Windows.Forms.Label();
-            this.lvTafels = new System.Windows.Forms.ListView();
-            this.ColumnTafelnummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnAchternaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnBedrag = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.radioButtonPIN = new System.Windows.Forms.RadioButton();
             this.radioButtonContant = new System.Windows.Forms.RadioButton();
             this.textBoxFooi = new System.Windows.Forms.TextBox();
             this.lbl_Fooi = new System.Windows.Forms.Label();
+            this.comboBoxGetReservation = new System.Windows.Forms.ComboBox();
+            this.lbl_bedrag = new System.Windows.Forms.Label();
+            this.lbl_Totaalbedrag = new System.Windows.Forms.Label();
+            this.lbl_BTW = new System.Windows.Forms.Label();
+            this.lbl_tekst = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,39 +60,47 @@
             // 
             // lvBestellingen
             // 
-            this.lvBestellingen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvBestellingen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvBestellingen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnNaam,
-            this.ColumnAantal});
+            this.ColumnName,
+            this.ColumnAantal,
+            this.columnPrice});
             this.lvBestellingen.HideSelection = false;
-            this.lvBestellingen.Location = new System.Drawing.Point(931, 120);
+            this.lvBestellingen.Location = new System.Drawing.Point(12, 98);
             this.lvBestellingen.Name = "lvBestellingen";
-            this.lvBestellingen.Size = new System.Drawing.Size(321, 282);
+            this.lvBestellingen.Size = new System.Drawing.Size(699, 282);
             this.lvBestellingen.TabIndex = 1;
             this.lvBestellingen.UseCompatibleStateImageBehavior = false;
             this.lvBestellingen.View = System.Windows.Forms.View.Details;
             // 
-            // ColumnNaam
+            // ColumnName
             // 
-            this.ColumnNaam.Text = "Naam";
-            this.ColumnNaam.Width = 219;
+            this.ColumnName.Text = "Naam";
+            this.ColumnName.Width = 150;
             // 
             // ColumnAantal
             // 
             this.ColumnAantal.Text = "Aantal";
-            this.ColumnAantal.Width = 98;
+            this.ColumnAantal.Width = 377;
+            // 
+            // columnPrice
+            // 
+            this.columnPrice.Text = "Prijs";
+            this.columnPrice.Width = 168;
             // 
             // btn_afreken
             // 
-            this.btn_afreken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_afreken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_afreken.BackColor = System.Drawing.Color.SpringGreen;
-            this.btn_afreken.Location = new System.Drawing.Point(931, 508);
+            this.btn_afreken.Location = new System.Drawing.Point(13, 523);
             this.btn_afreken.Name = "btn_afreken";
             this.btn_afreken.Size = new System.Drawing.Size(321, 53);
             this.btn_afreken.TabIndex = 2;
             this.btn_afreken.Text = "Afrekenen";
             this.btn_afreken.UseVisualStyleBackColor = false;
+            this.btn_afreken.Click += new System.EventHandler(this.btn_afreken_Click);
             // 
             // btn_Home
             // 
@@ -113,40 +123,11 @@
             this.lbl_afrekenen.TabIndex = 5;
             this.lbl_afrekenen.Text = "Afrekenen";
             // 
-            // lvTafels
-            // 
-            this.lvTafels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnTafelnummer,
-            this.columnAchternaam,
-            this.columnBedrag});
-            this.lvTafels.HideSelection = false;
-            this.lvTafels.Location = new System.Drawing.Point(12, 120);
-            this.lvTafels.Name = "lvTafels";
-            this.lvTafels.Size = new System.Drawing.Size(876, 441);
-            this.lvTafels.TabIndex = 6;
-            this.lvTafels.UseCompatibleStateImageBehavior = false;
-            this.lvTafels.View = System.Windows.Forms.View.Details;
-            // 
-            // ColumnTafelnummer
-            // 
-            this.ColumnTafelnummer.Text = "Tafelnummer";
-            this.ColumnTafelnummer.Width = 110;
-            // 
-            // columnAchternaam
-            // 
-            this.columnAchternaam.Text = "Achternaam";
-            this.columnAchternaam.Width = 148;
-            // 
-            // columnBedrag
-            // 
-            this.columnBedrag.Text = "Te betalen bedrag:";
-            this.columnBedrag.Width = 120;
-            // 
             // radioButtonPIN
             // 
-            this.radioButtonPIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonPIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonPIN.AutoSize = true;
-            this.radioButtonPIN.Location = new System.Drawing.Point(931, 417);
+            this.radioButtonPIN.Location = new System.Drawing.Point(13, 441);
             this.radioButtonPIN.Name = "radioButtonPIN";
             this.radioButtonPIN.Size = new System.Drawing.Size(43, 17);
             this.radioButtonPIN.TabIndex = 7;
@@ -156,9 +137,9 @@
             // 
             // radioButtonContant
             // 
-            this.radioButtonContant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonContant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonContant.AutoSize = true;
-            this.radioButtonContant.Location = new System.Drawing.Point(931, 440);
+            this.radioButtonContant.Location = new System.Drawing.Point(12, 464);
             this.radioButtonContant.Name = "radioButtonContant";
             this.radioButtonContant.Size = new System.Drawing.Size(62, 17);
             this.radioButtonContant.TabIndex = 8;
@@ -168,21 +149,70 @@
             // 
             // textBoxFooi
             // 
-            this.textBoxFooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxFooi.Location = new System.Drawing.Point(1001, 482);
+            this.textBoxFooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxFooi.Location = new System.Drawing.Point(84, 490);
             this.textBoxFooi.Name = "textBoxFooi";
             this.textBoxFooi.Size = new System.Drawing.Size(111, 20);
             this.textBoxFooi.TabIndex = 9;
             // 
             // lbl_Fooi
             // 
-            this.lbl_Fooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Fooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Fooi.AutoSize = true;
-            this.lbl_Fooi.Location = new System.Drawing.Point(928, 485);
+            this.lbl_Fooi.Location = new System.Drawing.Point(12, 493);
             this.lbl_Fooi.Name = "lbl_Fooi";
             this.lbl_Fooi.Size = new System.Drawing.Size(66, 13);
             this.lbl_Fooi.TabIndex = 10;
             this.lbl_Fooi.Text = "Voer Fooi in:";
+            // 
+            // comboBoxGetReservation
+            // 
+            this.comboBoxGetReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBoxGetReservation.FormattingEnabled = true;
+            this.comboBoxGetReservation.Location = new System.Drawing.Point(13, 409);
+            this.comboBoxGetReservation.Name = "comboBoxGetReservation";
+            this.comboBoxGetReservation.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGetReservation.TabIndex = 11;
+            this.comboBoxGetReservation.Text = "ReservationID";
+            this.comboBoxGetReservation.SelectedValueChanged += new System.EventHandler(this.comboBoxGetReservation_SelectedValueChanged);
+            // 
+            // lbl_bedrag
+            // 
+            this.lbl_bedrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_bedrag.AutoSize = true;
+            this.lbl_bedrag.Location = new System.Drawing.Point(546, 412);
+            this.lbl_bedrag.Name = "lbl_bedrag";
+            this.lbl_bedrag.Size = new System.Drawing.Size(73, 13);
+            this.lbl_bedrag.TabIndex = 12;
+            this.lbl_bedrag.Text = "Totaalbedrag:";
+            // 
+            // lbl_Totaalbedrag
+            // 
+            this.lbl_Totaalbedrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_Totaalbedrag.AutoSize = true;
+            this.lbl_Totaalbedrag.Location = new System.Drawing.Point(635, 412);
+            this.lbl_Totaalbedrag.Name = "lbl_Totaalbedrag";
+            this.lbl_Totaalbedrag.Size = new System.Drawing.Size(0, 13);
+            this.lbl_Totaalbedrag.TabIndex = 13;
+            // 
+            // lbl_BTW
+            // 
+            this.lbl_BTW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_BTW.AutoSize = true;
+            this.lbl_BTW.Location = new System.Drawing.Point(635, 445);
+            this.lbl_BTW.Name = "lbl_BTW";
+            this.lbl_BTW.Size = new System.Drawing.Size(0, 13);
+            this.lbl_BTW.TabIndex = 14;
+            // 
+            // lbl_tekst
+            // 
+            this.lbl_tekst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_tekst.AutoSize = true;
+            this.lbl_tekst.Location = new System.Drawing.Point(546, 441);
+            this.lbl_tekst.Name = "lbl_tekst";
+            this.lbl_tekst.Size = new System.Drawing.Size(38, 13);
+            this.lbl_tekst.TabIndex = 15;
+            this.lbl_tekst.Text = "BTW: ";
             // 
             // Afreken
             // 
@@ -190,11 +220,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lbl_tekst);
+            this.Controls.Add(this.lbl_BTW);
+            this.Controls.Add(this.lbl_Totaalbedrag);
+            this.Controls.Add(this.lbl_bedrag);
+            this.Controls.Add(this.comboBoxGetReservation);
             this.Controls.Add(this.lbl_Fooi);
             this.Controls.Add(this.textBoxFooi);
             this.Controls.Add(this.radioButtonContant);
             this.Controls.Add(this.radioButtonPIN);
-            this.Controls.Add(this.lvTafels);
             this.Controls.Add(this.lbl_afrekenen);
             this.Controls.Add(this.btn_Home);
             this.Controls.Add(this.btn_afreken);
@@ -215,17 +249,19 @@
         private System.Windows.Forms.PictureBox ChapooIMG;
         private System.Windows.Forms.ListView lvBestellingen;
         private System.Windows.Forms.Button btn_afreken;
-        private System.Windows.Forms.ColumnHeader ColumnNaam;
         private System.Windows.Forms.ColumnHeader ColumnAantal;
+        private System.Windows.Forms.ColumnHeader ColumnName;
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Label lbl_afrekenen;
-        private System.Windows.Forms.ListView lvTafels;
-        private System.Windows.Forms.ColumnHeader ColumnTafelnummer;
-        private System.Windows.Forms.ColumnHeader columnBedrag;
-        private System.Windows.Forms.ColumnHeader columnAchternaam;
         private System.Windows.Forms.RadioButton radioButtonPIN;
         private System.Windows.Forms.RadioButton radioButtonContant;
         private System.Windows.Forms.TextBox textBoxFooi;
         private System.Windows.Forms.Label lbl_Fooi;
+        private System.Windows.Forms.ComboBox comboBoxGetReservation;
+        private System.Windows.Forms.ColumnHeader columnPrice;
+        private System.Windows.Forms.Label lbl_bedrag;
+        private System.Windows.Forms.Label lbl_Totaalbedrag;
+        private System.Windows.Forms.Label lbl_BTW;
+        private System.Windows.Forms.Label lbl_tekst;
     }
 }
