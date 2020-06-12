@@ -38,6 +38,7 @@
             this.lbl_WelkomstZin = new System.Windows.Forms.Label();
             this.lbl_User = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.pnl_Hub.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +46,11 @@
             // 
             this.lbl_Datum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Datum.AutoSize = true;
-            this.lbl_Datum.Location = new System.Drawing.Point(1030, 9);
+            this.lbl_Datum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Datum.Location = new System.Drawing.Point(755, 2);
+            this.lbl_Datum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Datum.Name = "lbl_Datum";
-            this.lbl_Datum.Size = new System.Drawing.Size(63, 17);
+            this.lbl_Datum.Size = new System.Drawing.Size(72, 20);
             this.lbl_Datum.TabIndex = 4;
             this.lbl_Datum.Text = "<datum>";
             // 
@@ -56,9 +59,10 @@
             this.btn_Bar.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Bar.FlatAppearance.BorderSize = 0;
             this.btn_Bar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Bar.Location = new System.Drawing.Point(429, 46);
+            this.btn_Bar.Location = new System.Drawing.Point(322, 37);
+            this.btn_Bar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Bar.Name = "btn_Bar";
-            this.btn_Bar.Size = new System.Drawing.Size(110, 100);
+            this.btn_Bar.Size = new System.Drawing.Size(82, 81);
             this.btn_Bar.TabIndex = 2;
             this.btn_Bar.Text = "Bar";
             this.btn_Bar.UseVisualStyleBackColor = false;
@@ -68,9 +72,10 @@
             this.btn_Management.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Management.FlatAppearance.BorderSize = 0;
             this.btn_Management.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Management.Location = new System.Drawing.Point(262, 169);
+            this.btn_Management.Location = new System.Drawing.Point(196, 137);
+            this.btn_Management.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Management.Name = "btn_Management";
-            this.btn_Management.Size = new System.Drawing.Size(110, 100);
+            this.btn_Management.Size = new System.Drawing.Size(82, 81);
             this.btn_Management.TabIndex = 3;
             this.btn_Management.Text = "Management";
             this.btn_Management.UseVisualStyleBackColor = false;
@@ -81,9 +86,10 @@
             this.btn_BestellingOpnemen.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_BestellingOpnemen.FlatAppearance.BorderSize = 0;
             this.btn_BestellingOpnemen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BestellingOpnemen.Location = new System.Drawing.Point(262, 46);
+            this.btn_BestellingOpnemen.Location = new System.Drawing.Point(196, 37);
+            this.btn_BestellingOpnemen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_BestellingOpnemen.Name = "btn_BestellingOpnemen";
-            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(110, 100);
+            this.btn_BestellingOpnemen.Size = new System.Drawing.Size(82, 81);
             this.btn_BestellingOpnemen.TabIndex = 1;
             this.btn_BestellingOpnemen.Text = "Bestelling opnemen";
             this.btn_BestellingOpnemen.UseVisualStyleBackColor = false;
@@ -94,9 +100,10 @@
             this.btn_Keuken.BackColor = System.Drawing.Color.Gainsboro;
             this.btn_Keuken.FlatAppearance.BorderSize = 0;
             this.btn_Keuken.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Keuken.Location = new System.Drawing.Point(101, 46);
+            this.btn_Keuken.Location = new System.Drawing.Point(76, 37);
+            this.btn_Keuken.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Keuken.Name = "btn_Keuken";
-            this.btn_Keuken.Size = new System.Drawing.Size(110, 100);
+            this.btn_Keuken.Size = new System.Drawing.Size(82, 81);
             this.btn_Keuken.TabIndex = 0;
             this.btn_Keuken.Text = "Keuken";
             this.btn_Keuken.UseVisualStyleBackColor = false;
@@ -110,9 +117,10 @@
             this.pnl_Hub.Controls.Add(this.btn_BestellingOpnemen);
             this.pnl_Hub.Controls.Add(this.btn_Management);
             this.pnl_Hub.Controls.Add(this.btn_Bar);
-            this.pnl_Hub.Location = new System.Drawing.Point(228, 111);
+            this.pnl_Hub.Location = new System.Drawing.Point(171, 90);
+            this.pnl_Hub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnl_Hub.Name = "pnl_Hub";
-            this.pnl_Hub.Size = new System.Drawing.Size(659, 290);
+            this.pnl_Hub.Size = new System.Drawing.Size(494, 236);
             this.pnl_Hub.TabIndex = 5;
             // 
             // lbl_WelkomstZin
@@ -120,9 +128,10 @@
             this.lbl_WelkomstZin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_WelkomstZin.AutoSize = true;
             this.lbl_WelkomstZin.Font = new System.Drawing.Font("Viner Hand ITC", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WelkomstZin.Location = new System.Drawing.Point(331, 37);
+            this.lbl_WelkomstZin.Location = new System.Drawing.Point(248, 30);
+            this.lbl_WelkomstZin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_WelkomstZin.Name = "lbl_WelkomstZin";
-            this.lbl_WelkomstZin.Size = new System.Drawing.Size(413, 69);
+            this.lbl_WelkomstZin.Size = new System.Drawing.Size(338, 57);
             this.lbl_WelkomstZin.TabIndex = 6;
             this.lbl_WelkomstZin.Text = "Restaurant Chapoo";
             // 
@@ -149,17 +158,33 @@
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_logout.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logout.Location = new System.Drawing.Point(717, 25);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(109, 33);
+            this.btn_logout.TabIndex = 7;
+            this.btn_logout.Text = "Uitloggen";
+            this.btn_logout.UseVisualStyleBackColor = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
             // Hub
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(1118, 531);
+            this.ClientSize = new System.Drawing.Size(838, 431);
+            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.lbl_WelkomstZin);
             this.Controls.Add(this.pnl_Hub);
             this.Controls.Add(this.lbl_Datum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Hub";
             this.Text = "Restaurant Chapoo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -179,6 +204,7 @@
         private System.Windows.Forms.Label lbl_WelkomstZin;
         private System.Windows.Forms.Label lbl_User;
         private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.Button btn_logout;
     }
 }
 

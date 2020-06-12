@@ -21,14 +21,22 @@ namespace Hub
             TableNumber = tablenr;
             MenuItems = menuItems;
 
+            lbl_tableNumber.Text = tablenr.ToString();
+            lv_menuItems.Columns.Add("Gerecht");
+            lv_menuItems.Columns.Add("Aantal");
+            
+
             foreach(Model.MenuItem mi in menuItems)
             {
                 ListViewItem i = new ListViewItem();
+                ListViewItem ii = new ListViewItem(new[] { mi.MenuTypeName, mi.Stock.ToString() }); ;
                 i.Text = mi.MenuTypeName;
                 i.SubItems.Add(mi.PricePP.ToString());
 
-                lv_menuItems.Items.Add(i);
+                lv_menuItems.Items.Add(ii);
             }
+            //lv_menuItems.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv_menuItems.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         public int TableNumber

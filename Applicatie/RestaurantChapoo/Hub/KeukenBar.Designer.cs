@@ -34,10 +34,9 @@
             this.btn_Home = new System.Windows.Forms.Button();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgv_UserControl = new System.Windows.Forms.DataGridView();
+            this.tlp_OrderGrid = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_UserControl)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -82,13 +81,20 @@
             this.panel2.Size = new System.Drawing.Size(250, 621);
             this.panel2.TabIndex = 2;
             // 
-            // dgv_UserControl
+            // tlp_OrderGrid
             // 
-            this.dgv_UserControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_UserControl.Location = new System.Drawing.Point(12, 69);
-            this.dgv_UserControl.Name = "dgv_UserControl";
-            this.dgv_UserControl.Size = new System.Drawing.Size(931, 480);
-            this.dgv_UserControl.TabIndex = 4;
+            this.tlp_OrderGrid.AutoScroll = true;
+            this.tlp_OrderGrid.ColumnCount = 3;
+            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
+            this.tlp_OrderGrid.Location = new System.Drawing.Point(3, 69);
+            this.tlp_OrderGrid.Name = "tlp_OrderGrid";
+            this.tlp_OrderGrid.RowCount = 2;
+            this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_OrderGrid.Size = new System.Drawing.Size(1016, 600);
+            this.tlp_OrderGrid.TabIndex = 3;
             // 
             // KeukenBar
             // 
@@ -96,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.dgv_UserControl);
+            this.Controls.Add(this.tlp_OrderGrid);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -104,10 +110,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KeukenBar";
             this.Text = "Restaurant Chapoo";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_UserControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,6 +123,6 @@
         private System.Windows.Forms.Button btn_Home;
         private System.ServiceProcess.ServiceController serviceController1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgv_UserControl;
+        private System.Windows.Forms.TableLayoutPanel tlp_OrderGrid;
     }
 }
