@@ -11,6 +11,17 @@ namespace DAL
 {
     public class Order_DAO : Base
     {
+        private static Order_DAO _uniqueOrderDAO;
+
+        public static Order_DAO GetOrderDAO()
+        {
+            if(_uniqueOrderDAO == null)
+            {
+                _uniqueOrderDAO = new Order_DAO();
+            }
+            return _uniqueOrderDAO;
+        }
+
         public void PlaceOrder(int orderStatus, int reservationID, int paymentID, int employeeID)
         {
             SqlParameter sqlParameter1 = new SqlParameter("@orderStatus", orderStatus);
