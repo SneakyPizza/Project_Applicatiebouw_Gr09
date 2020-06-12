@@ -23,7 +23,7 @@ namespace Hub
             InitializeComponent();
             FillComboBox();
             Login_Service login_Service = Login_Service.GetLoginService();
-            lbl_CurrentEmployee.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
+            FillLoggedIn();
             lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
             ImageList imageList = new ImageList();
@@ -50,6 +50,7 @@ namespace Hub
             {
                 _uniqueOrderScreen = new BestellingOpnemen();
             }
+            _uniqueOrderScreen.FillLoggedIn();
             return _uniqueOrderScreen;
         }
         private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
@@ -243,6 +244,10 @@ namespace Hub
             Order_Service order_Service = Order_Service.GetOrderService();
             return order_Service.GetMostRecentOrderID();
         }
-
+        public void FillLoggedIn()
+        {
+            Login_Service login_Service = Login_Service.GetLoginService();
+            lbl_CurrentEmployee.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
+        }
     }
 }
