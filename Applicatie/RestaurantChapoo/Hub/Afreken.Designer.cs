@@ -144,6 +144,7 @@
             // 
             // radioButtonPIN
             // 
+            this.radioButtonPIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonPIN.AutoSize = true;
             this.radioButtonPIN.Location = new System.Drawing.Point(931, 417);
             this.radioButtonPIN.Name = "radioButtonPIN";
@@ -155,6 +156,7 @@
             // 
             // radioButtonContant
             // 
+            this.radioButtonContant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonContant.AutoSize = true;
             this.radioButtonContant.Location = new System.Drawing.Point(931, 440);
             this.radioButtonContant.Name = "radioButtonContant";
@@ -166,6 +168,7 @@
             // 
             // textBoxFooi
             // 
+            this.textBoxFooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFooi.Location = new System.Drawing.Point(1001, 482);
             this.textBoxFooi.Name = "textBoxFooi";
             this.textBoxFooi.Size = new System.Drawing.Size(111, 20);
@@ -173,6 +176,7 @@
             // 
             // lbl_Fooi
             // 
+            this.lbl_Fooi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Fooi.AutoSize = true;
             this.lbl_Fooi.Location = new System.Drawing.Point(928, 485);
             this.lbl_Fooi.Name = "lbl_Fooi";
