@@ -20,7 +20,7 @@ namespace Hub
         {
             InitializeComponent();
             tlp_OrderGrid.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
-            CreateOrders();
+            MakeBarOrders();
         }
 
         public static KeukenBar GetKeukenBar()
@@ -39,6 +39,7 @@ namespace Hub
             this.Hide();
         }
 
+        //replace with bar or kitchen
         private void CreateOrders()
         {
             KitchenBar_Service service = KitchenBar_Service.GetBarService();
@@ -52,9 +53,36 @@ namespace Hub
             }
         }
 
-        private void checkPageRequest()
+        private void MakeBarOrders()
         {
+            KitchenBar_Service service = KitchenBar_Service.GetBarService();
+            List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
 
+            foreach(KitchenBarOrder order in orders)
+            {
+                List<Model.MenuItem> newitems = new List<Model.MenuItem>();
+                List<Model.MenuItem> items = order.OrderItems;
+                foreach(Model.MenuItem item in items)
+                {
+                    if(item.MenuTypeID == 1 || item.MenuTypeID == 2)
+                    {
+                        //add to list
+                        newitems.Add(item);
+                    }
+                }
+                if(newitems != null)
+                {
+                    CustomOrderControl card = new CustomOrderControl(order.TableID, newitems);
+                    tlp_OrderGrid.Controls.Add(card);
+                    card.Show();
+                }
+            }
+        }
+
+        private void MakeKitchenOrders()
+        {
+            KitchenBar_Service service = KitchenBar_Service.GetBarService();
+            List<KitchenBarOrder> orders = service.GetKitchenBarOrders();
         }
     }
 }

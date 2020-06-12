@@ -76,24 +76,25 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(1025, 62);
+            this.panel2.Location = new System.Drawing.Point(1037, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 621);
+            this.panel2.Size = new System.Drawing.Size(238, 621);
             this.panel2.TabIndex = 2;
             // 
             // tlp_OrderGrid
             // 
+            this.tlp_OrderGrid.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tlp_OrderGrid.AutoScroll = true;
             this.tlp_OrderGrid.ColumnCount = 3;
-            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.92614F));
+            this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.07386F));
             this.tlp_OrderGrid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
-            this.tlp_OrderGrid.Location = new System.Drawing.Point(3, 69);
+            this.tlp_OrderGrid.Location = new System.Drawing.Point(3, 62);
             this.tlp_OrderGrid.Name = "tlp_OrderGrid";
-            this.tlp_OrderGrid.RowCount = 2;
+            this.tlp_OrderGrid.RowCount = 1;
             this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlp_OrderGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_OrderGrid.Size = new System.Drawing.Size(1016, 600);
+            this.tlp_OrderGrid.Size = new System.Drawing.Size(1028, 621);
             this.tlp_OrderGrid.TabIndex = 3;
             // 
             // KeukenBar

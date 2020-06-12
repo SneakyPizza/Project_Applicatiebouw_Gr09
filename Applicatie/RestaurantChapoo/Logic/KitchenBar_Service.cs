@@ -50,7 +50,7 @@ namespace Logic
                             orderitems.Add(mitem);
                         }
 
-                        if (dt.Rows[i].Field<int>("OrderID") != dt.Rows[i - 1].Field<int>("OrderID") || (i +1) == dt.Rows.Count)
+                        if (dt.Rows[i].Field<int>("OrderID") != dt.Rows[i - 1].Field<int>("OrderID") || (i + 1) == dt.Rows.Count)
                         {
                             //List<MenuItem> it = orderitems;
 
