@@ -123,7 +123,6 @@ namespace Hub
             if (lvOverzicht.FocusedItem == null)
             {
                 MessageBox.Show("Selecteer eerst een tafel uit bovenstaande lijst.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
@@ -133,7 +132,6 @@ namespace Hub
                 afreken.Show();
                 this.Hide();
             }
-
         }
     }
 }
