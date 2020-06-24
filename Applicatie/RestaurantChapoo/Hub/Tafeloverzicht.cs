@@ -74,8 +74,8 @@ namespace Hub
             lvOverzicht.Items.Clear();
             foreach (Model.PendingOrder po in pendingorder)
             {
-                ListViewItem li = new ListViewItem(po.OrderStatusName);
-                li.SubItems.Add(po.TableID.ToString());
+                ListViewItem li = new ListViewItem(po.TableID.ToString());
+                li.SubItems.Add(po.OrderStatusName);
                 lvOverzicht.Items.Add(li);
             }
         }
@@ -88,14 +88,16 @@ namespace Hub
             lvOverzicht.Items.Clear();
             foreach (Model.PendingOrder po in pendingorder)
             {
-                ListViewItem li = new ListViewItem(po.OrderStatusName);
-                li.SubItems.Add(po.TableID.ToString());
+                ListViewItem li = new ListViewItem(po.TableID.ToString());
+                li.SubItems.Add(po.OrderStatusName);
                 lvOverzicht.Items.Add(li);
             }
         }
 
         private void tafel3_Click(object sender, EventArgs e)
         {
+            Table currentTable = Table.GetTable();
+            currentTable.currentTable = new Table(3, 1);
             if (tafel3.BackColor == Color.Red)
             {
                 BestellingOpnemen bestellingopnemen = BestellingOpnemen.GetOrderScreen();
@@ -106,10 +108,28 @@ namespace Hub
 
         private void tafel4_Click(object sender, EventArgs e)
         {
+            Table currentTable = Table.GetTable();
+            currentTable.currentTable = new Table(4, 1);
             if (tafel4.BackColor == Color.Red)
             {
                 BestellingOpnemen bestellingopnemen = BestellingOpnemen.GetOrderScreen();
                 bestellingopnemen.Show();
+                this.Hide();
+            }
+        }
+
+        private void btn_Afrekenen_Click(object sender, EventArgs e)
+        {
+            if (lvOverzicht.FocusedItem == null)
+            {
+                MessageBox.Show("Selecteer eerst een tafel uit bovenstaande lijst.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Table currentTable = Table.GetTable();
+                currentTable.currentTable = new Table(int.Parse(lvOverzicht.FocusedItem.Text), 0);
+                Afreken afreken = Afreken.GetAfrekenScreen();
+                afreken.Show();
                 this.Hide();
             }
         }
