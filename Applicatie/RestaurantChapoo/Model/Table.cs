@@ -13,8 +13,19 @@ namespace Model
             this.TableID = tableID;
             this.TableStatus = tablestatus;
         }
+
+        static Table _uniqueTable;
+
+        public static Table GetTable()
+        {
+            if(_uniqueTable == null)
+            {
+                _uniqueTable = new Table(5 , 0);
+            }
+            return _uniqueTable;
+        }
         public int TableID { get; private set; }
         public int TableStatus { get; private set; }
-
+        public Table currentTable { get; set; }
     }
 }
