@@ -18,10 +18,7 @@ namespace Hub
         public Afreken()
         {
             InitializeComponent();
-            Table table = Table.GetTable();
-            Table_Service table_Service = Table_Service.GetTableService();
-            FillListView(table_Service.GetReservationID(table.currentTable.TableID));
-            FillCurrentTable();
+            FillComboBox();
         }
 
         private static Afreken _uniqueAfreken;
@@ -31,7 +28,6 @@ namespace Hub
             {
                 _uniqueAfreken = new Afreken();
             }
-            _uniqueAfreken.FillCurrentTable();
             return _uniqueAfreken;
         }
 
@@ -42,6 +38,16 @@ namespace Hub
             this.Hide();
         }
 
+        private void FillComboBox() //combobox vullen met alle tafelnummers
+        {
+            Payment_Service payment_Service = Payment_Service.GetPaymentService();
+            List<int> ids = payment_Service.GetAllReservationID(); ;
+
+            foreach (int i in ids)
+            {
+                comboBoxGetReservation.Items.Add(i.ToString());
+            }
+        }
 
         private void FillListView(int ReservationID)
         {
@@ -52,7 +58,7 @@ namespace Hub
             {
                 ListViewItem li = new ListViewItem(od.MenuItemName);
                 li.SubItems.Add(od.Amount.ToString());
-                li.SubItems.Add(od.Price.ToString("0.00"));
+                li.SubItems.Add(od.Price.ToString());
                 lvBestellingen.Items.Add(li);
             }
 
@@ -61,25 +67,29 @@ namespace Hub
             {
                 totaalbedrag += (double.Parse(li.SubItems[1].Text) * double.Parse(li.SubItems[2].Text));
             }
-            lbl_Totaalbedrag.Text = totaalbedrag.ToString("0.00");
+            lbl_Totaalbedrag.Text = totaalbedrag.ToString();
             totaalbedrag = totaalbedrag * 0.21;
-            lbl_BTW.Text = totaalbedrag.ToString("0.00");
+            lbl_BTW.Text = totaalbedrag.ToString();
             lvBestellingen.Refresh();
+        }
+
+        private void comboBoxGetReservation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillListView(int.Parse(comboBoxGetReservation.SelectedItem.ToString()));
+        }
+
+        private void comboBoxGetReservation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            FillListView(int.Parse(comboBoxGetReservation.SelectedItem.ToString()));
         }
 
         private void btn_afreken_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Hide();
         }
 
-        public void FillCurrentTable()
-        {
-            Table table = Table.GetTable();
-            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
-        }
 
     }
 }

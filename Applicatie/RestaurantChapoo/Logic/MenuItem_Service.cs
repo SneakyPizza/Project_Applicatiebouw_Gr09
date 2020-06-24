@@ -35,11 +35,11 @@ namespace Logic
                 return menuItems;
             }
         }
-        public List<MenuItem> GetMenuItemOnID(string MenuItemName)
+        public List<MenuItem> GetMenuItemOnID(int MenuItemID)
         {
             try
             {
-                return MenuItem_DAO.GetMenuItemOnName(MenuItemName);
+                return MenuItem_DAO.GetMenuItemOnID(MenuItemID);
             }
             catch(Exception e)
             {

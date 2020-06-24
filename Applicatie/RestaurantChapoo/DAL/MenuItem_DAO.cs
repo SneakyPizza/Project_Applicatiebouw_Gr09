@@ -17,11 +17,11 @@ namespace DAL
             SqlParameter[] sqlP = new SqlParameter[] { sqlParameter };
             return GetAllData(ExecuteQuery("GetMenuItems", sqlP));
         }
-        public List<MenuItem> GetMenuItemOnName(string MenuItemName)
+        public List<MenuItem> GetMenuItemOnID(int MenuItemID)
         {
-            SqlParameter sqlParameter = new SqlParameter("@menuItemName", MenuItemName);
+            SqlParameter sqlParameter = new SqlParameter("@MenuItemID", MenuItemID);
             SqlParameter[] sqlP = new SqlParameter[] { sqlParameter };
-            return GetAllData(ExecuteQuery("GetMenuItemOnName", sqlP));
+            return GetAllData(ExecuteQuery("GetMenuItemOnID", sqlP));
         }
         private List<MenuItem> GetAllData(DataTable dataTable)
         {
