@@ -113,5 +113,21 @@ namespace Hub
                 this.Hide();
             }
         }
+
+        private void btn_Afrekenen_Click(object sender, EventArgs e)
+        {
+            if (lvOverzicht.FocusedItem == null)
+            {
+                MessageBox.Show("Selecteer eerst een tafel uit bovenstaande lijst.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Table currentTable = Table.GetTable();
+                currentTable.currentTable = new Table(int.Parse(lvOverzicht.FocusedItem.Text), 0);
+                Afreken afreken = Afreken.GetAfrekenScreen();
+                afreken.Show();
+                this.Hide();
+            }
+        }
     }
 }
