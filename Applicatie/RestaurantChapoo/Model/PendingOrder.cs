@@ -8,11 +8,13 @@ namespace Model
 {
     public class PendingOrder
     {
-        public PendingOrder(int tableid, string orderstatusname)
+        public PendingOrder(int orderID, int tableid, string orderstatusname)
         {
+            this.OrderID = orderID;
             this.OrderStatusName = orderstatusname;
             this.TableID = tableid;
         }
+        public int OrderID { get; private set; }
         public string OrderStatusName { get; private set; }
         public int TableID { get; private set; }
     }

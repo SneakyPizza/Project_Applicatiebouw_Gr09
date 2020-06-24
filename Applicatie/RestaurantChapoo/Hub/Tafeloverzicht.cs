@@ -133,5 +133,25 @@ namespace Hub
                 this.Hide();
             }
         }
+
+        private void btn_Annuleren_Click(object sender, EventArgs e)
+        {
+            if (lvOverzicht.FocusedItem == null)
+            {
+                MessageBox.Show("Selecteer eerst een tafel uit bovenstaande lijst.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                PendingOrder_Service pservice = new PendingOrder_Service();
+                List<PendingOrder> pendingorders = pservice.GetAllPendingOrders();
+                PendingOrder pendingOrder = pendingorders[lvOverzicht.FocusedItem.Index];
+
+                KitchenBar_Service service = KitchenBar_Service.GetBarService();
+                service.UpdatebarOrder(pendingOrder.OrderID, btn_Annuleren.Text);
+
+                btn_refresh.PerformClick();
+            }
+        }
     }
 }

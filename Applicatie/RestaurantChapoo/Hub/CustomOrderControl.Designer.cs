@@ -36,7 +36,6 @@
             this.btn_Confirm = new System.Windows.Forms.Button();
             this.lbl_OrderTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,9 +89,9 @@
             this.btn_Confirm.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirm.Location = new System.Drawing.Point(178, 253);
+            this.btn_Confirm.Location = new System.Drawing.Point(-1, 253);
             this.btn_Confirm.Name = "btn_Confirm";
-            this.btn_Confirm.Size = new System.Drawing.Size(173, 33);
+            this.btn_Confirm.Size = new System.Drawing.Size(352, 33);
             this.btn_Confirm.TabIndex = 4;
             this.btn_Confirm.Text = "Gereed";
             this.btn_Confirm.UseVisualStyleBackColor = false;
@@ -118,27 +117,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Besteld om:";
             // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Cancel.BackColor = System.Drawing.Color.Red;
-            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(-1, 253);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(179, 33);
-            this.btn_Cancel.TabIndex = 7;
-            this.btn_Cancel.Text = "Annuleren";
-            this.btn_Cancel.UseVisualStyleBackColor = false;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
             // CustomOrderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_OrderTime);
             this.Controls.Add(this.btn_Confirm);
@@ -162,6 +146,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader col_Item;
         private System.Windows.Forms.ColumnHeader col_Amount;
-        private System.Windows.Forms.Button btn_Cancel;
     }
 }

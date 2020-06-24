@@ -23,7 +23,7 @@ namespace Logic
             catch (Exception e)
             {
                 List<PendingOrder> pendingOrders = new List<PendingOrder>();
-                PendingOrder pendingorder = new PendingOrder(99, "Failed");
+                PendingOrder pendingorder = new PendingOrder(99, 99, "Failed");
                 pendingOrders.Add(pendingorder);
                 return pendingOrders;
             }

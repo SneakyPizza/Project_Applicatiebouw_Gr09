@@ -51,9 +51,10 @@ namespace DAL
             List<PendingOrder> orders = new List<PendingOrder>();
             foreach (DataRow dataRow in dataTable.Rows)
             {
+                int OrderID = (int)dataRow["OrderID"];
                 int TableID = (int)dataRow["TableID"];
                 string OrderStatusName = (string)dataRow["OrderStatusName"];
-                PendingOrder order = new PendingOrder(TableID, OrderStatusName);
+                PendingOrder order = new PendingOrder(OrderID, TableID, OrderStatusName);
                 orders.Add(order);
             }
             return orders;

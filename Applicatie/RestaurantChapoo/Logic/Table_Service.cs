@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using DAL;
 using Logic;
 using Model;
@@ -11,7 +12,7 @@ namespace Logic
 {
     public class Table_Service
     {
-        private Table_DAO Table_DAO = new Table_DAO();
+        private Table_DAO table_DAO;
         private static Table_Service _uniqueTableService;
 
         public static Table_Service GetTableService()
@@ -24,9 +25,10 @@ namespace Logic
         }
         public List<Table> GetAllTables()
         {
+            table_DAO = Table_DAO.GetTableDAO();
             try
             {
-                return Table_DAO.GetAllTables();
+                return table_DAO.GetAllTables();
             }
             catch (Exception e)
             {
@@ -38,14 +40,21 @@ namespace Logic
         }
         public int GetReservationID(int tableID)
         {
+            table_DAO = Table_DAO.GetTableDAO();
             try
             {
-                return Table_DAO.GetReservationID(tableID);
+                return table_DAO.GetReservationID(tableID);
             }
             catch (Exception e)
             {
                 return 999;
             }
+        }
+
+        public void CancelOrder()
+        {
+            table_DAO = Table_DAO.GetTableDAO();
+            table_DAO.CancelOrder();
         }
     }
 }

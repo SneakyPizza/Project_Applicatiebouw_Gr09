@@ -11,6 +11,16 @@ namespace DAL
 {
     public class Table_DAO : Base
     {
+        private static Table_DAO _uniqueTableDAO;
+        public static Table_DAO GetTableDAO()
+        {
+            if (_uniqueTableDAO == null)
+            {
+                _uniqueTableDAO = new Table_DAO();
+            }
+            return _uniqueTableDAO;
+        }
+
         public List<Table> GetAllTables()
         {
             return GetAllData(ExecuteQuery("GetAllTables"));
@@ -27,6 +37,7 @@ namespace DAL
                 }
                 return tables;
         }
+
         private int GetInt(DataTable dataTable)
         {
             int reservationID = 0;
@@ -41,6 +52,13 @@ namespace DAL
             SqlParameter sqlParameter1 = new SqlParameter("@tableID", tableID);
             SqlParameter[] sqlp = new SqlParameter[] { sqlParameter1 };
             return GetInt(ExecuteQuery("GetReservationID", sqlp));
+        }
+
+        public void CancelOrder()
+        {
+            SqlParameter sqlParameter1 = new SqlParameter("@statusID", 4);
+            SqlParameter[] sqlP = new SqlParameter[] { sqlParameter1 };
+            ExecuteEditQuery("CancelOrder", sqlP);
         }
     }
 }
