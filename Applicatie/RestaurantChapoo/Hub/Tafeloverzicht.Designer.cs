@@ -52,8 +52,8 @@
             this.lbl_tafel9 = new System.Windows.Forms.Label();
             this.lbl_tafel10 = new System.Windows.Forms.Label();
             this.lvOverzicht = new System.Windows.Forms.ListView();
-            this.columnStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTafelNummer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Home = new System.Windows.Forms.Button();
             this.GroupBox = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
@@ -292,26 +292,29 @@
             this.lvOverzicht.UseCompatibleStateImageBehavior = false;
             this.lvOverzicht.View = System.Windows.Forms.View.Details;
             // 
-            // columnStatus
-            // 
-            this.columnStatus.Text = "Status";
-            this.columnStatus.Width = 174;
-            // 
             // columnTafelNummer
             // 
             this.columnTafelNummer.Text = "Tafelnummer";
             this.columnTafelNummer.Width = 147;
             // 
+            // columnStatus
+            // 
+            this.columnStatus.Text = "Status";
+            this.columnStatus.Width = 174;
+            // 
             // btn_Home
             // 
             this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Home.Location = new System.Drawing.Point(1766, 18);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(112, 35);
             this.btn_Home.TabIndex = 23;
             this.btn_Home.Text = "Home";
-            this.btn_Home.UseVisualStyleBackColor = true;
+            this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // GroupBox

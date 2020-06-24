@@ -45,6 +45,7 @@
             this.lbl_Totaalbedrag = new System.Windows.Forms.Label();
             this.lbl_BTW = new System.Windows.Forms.Label();
             this.lbl_tekst = new System.Windows.Forms.Label();
+            this.lbl_currentTable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChapooIMG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,13 +108,16 @@
             // btn_Home
             // 
             this.btn_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Home.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Home.Location = new System.Drawing.Point(1766, 20);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(112, 37);
             this.btn_Home.TabIndex = 4;
             this.btn_Home.Text = "Home";
-            this.btn_Home.UseVisualStyleBackColor = true;
+            this.btn_Home.UseVisualStyleBackColor = false;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // lbl_afrekenen
@@ -215,12 +219,24 @@
             this.lbl_tekst.TabIndex = 15;
             this.lbl_tekst.Text = "BTW: ";
             // 
+            // lbl_currentTable
+            // 
+            this.lbl_currentTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_currentTable.AutoSize = true;
+            this.lbl_currentTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_currentTable.Location = new System.Drawing.Point(17, 614);
+            this.lbl_currentTable.Name = "lbl_currentTable";
+            this.lbl_currentTable.Size = new System.Drawing.Size(172, 29);
+            this.lbl_currentTable.TabIndex = 24;
+            this.lbl_currentTable.Text = "<huidige tafel>";
+            // 
             // Afreken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
+            this.Controls.Add(this.lbl_currentTable);
             this.Controls.Add(this.lbl_tekst);
             this.Controls.Add(this.lbl_BTW);
             this.Controls.Add(this.lbl_Totaalbedrag);
@@ -263,5 +279,6 @@
         private System.Windows.Forms.Label lbl_Totaalbedrag;
         private System.Windows.Forms.Label lbl_BTW;
         private System.Windows.Forms.Label lbl_tekst;
+        private System.Windows.Forms.Label lbl_currentTable;
     }
 }

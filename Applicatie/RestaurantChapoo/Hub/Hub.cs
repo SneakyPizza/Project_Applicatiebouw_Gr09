@@ -46,6 +46,7 @@ namespace Hub
                     btn_Bar.Visible = false;
                     btn_Keuken.Visible = false;
                     btn_BestellingOpnemen.Visible = false;
+                    btn_TableOverview.Location = new Point(175, 57);
                     Tafeloverzicht to = Tafeloverzicht.GetTafeloverzichtScreen();
                     to.Show();
                     break;
@@ -56,6 +57,7 @@ namespace Hub
                     btn_Bar.Visible = false;
                     btn_Keuken.BackColor = Color.SkyBlue;
                     btn_BestellingOpnemen.Visible = false;
+                    btn_Keuken.Location = new Point(175, 57);
                     KeukenBar kb = KeukenBar.GetKeukenBar();
                     kb.Show();
                     kb.ReloadPage("Keuken");
@@ -67,6 +69,7 @@ namespace Hub
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.Visible = false;
                     btn_BestellingOpnemen.Visible = false;
+                    btn_Bar.Location = new Point(175, 57);
                     KeukenBar kb1 = KeukenBar.GetKeukenBar();
                     kb1.Show();
                     kb1.ReloadPage("Bar");
@@ -78,21 +81,23 @@ namespace Hub
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.Visible = false;
                     btn_BestellingOpnemen.Visible = false;
+                    btn_Bar.Location = new Point(175, 57);
                     KeukenBar kb2 = KeukenBar.GetKeukenBar();
                     kb2.Show();
                     kb2.ReloadPage("Bar");
                     this.Hide(); break;
                 case 5:
-                    btn_Checkout.Visible = true;
                     btn_TableOverview.Visible = true;
                     btn_Bar.Visible = true;
                     btn_Keuken.Visible = true;
-                    btn_BestellingOpnemen.Visible = true;
-                    btn_Checkout.BackColor = Color.SkyBlue;
+                    btn_Checkout.Visible = false;
                     btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.SkyBlue;
-                    btn_BestellingOpnemen.BackColor = Color.SkyBlue;
+                    btn_BestellingOpnemen.Visible = false;
+                    btn_Bar.Location = new Point(10, 57);
+                    btn_TableOverview.Location = new Point(175, 57);
+                    btn_Keuken.Location = new Point(350, 57);
                     break;
             }
 

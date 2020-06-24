@@ -49,6 +49,8 @@
             this.pnl_Header = new System.Windows.Forms.Panel();
             this.lbl_CurrentEmployee = new System.Windows.Forms.Label();
             this.lbl_Datum = new System.Windows.Forms.Label();
+            this.lbl_currentTable = new System.Windows.Forms.Label();
+            this.btn_VerwijderAlles = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.pnl_Header.SuspendLayout();
@@ -242,7 +244,7 @@
             // btn_Min
             // 
             this.btn_Min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_Min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btn_Min.FlatAppearance.BorderSize = 0;
             this.btn_Min.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -269,6 +271,7 @@
             this.pnl_Header.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Header.BackColor = System.Drawing.Color.White;
+            this.pnl_Header.Controls.Add(this.lbl_currentTable);
             this.pnl_Header.Controls.Add(this.lbl_CurrentEmployee);
             this.pnl_Header.Controls.Add(this.lbl_Datum);
             this.pnl_Header.Controls.Add(this.pic_Logo);
@@ -299,12 +302,39 @@
             this.lbl_Datum.TabIndex = 21;
             this.lbl_Datum.Text = "<datum>";
             // 
+            // lbl_currentTable
+            // 
+            this.lbl_currentTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_currentTable.AutoSize = true;
+            this.lbl_currentTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_currentTable.Location = new System.Drawing.Point(1355, 135);
+            this.lbl_currentTable.Name = "lbl_currentTable";
+            this.lbl_currentTable.Size = new System.Drawing.Size(172, 29);
+            this.lbl_currentTable.TabIndex = 23;
+            this.lbl_currentTable.Text = "<huidige tafel>";
+            // 
+            // btn_VerwijderAlles
+            // 
+            this.btn_VerwijderAlles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_VerwijderAlles.BackColor = System.Drawing.Color.Red;
+            this.btn_VerwijderAlles.FlatAppearance.BorderSize = 0;
+            this.btn_VerwijderAlles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_VerwijderAlles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_VerwijderAlles.Location = new System.Drawing.Point(1348, 980);
+            this.btn_VerwijderAlles.Name = "btn_VerwijderAlles";
+            this.btn_VerwijderAlles.Size = new System.Drawing.Size(161, 52);
+            this.btn_VerwijderAlles.TabIndex = 22;
+            this.btn_VerwijderAlles.Text = "Verwijderen";
+            this.btn_VerwijderAlles.UseVisualStyleBackColor = false;
+            this.btn_VerwijderAlles.Click += new System.EventHandler(this.btn_VerwijderAlles_Click);
+            // 
             // BestellingOpnemen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1896, 1048);
+            this.Controls.Add(this.btn_VerwijderAlles);
             this.Controls.Add(this.listViewWinkelwagen);
             this.Controls.Add(this.pnl_Header);
             this.Controls.Add(this.btn_Min);
@@ -347,5 +377,7 @@
         private System.Windows.Forms.Panel pnl_Header;
         private System.Windows.Forms.Label lbl_Datum;
         private System.Windows.Forms.Label lbl_CurrentEmployee;
+        private System.Windows.Forms.Label lbl_currentTable;
+        private System.Windows.Forms.Button btn_VerwijderAlles;
     }
 }

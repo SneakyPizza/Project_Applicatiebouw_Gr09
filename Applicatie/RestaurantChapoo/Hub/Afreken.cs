@@ -21,6 +21,7 @@ namespace Hub
             Table table = Table.GetTable();
             Table_Service table_Service = Table_Service.GetTableService();
             FillListView(table_Service.GetReservationID(table.currentTable.TableID));
+            FillCurrentTable();
         }
 
         private static Afreken _uniqueAfreken;
@@ -30,7 +31,7 @@ namespace Hub
             {
                 _uniqueAfreken = new Afreken();
             }
-
+            _uniqueAfreken.FillCurrentTable();
             return _uniqueAfreken;
         }
 
@@ -61,19 +62,25 @@ namespace Hub
             {
                 totaalbedrag += (double.Parse(li.SubItems[1].Text) * double.Parse(li.SubItems[2].Text));
             }
-            lbl_Totaalbedrag.Text = "€" + totaalbedrag.ToString("0.00");
+            lbl_Totaalbedrag.Text = totaalbedrag.ToString("0.00");
             totaalbedrag = totaalbedrag * 0.21;
-            lbl_BTW.Text = "€" + totaalbedrag.ToString("0.00");
+            lbl_BTW.Text = totaalbedrag.ToString("0.00");
             lvBestellingen.Refresh();
         }
 
         private void btn_afreken_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Hide();
         }
 
+        public void FillCurrentTable()
+        {
+            Table table = Table.GetTable();
+            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
+        }
 
     }
 }

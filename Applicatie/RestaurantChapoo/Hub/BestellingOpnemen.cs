@@ -23,6 +23,7 @@ namespace Hub
             InitializeComponent();
             Login_Service login_Service = Login_Service.GetLoginService();
             FillLoggedIn();
+            FillCurrentTable();
             lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
 
@@ -35,6 +36,7 @@ namespace Hub
                 _uniqueOrderScreen = new BestellingOpnemen();
             }
             _uniqueOrderScreen.FillLoggedIn();
+            _uniqueOrderScreen.FillCurrentTable();
             return _uniqueOrderScreen;
         }
         private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
@@ -223,6 +225,16 @@ namespace Hub
         {
             Login_Service login_Service = Login_Service.GetLoginService();
             lbl_CurrentEmployee.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
+        }
+        public void FillCurrentTable()
+        {
+            Table table = Table.GetTable();
+            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
+        }
+
+        private void btn_VerwijderAlles_Click(object sender, EventArgs e)
+        {
+            listViewWinkelwagen.Items.Clear();
         }
     }
 }
