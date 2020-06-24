@@ -18,5 +18,5 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT TableID FROM [Table];
+	SELECT TableID, TableStatus FROM [Table];
 END

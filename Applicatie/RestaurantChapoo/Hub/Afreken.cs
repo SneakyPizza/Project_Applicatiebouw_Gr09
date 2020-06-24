@@ -7,6 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
+=======
+using Model;
+using DAL;
+using Logic;
+>>>>>>> Lars-v2
 
 namespace Hub
 {
@@ -15,6 +21,13 @@ namespace Hub
         public Afreken()
         {
             InitializeComponent();
+<<<<<<< HEAD
+=======
+            Table table = Table.GetTable();
+            Table_Service table_Service = Table_Service.GetTableService();
+            FillListView(table_Service.GetReservationID(table.currentTable.TableID));
+            FillCurrentTable();
+>>>>>>> Lars-v2
         }
 
         private static Afreken _uniqueAfreken;
@@ -24,16 +37,66 @@ namespace Hub
             {
                 _uniqueAfreken = new Afreken();
             }
+<<<<<<< HEAD
+=======
+            _uniqueAfreken.FillCurrentTable();
+>>>>>>> Lars-v2
             return _uniqueAfreken;
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Hub hub = new Hub();
+=======
+            Hub hub = Hub.GetHubScreen();
+>>>>>>> Lars-v2
             hub.Show();
             this.Hide();
         }
 
 
+<<<<<<< HEAD
+=======
+
+        private void FillListView(int ReservationID)
+        {
+            lvBestellingen.Items.Clear();
+            Payment_Service payment_Service = Payment_Service.GetPaymentService();
+            List<OrderDetails> orderDetails = payment_Service.GetOrderDetails(ReservationID);
+            foreach (OrderDetails od in orderDetails)
+            {
+                ListViewItem li = new ListViewItem(od.MenuItemName);
+                li.SubItems.Add(od.Amount.ToString());
+                li.SubItems.Add(od.Price.ToString("0.00"));
+                lvBestellingen.Items.Add(li);
+            }
+
+            double totaalbedrag = 0;
+            foreach (ListViewItem li in lvBestellingen.Items)
+            {
+                totaalbedrag += (double.Parse(li.SubItems[1].Text) * double.Parse(li.SubItems[2].Text));
+            }
+            lbl_Totaalbedrag.Text = totaalbedrag.ToString("0.00");
+            totaalbedrag = totaalbedrag * 0.21;
+            lbl_BTW.Text = totaalbedrag.ToString("0.00");
+            lvBestellingen.Refresh();
+        }
+
+        private void btn_afreken_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Hub hub = Hub.GetHubScreen();
+            hub.Show();
+            this.Hide();
+        }
+
+        public void FillCurrentTable()
+        {
+            Table table = Table.GetTable();
+            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
+        }
+
+>>>>>>> Lars-v2
     }
 }

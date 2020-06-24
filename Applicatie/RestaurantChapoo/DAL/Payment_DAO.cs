@@ -20,5 +20,20 @@ namespace DAL
             SqlParameter[] sqlP = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4 };
             ExecuteEditQuery("PlacePayment", sqlP);
         }
+<<<<<<< HEAD
+=======
+
+        public DataTable GetAllReservationID()
+        {
+            return ExecuteQuery("GetAllReservations");
+        }
+
+        public DataTable GetOrderDetails(int ReservationID)
+        {
+            SqlParameter sqlParameter1 = new SqlParameter("@ReservationID", ReservationID);
+            SqlParameter[] sqlP = new SqlParameter[] { sqlParameter1 };
+            return ExecuteQuery("ItemsInOrder", sqlP);
+        }
+>>>>>>> Lars-v2
     }
 }

@@ -12,169 +12,229 @@ using Model;
 using Logic;
 using System.IO;
 
-
 namespace Hub
 {
     public partial class BestellingOpnemen : Form
     {
         List<Model.MenuItem> winkelwagen = new List<Model.MenuItem>();
+        private static BestellingOpnemen _uniqueOrderScreen;
         public BestellingOpnemen()
         {
             InitializeComponent();
-            FillComboBox();
-
+            Login_Service login_Service = Login_Service.GetLoginService();
+            FillLoggedIn();
+            FillCurrentTable();
+            lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(32, 32);
-            //load images from resources
 
-            try
-            {
-                
-            }
-            catch (Exception e) //afbeeldingen kunnen niet worden gevonden/geladen
-            {
-                MessageBox.Show("De afbeeldingen kunnen niet worden geladen. De menukaarten worden zonder afbeeldingen getoond.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            listViewMenuItems.SmallImageList = imageList;
-            listViewMenuItems.LargeImageList = imageList;
         }
-        private void Btn_Dranken_Click(object sender, EventArgs e)
+
+        public static BestellingOpnemen GetOrderScreen()
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            if(_uniqueOrderScreen == null)
+            {
+                _uniqueOrderScreen = new BestellingOpnemen();
+            }
+            _uniqueOrderScreen.FillLoggedIn();
+            _uniqueOrderScreen.FillCurrentTable();
+            return _uniqueOrderScreen;
+        }
+        private void Btn_Dranken_Click(object sender, EventArgs e) //laad dranken items
+        {
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(1);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(200, 50);
+            listViewMenuItems.TileSize = new Size(300, 50);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 1);
-                li.SubItems.Add(m.MenuTypeName);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 1);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_DrankenAlcoholisch_Click(object sender, EventArgs e)
+        private void Btn_DrankenAlcoholisch_Click(object sender, EventArgs e) //laad alcohol items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(2);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(200, 50);
+            listViewMenuItems.TileSize = new Size(300, 50);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 0);
-                li.SubItems.Add(m.MenuTypeName);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 0);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_Lunch_Click(object sender, EventArgs e)
+        private void Btn_Lunch_Click(object sender, EventArgs e) //laad lunch items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(3);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(330, 100);
+            listViewMenuItems.TileSize = new Size(600, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
-                li.SubItems.Add(m.MenuTypeName);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 2);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void Btn_Diner_Click(object sender, EventArgs e)
+        private void Btn_Diner_Click(object sender, EventArgs e) //laad diner items
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
             List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItems(4);
             listViewMenuItems.Items.Clear();
-            listViewMenuItems.TileSize = new Size(330, 100);
+            listViewMenuItems.TileSize = new Size(600, 100);
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeID.ToString(), 3);
-                li.SubItems.Add(m.MenuTypeName);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 2);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
 
-        private void listViewMenuItems_Click(object sender, EventArgs e)
+        private void listViewMenuItems_Click(object sender, EventArgs e) //klik menu item aan -> stuur naar winkelwagen
         {
             int aantal = 1;
-            int menuItemID = int.Parse(listViewMenuItems.FocusedItem.Text);
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
-            List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItemOnID(menuItemID);
+            string menuItemName = listViewMenuItems.FocusedItem.Text;
+            MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
+            List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItemOnID(menuItemName);
 
             foreach (Model.MenuItem m in menuItems) 
             {
-                ListViewItem li = new ListViewItem(m.MenuTypeName);
-                li.SubItems.Add(aantal.ToString());
-                listViewWinkelwagen.Items.Add(li);
+                if (m.Stock > 0)
+                {
+                    ListViewItem li = new ListViewItem(m.MenuTypeName);
+                    li.SubItems.Add(aantal.ToString());
+                    listViewWinkelwagen.Items.Add(li);
+                }
+                else
+                {
+                    MessageBox.Show("Dit item is niet op voorraad.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
 
-        private void Btn_Plus_Click(object sender, EventArgs e)
+        private void Btn_Plus_Click(object sender, EventArgs e) //winkelwagen item verhogen
         {
-            int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
-            aantal++;
-            listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
-        }
-
-        private void Btn_Min_Click(object sender, EventArgs e)
-        {
-            int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
-            aantal--;
-            if (aantal > 0)
+            if (listViewWinkelwagen.FocusedItem == null)
             {
-                listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+                MessageBox.Show("Geef eerst aan van welk item je het aantal wilt verhogen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                listViewWinkelwagen.Items.Remove(listViewWinkelwagen.FocusedItem);
+                int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
+                aantal++;
+                listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
             }
+
         }
 
-        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //Lijst met MenuOrder aanmaken voor elk item in lijst. Al deze items versturen naar db én voor elke item Order aanmaken in db
+        private void Btn_Min_Click(object sender, EventArgs e) //winkelwagen item verlagen
         {
-            MenuItem_Service menuItem_Service = new MenuItem_Service();
-            Table_Service table_Service = new Table_Service();
-            int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
-            try //nieuwe order aanmaken voor betreffende tafel
+            if (listViewWinkelwagen.FocusedItem == null)
             {
-                Order_DAO order_DAO = new Order_DAO();
-                order_DAO.PlaceOrder(0, reservationID, 0, 2); //employeeID (2) nog aanpassen
+                MessageBox.Show("Geef eerst aan van welk item je het aantal wilt verlagen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception error)
+            else
             {
-                MessageBox.Show("Error: {0}", error.Message);
+                int aantal = int.Parse(listViewWinkelwagen.FocusedItem.SubItems[1].Text);
+                aantal--;
+                if (aantal > 0)
+                {
+                    listViewWinkelwagen.FocusedItem.SubItems[1].Text = aantal.ToString();
+                }
+                else
+                {
+                    listViewWinkelwagen.Items.Remove(listViewWinkelwagen.FocusedItem);
+                }
             }
 
-            List<MenuOrder> menuOrders = new List<MenuOrder>();
-            foreach (ListViewItem li in listViewWinkelwagen.Items) //order vullen met MenuOrders
-            {
-                Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), 0, menuItem_Service.GetMenuItemID(li.Text));
-                menuOrders.Add(menuOrder);
-            }
-            MessageBox.Show(menuOrders[1].MenuItemID.ToString()); //fixen dat MenuItemID goed doorkomt
+        }
 
+        private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //bestellingen versturen naar db
+        {
+            int recentOrderID = 0;
+            if (listViewWinkelwagen.Items.Count == 0) //check of alle velden zijn ingevuld
+            {
+                MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Table currentTable = Table.GetTable();
+                MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
+                Table_Service table_Service = Table_Service.GetTableService();
+                Login_Service s = Login_Service.GetLoginService();
+                int reservationID = table_Service.GetReservationID(currentTable.currentTable.TableID); //reservationID vinden van betreffende tafel
+                if (reservationID == 0)
+                {
+                    MessageBox.Show("Er is geen reservering voor deze tafel.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Order_Service service = Order_Service.GetOrderService();
+                    if(service.PlaceOrder(reservationID, s.CurrentEmployee.Id))
+                    {
+                        recentOrderID = GetMostRecentOrderID();
+                        List<MenuOrder> menuOrders = new List<MenuOrder>();
+                        MenuOrder_DAO menuOrder_DAO = new MenuOrder_DAO();
+                        foreach (ListViewItem li in listViewWinkelwagen.Items) //Lijst met MenuOrders maken vanuit winkelwagen
+                        {
+                            Model.MenuOrder menuOrder = new MenuOrder(int.Parse(li.SubItems[1].Text), recentOrderID, menuItem_Service.GetMenuItemID(li.Text));
+                            menuOrders.Add(menuOrder);
+                        }
+                        foreach (MenuOrder menuOrder in menuOrders) //lijst met menuOrders naar db sturen
+                        {
+                            menuOrder_DAO.PlaceMenuOrder(menuOrder.Amount, menuOrder.OrderID, menuOrder.MenuItemID);
+                            menuOrder_DAO.UpdateStock(menuOrder.Amount, menuOrder.MenuItemID);
+                        }
+                        OrderPlaced();
+                        this.Refresh(); //zet scherm weer op default
+                    } else
+                    {
+                        MessageBox.Show("Niet gelukt om de order te maken.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }             
+                }
+            }
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            Hub hub = new Hub();
+            Hub hub = Hub.GetHubScreen();
             hub.Show();
-            this.Close();
+            this.Hide();
         }
-        private void FillComboBox()
-        {
-            Table_Service table_Service = new Table_Service();
-            List<Table> tables = table_Service.GetAllTables();
 
-            foreach(Table t in tables)
-            {
-                cmb_Tafelnr.Items.Add(t.TableID);
-            }
+        private void OrderPlaced() //winkelwagen legen, tafelnr op default
+        {
+            MessageBox.Show("Bestelling geplaatst.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listViewWinkelwagen.Items.Clear();
+        }
+        private int GetMostRecentOrderID()
+        {
+            Order_Service order_Service = Order_Service.GetOrderService();
+            return order_Service.GetMostRecentOrderID();
+        }
+        public void FillLoggedIn()
+        {
+            Login_Service login_Service = Login_Service.GetLoginService();
+            lbl_CurrentEmployee.Text = "Ingelogd: " + login_Service.CurrentEmployee.Firstname + " " + login_Service.CurrentEmployee.Lastname;
+        }
+        public void FillCurrentTable()
+        {
+            Table table = Table.GetTable();
+            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
+        }
+
+        private void btn_VerwijderAlles_Click(object sender, EventArgs e)
+        {
+            listViewWinkelwagen.Items.Clear();
         }
     }
 }

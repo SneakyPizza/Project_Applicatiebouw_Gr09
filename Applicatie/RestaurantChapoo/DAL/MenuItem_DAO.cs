@@ -17,11 +17,11 @@ namespace DAL
             SqlParameter[] sqlP = new SqlParameter[] { sqlParameter };
             return GetAllData(ExecuteQuery("GetMenuItems", sqlP));
         }
-        public List<MenuItem> GetMenuItemOnID(int MenuItemID)
+        public List<MenuItem> GetMenuItemOnName(string MenuItemName)
         {
-            SqlParameter sqlParameter = new SqlParameter("@MenuItemID", MenuItemID);
+            SqlParameter sqlParameter = new SqlParameter("@menuItemName", MenuItemName);
             SqlParameter[] sqlP = new SqlParameter[] { sqlParameter };
-            return GetAllData(ExecuteQuery("GetMenuItemOnID", sqlP));
+            return GetAllData(ExecuteQuery("GetMenuItemOnName", sqlP));
         }
         private List<MenuItem> GetAllData(DataTable dataTable)
         {
@@ -31,8 +31,10 @@ namespace DAL
                 int menuItemID = (int)dataRow["MenuItemID"];
                 string menuItemName = (string)dataRow["MenuItemName"].ToString();
                 DateTime shelfLife = (DateTime)dataRow["ShelfLife"];
+                int stock = (int)dataRow["Stock"];
                 decimal pricePP = (decimal)dataRow["PricePP"];
-                MenuItem menuItem = new MenuItem(menuItemID, menuItemName, shelfLife, pricePP);
+                int menuTypeID = (int)dataRow["MenuTypeID"];
+                MenuItem menuItem = new MenuItem(menuItemID, menuItemName, shelfLife, stock, pricePP, menuTypeID);
                 menuItems.Add(menuItem);
             }
             return menuItems;
@@ -48,7 +50,7 @@ namespace DAL
             int ID = 0;
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                ID += (int)dataRow["ReservationID"];
+                ID = (int)dataRow["ReservationID"];
             }
             return ID;
         }
@@ -57,7 +59,7 @@ namespace DAL
             int ID = 0;
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                ID += (int)dataRow["MenuItemID"];
+                ID = (int)dataRow["MenuItemID"];
             }
             return ID;
         }

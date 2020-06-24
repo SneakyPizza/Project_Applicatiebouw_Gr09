@@ -18,6 +18,6 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	SELECT MenuItemID, MenuItemName FROM MenuItem WHERE MenuItemID = @MenuItemID
+	SELECT MenuItemID, MenuItemName, ShelfLife, Stock, PricePP, MenuTypeID FROM MenuItem WHERE MenuItemID = @MenuItemID
 END
 GO
