@@ -21,27 +21,11 @@ namespace Hub
         public BestellingOpnemen()
         {
             InitializeComponent();
-            FillComboBox();
             Login_Service login_Service = Login_Service.GetLoginService();
             FillLoggedIn();
             lbl_Datum.Text = DateTime.Now.ToString("d");
             listViewMenuItems.View = View.Tile;
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(32, 32);
-            //load images from resources
 
-            try
-            {
-                imageList.Images.Add(Properties.Resources._18plusdranken);
-                imageList.Images.Add(Properties.Resources.dranken);
-                imageList.Images.Add(Properties.Resources.food);
-            }
-            catch (Exception e) //afbeeldingen kunnen niet worden gevonden/geladen
-            {
-                MessageBox.Show("De afbeeldingen kunnen niet worden geladen. De menukaarten worden zonder afbeeldingen getoond.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            listViewMenuItems.SmallImageList = imageList;
-            listViewMenuItems.LargeImageList = imageList;
         }
 
         public static BestellingOpnemen GetOrderScreen()
@@ -62,8 +46,8 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 1);
-                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 1);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
@@ -77,8 +61,8 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 0);
-                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 0);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
@@ -91,8 +75,8 @@ namespace Hub
             listViewMenuItems.TileSize = new Size(600, 100);
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 2);
-                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 2);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
@@ -106,8 +90,8 @@ namespace Hub
 
             foreach (Model.MenuItem m in menuItems)
             {
-                ListViewItem li = new ListViewItem(m.MenuItemID.ToString(), 2);
-                li.SubItems.Add(m.MenuTypeName + ", voorraad: " + m.Stock);
+                ListViewItem li = new ListViewItem(m.MenuTypeName.ToString(), 2);
+                li.SubItems.Add("Voorraad: " + m.Stock);
                 listViewMenuItems.Items.Add(li);
             }
         }
@@ -115,9 +99,9 @@ namespace Hub
         private void listViewMenuItems_Click(object sender, EventArgs e) //klik menu item aan -> stuur naar winkelwagen
         {
             int aantal = 1;
-            int menuItemID = int.Parse(listViewMenuItems.FocusedItem.Text);
+            string menuItemName = listViewMenuItems.FocusedItem.Text;
             MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
-            List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItemOnID(menuItemID);
+            List<Model.MenuItem> menuItems = menuItem_Service.GetMenuItemOnID(menuItemName);
 
             foreach (Model.MenuItem m in menuItems) 
             {
@@ -175,16 +159,17 @@ namespace Hub
         private void Btn_BestellingPlaatsen_Click(object sender, EventArgs e) //bestellingen versturen naar db
         {
             int recentOrderID = 0;
-            if (cmb_Tafelnr.SelectedItem == null || listViewWinkelwagen.Items.Count == 0) //check of alle velden zijn ingevuld
+            if (listViewWinkelwagen.Items.Count == 0) //check of alle velden zijn ingevuld
             {
                 MessageBox.Show("Vul alle velden in.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                Table currentTable = Table.GetTable();
                 MenuItem_Service menuItem_Service = MenuItem_Service.GetMenuItemService();
                 Table_Service table_Service = Table_Service.GetTableService();
                 Login_Service s = Login_Service.GetLoginService();
-                int reservationID = table_Service.GetReservationID(int.Parse(cmb_Tafelnr.SelectedItem.ToString())); //reservationID vinden van betreffende tafel
+                int reservationID = table_Service.GetReservationID(currentTable.currentTable.TableID); //reservationID vinden van betreffende tafel
                 if (reservationID == 0)
                 {
                     MessageBox.Show("Er is geen reservering voor deze tafel.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -223,21 +208,11 @@ namespace Hub
             hub.Show();
             this.Hide();
         }
-        private void FillComboBox() //combobox vullen met alle tafelnummers
-        {
-            Table_Service table_Service = Table_Service.GetTableService();
-            List<Table> tables = table_Service.GetAllTables();
 
-            foreach(Table t in tables)
-            {
-                cmb_Tafelnr.Items.Add(t.TableID);
-            }
-        }
         private void OrderPlaced() //winkelwagen legen, tafelnr op default
         {
             MessageBox.Show("Bestelling geplaatst.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listViewWinkelwagen.Items.Clear();
-            cmb_Tafelnr.SelectedItem = null;
         }
         private int GetMostRecentOrderID()
         {

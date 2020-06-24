@@ -40,26 +40,56 @@ namespace Hub
             switch (functionID)
             {
                 case 1:
-                    btn_Bar.BackColor = Color.Red;
-                    btn_Keuken.BackColor = Color.Red;
-                    btn_BestellingOpnemen.BackColor = Color.SkyBlue;
+                    btn_TableOverview.Visible = true;
+                    btn_Checkout.Visible = false;
+                    btn_TableOverview.BackColor = Color.SkyBlue;
+                    btn_Bar.Visible = false;
+                    btn_Keuken.Visible = false;
+                    btn_BestellingOpnemen.Visible = false;
+                    Tafeloverzicht to = Tafeloverzicht.GetTafeloverzichtScreen();
+                    to.Show();
                     break;
                 case 2:
-                    btn_Bar.BackColor = Color.Red;
+                    btn_Keuken.Visible = true;
+                    btn_Checkout.Visible = false;
+                    btn_TableOverview.Visible = false;
+                    btn_Bar.Visible = false;
                     btn_Keuken.BackColor = Color.SkyBlue;
-                    btn_BestellingOpnemen.BackColor = Color.Red;
+                    btn_BestellingOpnemen.Visible = false;
+                    KeukenBar kb = KeukenBar.GetKeukenBar();
+                    kb.Show();
+                    kb.ReloadPage("Keuken");
                     break;
                 case 3:
+                    btn_Bar.Visible = true;
+                    btn_Checkout.Visible = false;
+                    btn_TableOverview.Visible = false;
                     btn_Bar.BackColor = Color.SkyBlue;
-                    btn_Keuken.BackColor = Color.Red;
-                    btn_BestellingOpnemen.BackColor = Color.Red;
-                    break;
+                    btn_Keuken.Visible = false;
+                    btn_BestellingOpnemen.Visible = false;
+                    KeukenBar kb1 = KeukenBar.GetKeukenBar();
+                    kb1.Show();
+                    kb1.ReloadPage("Bar");
+                    this.Hide(); break;
                 case 4:
+                    btn_Bar.Visible = true;
+                    btn_Checkout.Visible = false;
+                    btn_TableOverview.Visible = false;
                     btn_Bar.BackColor = Color.SkyBlue;
-                    btn_Keuken.BackColor = Color.Red;
-                    btn_BestellingOpnemen.BackColor = Color.Red;
-                    break;
+                    btn_Keuken.Visible = false;
+                    btn_BestellingOpnemen.Visible = false;
+                    KeukenBar kb2 = KeukenBar.GetKeukenBar();
+                    kb2.Show();
+                    kb2.ReloadPage("Bar");
+                    this.Hide(); break;
                 case 5:
+                    btn_Checkout.Visible = true;
+                    btn_TableOverview.Visible = true;
+                    btn_Bar.Visible = true;
+                    btn_Keuken.Visible = true;
+                    btn_BestellingOpnemen.Visible = true;
+                    btn_Checkout.BackColor = Color.SkyBlue;
+                    btn_TableOverview.BackColor = Color.SkyBlue;
                     btn_Bar.BackColor = Color.SkyBlue;
                     btn_Keuken.BackColor = Color.SkyBlue;
                     btn_BestellingOpnemen.BackColor = Color.SkyBlue;
@@ -134,6 +164,35 @@ namespace Hub
             {
                 MessageBox.Show("Je hebt geen toestemming tot het 'Bar' scherm.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+        }
+
+        private void btn_TableOverview_Click(object sender, EventArgs e)
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            if(service.CurrentEmployee.FunctionID == 1 || service.CurrentEmployee.FunctionID == 5)
+            {
+                Tafeloverzicht to = Tafeloverzicht.GetTafeloverzichtScreen();
+                to.Show();
+                this.Hide();
+            } else
+            {
+                MessageBox.Show("Je hebt geen toestemming om op het 'Tafeloverzicht' te komen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_Checkout_Click(object sender, EventArgs e)
+        {
+            Login_Service service = Login_Service.GetLoginService();
+            if (service.CurrentEmployee.FunctionID == 1 || service.CurrentEmployee.FunctionID == 5)
+            {
+                Afreken co = Afreken.GetAfrekenScreen();
+                co.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt geen toestemming om op het 'Betaalscherm' te komen.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

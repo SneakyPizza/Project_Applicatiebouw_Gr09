@@ -8,13 +8,24 @@ namespace Model
 {
     public class Table
     {
-        public Table(int tableID, int tableStatus)
+        private static Table _uniqueTable;
+
+        public static Table GetTable()
+        {
+            if (_uniqueTable == null)
+            {
+                _uniqueTable = new Table(5, 0);
+            }
+            return _uniqueTable;
+        }
+        public Table(int tableID, int tablestatus)
         {
             this.TableID = tableID;
-            this.TableStatus = tableStatus;
+            this.TableStatus = tablestatus;
         }
         public int TableID { get; private set; }
         public int TableStatus { get; private set; }
+        public Table currentTable { get; set; }
 
     }
 }
