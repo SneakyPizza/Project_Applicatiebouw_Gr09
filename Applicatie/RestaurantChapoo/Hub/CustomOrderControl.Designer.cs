@@ -86,12 +86,13 @@
             // 
             // btn_Confirm
             // 
+            this.btn_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Confirm.BackColor = System.Drawing.Color.PaleGreen;
             this.btn_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Confirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirm.Location = new System.Drawing.Point(143, 253);
+            this.btn_Confirm.Location = new System.Drawing.Point(178, 253);
             this.btn_Confirm.Name = "btn_Confirm";
-            this.btn_Confirm.Size = new System.Drawing.Size(208, 33);
+            this.btn_Confirm.Size = new System.Drawing.Size(173, 33);
             this.btn_Confirm.TabIndex = 4;
             this.btn_Confirm.Text = "Gereed";
             this.btn_Confirm.UseVisualStyleBackColor = false;
@@ -119,12 +120,17 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(29, 253);
+            this.btn_Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel.Location = new System.Drawing.Point(-1, 253);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancel.Size = new System.Drawing.Size(179, 33);
             this.btn_Cancel.TabIndex = 7;
-            this.btn_Cancel.Text = "button1";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Text = "Annuleren";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // CustomOrderControl
             // 

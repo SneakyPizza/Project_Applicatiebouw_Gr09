@@ -34,8 +34,6 @@ namespace Hub
 
                 lv_menuItems.Items.Add(ii);
             }
-            //this.lv_menuItems.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-            //this.lv_menuItems.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         public int TableNumber
