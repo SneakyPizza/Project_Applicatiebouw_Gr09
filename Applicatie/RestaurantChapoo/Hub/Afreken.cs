@@ -18,7 +18,14 @@ namespace Hub
         public Afreken()
         {
             InitializeComponent();
+<<<<<<< HEAD
             FillComboBox();
+=======
+            Table table = Table.GetTable();
+            Table_Service table_Service = Table_Service.GetTableService();
+            FillListView(table_Service.GetReservationID(table.currentTable.TableID));
+            FillCurrentTable();
+>>>>>>> origin/Lars-v2
         }
 
         private static Afreken _uniqueAfreken;
@@ -28,6 +35,10 @@ namespace Hub
             {
                 _uniqueAfreken = new Afreken();
             }
+<<<<<<< HEAD
+=======
+            _uniqueAfreken.FillCurrentTable();
+>>>>>>> origin/Lars-v2
             return _uniqueAfreken;
         }
 
@@ -38,6 +49,7 @@ namespace Hub
             this.Hide();
         }
 
+<<<<<<< HEAD
         private void FillComboBox() //combobox vullen met alle tafelnummers
         {
             Payment_Service payment_Service = Payment_Service.GetPaymentService();
@@ -48,6 +60,9 @@ namespace Hub
                 comboBoxGetReservation.Items.Add(i.ToString());
             }
         }
+=======
+
+>>>>>>> origin/Lars-v2
 
         private void FillListView(int ReservationID)
         {
@@ -58,7 +73,11 @@ namespace Hub
             {
                 ListViewItem li = new ListViewItem(od.MenuItemName);
                 li.SubItems.Add(od.Amount.ToString());
+<<<<<<< HEAD
                 li.SubItems.Add(od.Price.ToString());
+=======
+                li.SubItems.Add(od.Price.ToString("0.00"));
+>>>>>>> origin/Lars-v2
                 lvBestellingen.Items.Add(li);
             }
 
@@ -67,6 +86,7 @@ namespace Hub
             {
                 totaalbedrag += (double.Parse(li.SubItems[1].Text) * double.Parse(li.SubItems[2].Text));
             }
+<<<<<<< HEAD
             lbl_Totaalbedrag.Text = totaalbedrag.ToString();
             totaalbedrag = totaalbedrag * 0.21;
             lbl_BTW.Text = totaalbedrag.ToString();
@@ -85,11 +105,30 @@ namespace Hub
 
         private void btn_afreken_Click(object sender, EventArgs e)
         {
+=======
+            lbl_Totaalbedrag.Text = totaalbedrag.ToString("0.00");
+            totaalbedrag = totaalbedrag * 0.21;
+            lbl_BTW.Text = totaalbedrag.ToString("0.00");
+            lvBestellingen.Refresh();
+        }
+
+        private void btn_afreken_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+>>>>>>> origin/Lars-v2
             Hub hub = Hub.GetHubScreen();
             hub.Show();
             this.Hide();
         }
 
+<<<<<<< HEAD
+=======
+        public void FillCurrentTable()
+        {
+            Table table = Table.GetTable();
+            lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
+        }
+>>>>>>> origin/Lars-v2
 
     }
 }
