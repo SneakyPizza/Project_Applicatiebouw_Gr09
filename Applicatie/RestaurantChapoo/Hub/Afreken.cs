@@ -70,10 +70,62 @@ namespace Hub
 
         private void btn_afreken_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Hub hub = Hub.GetHubScreen();
-            hub.Show();
-            this.Hide();
+            if (radioButtonContant.Checked || radioButtonPIN.Checked)
+            {
+                if (radioButtonContant.Checked)
+                {
+                    if (!string.IsNullOrEmpty(textBoxFooi.Text))
+                    {
+                        double totaalbedrag = double.Parse(lbl_Totaalbedrag.Text) + double.Parse(textBoxFooi.Text);
+                        MessageBox.Show("Te betalen: " + totaalbedrag.ToString(), "Geld aannemen...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Betaling voltooid.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Hub hub = Hub.GetHubScreen();
+                        hub.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        double totaalbedrag = double.Parse(lbl_Totaalbedrag.Text);
+                        MessageBox.Show("Te betalen: " + totaalbedrag.ToString(), "Geld aannemen...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Betaling voltooid.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Hub hub = Hub.GetHubScreen();
+                        hub.Show();
+                        this.Hide();
+                    }
+
+                }
+                else if (radioButtonPIN.Checked)
+                {
+                    if (!string.IsNullOrEmpty(textBoxFooi.Text))
+                    {
+                        double totaalbedrag = double.Parse(lbl_Totaalbedrag.Text) + double.Parse(textBoxFooi.Text);
+                        MessageBox.Show("Te betalen: " + totaalbedrag.ToString("0.00"), "Pin invoeren...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Betaling voltooid.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Hub hub = Hub.GetHubScreen();
+                        hub.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        double totaalbedrag = double.Parse(lbl_Totaalbedrag.Text);
+                        MessageBox.Show("Te betalen: " + totaalbedrag.ToString("0.00"), "Pin invoeren...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Betaling voltooid.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Hub hub = Hub.GetHubScreen();
+                        hub.Show();
+                        this.Hide();
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Kies een betaalmethode.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         public void FillCurrentTable()
