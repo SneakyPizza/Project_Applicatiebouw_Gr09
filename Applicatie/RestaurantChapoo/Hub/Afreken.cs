@@ -80,20 +80,24 @@ namespace Hub
         private void btn_afreken_Click(object sender, EventArgs e)
         {
             Payment_Service payment_Service = Payment_Service.GetPaymentService();
-            double Money;
-            bool res = double.TryParse(textBoxFooi.Text, out Money);
-            if (res == false)
-            {
-                Money = 0;
-            }
-            else
-            {
-                Money = double.Parse(textBoxFooi.Text);
-            }
-            
-            int Payment;
             if (radioButtonPIN.Checked || radioButtonContant.Checked)
             {
+                double Money;
+                bool res = double.TryParse(textBoxFooi.Text, out Money);
+                if (res == false)
+                {
+                    Money = 0;
+                }
+                else
+                {
+                    Money = double.Parse(textBoxFooi.Text);
+                    if (Money < 0)
+                    {
+                        Money = 0;
+                    }
+                }
+
+                int Payment;
                 if (radioButtonPIN.Checked)
                 {
                     Payment = 2;
@@ -103,12 +107,17 @@ namespace Hub
                     Payment = 3;
                 }
                 payment_Service.PlacePayment(Money, Payment);
+                
+                MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Tafeloverzicht tafeloverzicht = Tafeloverzicht.GetTafeloverzichtScreen();
+                tafeloverzicht.Show();
+                tafeloverzicht.RefreshListView();
+                this.Hide();
             }
-
-            MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Tafeloverzicht tafeloverzicht = Tafeloverzicht.GetTafeloverScreen();
-            tafeloverzicht.Show();
-            this.Hide();
+            else
+            {
+                MessageBox.Show("Kies een betaalmethode.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void FillCurrentTable()

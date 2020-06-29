@@ -85,6 +85,11 @@ namespace Hub
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
+            RefreshListView();
+        }
+
+        public void RefreshListView()
+        {
             PendingOrder_Service service = new PendingOrder_Service();
             List<PendingOrder> pendingorder = service.GetAllPendingOrders();
 
@@ -137,12 +142,13 @@ namespace Hub
                 PendingOrder pendingOrder = pendingorders[lvOverzicht.FocusedItem.Index];
 
                 KitchenBar_Service service = KitchenBar_Service.GetBarService();
-                service.UpdatebarOrder(pendingOrder.OrderID, "Afgerond");
+                service.UpdatebarOrder(pendingOrder.OrderID, btn_Afrekenen.Text);
 
                 Table currentTable = Table.GetTable();
                 currentTable.currentTable = new Table(int.Parse(lvOverzicht.FocusedItem.Text), 0);
                 Afreken afreken = Afreken.GetAfrekenScreen();
                 afreken.Show();
+                btn_refresh.PerformClick();
                 this.Hide();
             }
         }
