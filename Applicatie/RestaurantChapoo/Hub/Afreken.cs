@@ -106,7 +106,7 @@ namespace Hub
             }
 
             MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Tafeloverzicht tafeloverzicht = Tafeloverzicht.GetTafeloverScreen();
+            Tafeloverzicht tafeloverzicht = Tafeloverzicht.GetTafeloverzichtScreen();
             tafeloverzicht.Show();
             this.Hide();
         }
