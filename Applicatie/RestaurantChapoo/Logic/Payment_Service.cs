@@ -23,16 +23,6 @@ namespace Logic
             return _uniquePaymentService;
         }
 
-        public void CalculatePrice()
-        {
-            
-        }
-
-        public void CheckoutOrder()
-        {
-
-        }
-
         public List<int> GetAllReservationID()
         {
             List<int> ids = new List<int>();
@@ -46,7 +36,7 @@ namespace Logic
             }
             catch (Exception e)
             {
-                
+                throw e;
             }
             return ids;
         }
@@ -59,15 +49,28 @@ namespace Logic
                 DataTable dataTable = payment_DAO.GetOrderDetails(ReservationID);
                 foreach (DataRow dataRow in dataTable.Rows)
                 {
-                    OrderDetails details = new OrderDetails(dataRow.Field<string>("MenuItemName"), dataRow.Field<int>("Amount"), dataRow.Field<decimal>("PricePP"));
+                    OrderDetails details = new OrderDetails(dataRow.Field<string>("MenuItemName"), dataRow.Field<int>("Amount"), dataRow.Field<decimal>("PricePP"), dataRow.Field<int>("MenuTypeID"));
                     orderDetails.Add(details);
                 }
             }
             catch (Exception e)
             {
-
+                throw e;
             }
             return orderDetails;
+        }
+
+        public void PlacePayment(double PaymentTip, int PaymentMethod)
+        {
+            Payment_DAO dao = Payment_DAO.GetPaymentDAO();
+            try
+            {
+                dao.PlacePayment(DateTime.Now, PaymentTip, PaymentMethod);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

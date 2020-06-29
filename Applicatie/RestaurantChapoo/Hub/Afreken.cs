@@ -48,11 +48,21 @@ namespace Hub
             lvBestellingen.Items.Clear();
             Payment_Service payment_Service = Payment_Service.GetPaymentService();
             List<OrderDetails> orderDetails = payment_Service.GetOrderDetails(ReservationID);
+            double btw = 0.09;
+            double btw_total = 0;
             foreach (OrderDetails od in orderDetails)
             {
+                if (od.MenuTypeID == 2)
+                {
+                    btw = 0.21;
+                }
+
+                double btw_price = double.Parse(od.Price.ToString()) * btw;
+                btw_total += btw_price;
                 ListViewItem li = new ListViewItem(od.MenuItemName);
                 li.SubItems.Add(od.Amount.ToString());
                 li.SubItems.Add(od.Price.ToString("0.00"));
+                li.SubItems.Add(btw_price.ToString("0.00"));
                 lvBestellingen.Items.Add(li);
             }
 
@@ -61,17 +71,43 @@ namespace Hub
             {
                 totaalbedrag += (double.Parse(li.SubItems[1].Text) * double.Parse(li.SubItems[2].Text));
             }
-            lbl_Totaalbedrag.Text = totaalbedrag.ToString("0.00");
-            totaalbedrag = totaalbedrag * 0.21;
-            lbl_BTW.Text = totaalbedrag.ToString("0.00");
+            lbl_exBedrag.Text = (totaalbedrag - btw_total).ToString("0.00");
+            lbl_BTW.Text = btw_total.ToString("0.00");
+            lbl_inclBedrag.Text = totaalbedrag.ToString("0.00");
             lvBestellingen.Refresh();
         }
 
         private void btn_afreken_Click(object sender, EventArgs e)
         {
+            Payment_Service payment_Service = Payment_Service.GetPaymentService();
+            double Money;
+            bool res = double.TryParse(textBoxFooi.Text, out Money);
+            if (res == false)
+            {
+                Money = 0;
+            }
+            else
+            {
+                Money = double.Parse(textBoxFooi.Text);
+            }
+            
+            int Payment;
+            if (radioButtonPIN.Checked || radioButtonContant.Checked)
+            {
+                if (radioButtonPIN.Checked)
+                {
+                    Payment = 2;
+                }
+                else
+                {
+                    Payment = 3;
+                }
+                payment_Service.PlacePayment(Money, Payment);
+            }
+
             MessageBox.Show("Bestelling afgerekend.", "Gelukt!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Hub hub = Hub.GetHubScreen();
-            hub.Show();
+            Tafeloverzicht tafeloverzicht = Tafeloverzicht.GetTafeloverScreen();
+            tafeloverzicht.Show();
             this.Hide();
         }
 
@@ -80,6 +116,5 @@ namespace Hub
             Table table = Table.GetTable();
             lbl_currentTable.Text = "Huidige tafel: " + table.currentTable.TableID.ToString();
         }
-
     }
 }

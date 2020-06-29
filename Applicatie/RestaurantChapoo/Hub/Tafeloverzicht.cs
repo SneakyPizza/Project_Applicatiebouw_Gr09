@@ -74,9 +74,12 @@ namespace Hub
             lvOverzicht.Items.Clear();
             foreach (Model.PendingOrder po in pendingorder)
             {
-                ListViewItem li = new ListViewItem(po.TableID.ToString());
-                li.SubItems.Add(po.OrderStatusName);
-                lvOverzicht.Items.Add(li);
+                if (po.OrderStatusName == "Gereed" || po.OrderStatusName == "Besteld" || po.OrderStatusName == "Wordt bereid")
+                {
+                    ListViewItem li = new ListViewItem(po.TableID.ToString());
+                    li.SubItems.Add(po.OrderStatusName);
+                    lvOverzicht.Items.Add(li);
+                }
             }
         }
 
@@ -88,9 +91,12 @@ namespace Hub
             lvOverzicht.Items.Clear();
             foreach (Model.PendingOrder po in pendingorder)
             {
-                ListViewItem li = new ListViewItem(po.TableID.ToString());
-                li.SubItems.Add(po.OrderStatusName);
-                lvOverzicht.Items.Add(li);
+                if (po.OrderStatusName == "Gereed" || po.OrderStatusName == "Besteld" || po.OrderStatusName == "Wordt bereid")
+                {
+                    ListViewItem li = new ListViewItem(po.TableID.ToString());
+                    li.SubItems.Add(po.OrderStatusName);
+                    lvOverzicht.Items.Add(li);
+                }
             }
         }
 
@@ -126,6 +132,13 @@ namespace Hub
             }
             else
             {
+                PendingOrder_Service pservice = new PendingOrder_Service();
+                List<PendingOrder> pendingorders = pservice.GetAllPendingOrders();
+                PendingOrder pendingOrder = pendingorders[lvOverzicht.FocusedItem.Index];
+
+                KitchenBar_Service service = KitchenBar_Service.GetBarService();
+                service.UpdatebarOrder(pendingOrder.OrderID, "Afgerond");
+
                 Table currentTable = Table.GetTable();
                 currentTable.currentTable = new Table(int.Parse(lvOverzicht.FocusedItem.Text), 0);
                 Afreken afreken = Afreken.GetAfrekenScreen();

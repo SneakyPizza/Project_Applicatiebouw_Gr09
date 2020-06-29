@@ -98,6 +98,9 @@ namespace Logic
                 case "Annuleren":
                     statID = 4;
                     break;
+                case "Afgerond":
+                    statID = 5;
+                    break;
                 default:
                     break;
             }

@@ -11,13 +11,22 @@ namespace DAL
 {
     public class Payment_DAO : Base
     {
-        public void PlacePayment(int PaymentID, DateTime PaymentTimeStamp, int PaymentTip, int PaymentMethod)
+        private static Payment_DAO _uniquePaymentDAO;
+        public static Payment_DAO GetPaymentDAO()
         {
-            SqlParameter sqlParameter1 = new SqlParameter("@PaymentID", PaymentID);
+            if (_uniquePaymentDAO == null)
+            {
+                _uniquePaymentDAO = new Payment_DAO();
+            }
+            return _uniquePaymentDAO;
+        }
+
+        public void PlacePayment(DateTime PaymentTimeStamp, double PaymentTip, int PaymentMethod)
+        {
             SqlParameter sqlParameter2 = new SqlParameter("@PaymentTimeStamp", PaymentTimeStamp);
             SqlParameter sqlParameter3 = new SqlParameter("@PaymentTip", PaymentTip);
             SqlParameter sqlParameter4 = new SqlParameter("@PaymentMethod", PaymentMethod);
-            SqlParameter[] sqlP = new SqlParameter[] { sqlParameter1, sqlParameter2, sqlParameter3, sqlParameter4 };
+            SqlParameter[] sqlP = new SqlParameter[] { sqlParameter2, sqlParameter3, sqlParameter4 };
             ExecuteEditQuery("PlacePayment", sqlP);
         }
 

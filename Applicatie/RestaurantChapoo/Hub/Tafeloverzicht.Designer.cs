@@ -66,83 +66,83 @@
             // tafel1
             // 
             this.tafel1.BackColor = System.Drawing.Color.Transparent;
-            this.tafel1.Location = new System.Drawing.Point(1, 19);
+            this.tafel1.Location = new System.Drawing.Point(73, 57);
             this.tafel1.Name = "tafel1";
-            this.tafel1.Size = new System.Drawing.Size(85, 36);
+            this.tafel1.Size = new System.Drawing.Size(120, 75);
             this.tafel1.TabIndex = 0;
             this.tafel1.UseVisualStyleBackColor = false;
             // 
             // tafel2
             // 
-            this.tafel2.Location = new System.Drawing.Point(139, 19);
+            this.tafel2.Location = new System.Drawing.Point(211, 57);
             this.tafel2.Name = "tafel2";
-            this.tafel2.Size = new System.Drawing.Size(85, 36);
+            this.tafel2.Size = new System.Drawing.Size(120, 75);
             this.tafel2.TabIndex = 1;
             this.tafel2.UseVisualStyleBackColor = true;
             // 
             // tafel3
             // 
-            this.tafel3.Location = new System.Drawing.Point(282, 19);
+            this.tafel3.Location = new System.Drawing.Point(354, 57);
             this.tafel3.Name = "tafel3";
-            this.tafel3.Size = new System.Drawing.Size(85, 36);
+            this.tafel3.Size = new System.Drawing.Size(120, 75);
             this.tafel3.TabIndex = 2;
             this.tafel3.UseVisualStyleBackColor = true;
             this.tafel3.Click += new System.EventHandler(this.tafel3_Click);
             // 
             // tafel4
             // 
-            this.tafel4.Location = new System.Drawing.Point(423, 19);
+            this.tafel4.Location = new System.Drawing.Point(495, 57);
             this.tafel4.Name = "tafel4";
-            this.tafel4.Size = new System.Drawing.Size(85, 36);
+            this.tafel4.Size = new System.Drawing.Size(120, 75);
             this.tafel4.TabIndex = 3;
             this.tafel4.UseVisualStyleBackColor = true;
             this.tafel4.Click += new System.EventHandler(this.tafel4_Click);
             // 
             // tafel5
             // 
-            this.tafel5.Location = new System.Drawing.Point(567, 19);
+            this.tafel5.Location = new System.Drawing.Point(639, 57);
             this.tafel5.Name = "tafel5";
-            this.tafel5.Size = new System.Drawing.Size(85, 36);
+            this.tafel5.Size = new System.Drawing.Size(120, 75);
             this.tafel5.TabIndex = 4;
             this.tafel5.UseVisualStyleBackColor = true;
             // 
             // tafel6
             // 
-            this.tafel6.Location = new System.Drawing.Point(1, 123);
+            this.tafel6.Location = new System.Drawing.Point(73, 223);
             this.tafel6.Name = "tafel6";
-            this.tafel6.Size = new System.Drawing.Size(85, 36);
+            this.tafel6.Size = new System.Drawing.Size(120, 75);
             this.tafel6.TabIndex = 5;
             this.tafel6.UseVisualStyleBackColor = true;
             // 
             // tafel7
             // 
-            this.tafel7.Location = new System.Drawing.Point(139, 123);
+            this.tafel7.Location = new System.Drawing.Point(211, 223);
             this.tafel7.Name = "tafel7";
-            this.tafel7.Size = new System.Drawing.Size(85, 36);
+            this.tafel7.Size = new System.Drawing.Size(120, 75);
             this.tafel7.TabIndex = 6;
             this.tafel7.UseVisualStyleBackColor = true;
             // 
             // tafel8
             // 
-            this.tafel8.Location = new System.Drawing.Point(282, 123);
+            this.tafel8.Location = new System.Drawing.Point(354, 223);
             this.tafel8.Name = "tafel8";
-            this.tafel8.Size = new System.Drawing.Size(85, 36);
+            this.tafel8.Size = new System.Drawing.Size(120, 75);
             this.tafel8.TabIndex = 7;
             this.tafel8.UseVisualStyleBackColor = true;
             // 
             // tafel9
             // 
-            this.tafel9.Location = new System.Drawing.Point(423, 123);
+            this.tafel9.Location = new System.Drawing.Point(495, 223);
             this.tafel9.Name = "tafel9";
-            this.tafel9.Size = new System.Drawing.Size(85, 36);
+            this.tafel9.Size = new System.Drawing.Size(120, 75);
             this.tafel9.TabIndex = 8;
             this.tafel9.UseVisualStyleBackColor = true;
             // 
             // tafel10
             // 
-            this.tafel10.Location = new System.Drawing.Point(567, 123);
+            this.tafel10.Location = new System.Drawing.Point(639, 223);
             this.tafel10.Name = "tafel10";
-            this.tafel10.Size = new System.Drawing.Size(85, 36);
+            this.tafel10.Size = new System.Drawing.Size(120, 75);
             this.tafel10.TabIndex = 9;
             this.tafel10.UseVisualStyleBackColor = true;
             // 
@@ -168,90 +168,90 @@
             // lbl_tafel1
             // 
             this.lbl_tafel1.AutoSize = true;
-            this.lbl_tafel1.Location = new System.Drawing.Point(26, 58);
+            this.lbl_tafel1.Location = new System.Drawing.Point(106, 153);
             this.lbl_tafel1.Name = "lbl_tafel1";
-            this.lbl_tafel1.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel1.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel1.TabIndex = 12;
             this.lbl_tafel1.Text = "Tafel 1";
             // 
             // lbl_tafel2
             // 
             this.lbl_tafel2.AutoSize = true;
-            this.lbl_tafel2.Location = new System.Drawing.Point(163, 58);
+            this.lbl_tafel2.Location = new System.Drawing.Point(243, 153);
             this.lbl_tafel2.Name = "lbl_tafel2";
-            this.lbl_tafel2.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel2.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel2.TabIndex = 13;
             this.lbl_tafel2.Text = "Tafel 2";
             // 
             // lbl_tafel3
             // 
             this.lbl_tafel3.AutoSize = true;
-            this.lbl_tafel3.Location = new System.Drawing.Point(307, 58);
+            this.lbl_tafel3.Location = new System.Drawing.Point(387, 153);
             this.lbl_tafel3.Name = "lbl_tafel3";
-            this.lbl_tafel3.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel3.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel3.TabIndex = 14;
             this.lbl_tafel3.Text = "Tafel 3";
             // 
             // lbl_tafel4
             // 
             this.lbl_tafel4.AutoSize = true;
-            this.lbl_tafel4.Location = new System.Drawing.Point(448, 58);
+            this.lbl_tafel4.Location = new System.Drawing.Point(528, 153);
             this.lbl_tafel4.Name = "lbl_tafel4";
-            this.lbl_tafel4.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel4.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel4.TabIndex = 15;
             this.lbl_tafel4.Text = "Tafel 4";
             // 
             // lbl_tafel5
             // 
             this.lbl_tafel5.AutoSize = true;
-            this.lbl_tafel5.Location = new System.Drawing.Point(589, 58);
+            this.lbl_tafel5.Location = new System.Drawing.Point(675, 153);
             this.lbl_tafel5.Name = "lbl_tafel5";
-            this.lbl_tafel5.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel5.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel5.TabIndex = 16;
             this.lbl_tafel5.Text = "Tafel 5";
             // 
             // lbl_tafel6
             // 
             this.lbl_tafel6.AutoSize = true;
-            this.lbl_tafel6.Location = new System.Drawing.Point(26, 162);
+            this.lbl_tafel6.Location = new System.Drawing.Point(106, 321);
             this.lbl_tafel6.Name = "lbl_tafel6";
-            this.lbl_tafel6.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel6.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel6.TabIndex = 17;
             this.lbl_tafel6.Text = "Tafel 6";
             // 
             // lbl_tafel7
             // 
             this.lbl_tafel7.AutoSize = true;
-            this.lbl_tafel7.Location = new System.Drawing.Point(164, 162);
+            this.lbl_tafel7.Location = new System.Drawing.Point(244, 321);
             this.lbl_tafel7.Name = "lbl_tafel7";
-            this.lbl_tafel7.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel7.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel7.TabIndex = 18;
             this.lbl_tafel7.Text = "Tafel 7";
             // 
             // lbl_tafel8
             // 
             this.lbl_tafel8.AutoSize = true;
-            this.lbl_tafel8.Location = new System.Drawing.Point(307, 162);
+            this.lbl_tafel8.Location = new System.Drawing.Point(387, 321);
             this.lbl_tafel8.Name = "lbl_tafel8";
-            this.lbl_tafel8.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel8.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel8.TabIndex = 19;
             this.lbl_tafel8.Text = "Tafel 8";
             // 
             // lbl_tafel9
             // 
             this.lbl_tafel9.AutoSize = true;
-            this.lbl_tafel9.Location = new System.Drawing.Point(448, 162);
+            this.lbl_tafel9.Location = new System.Drawing.Point(528, 321);
             this.lbl_tafel9.Name = "lbl_tafel9";
-            this.lbl_tafel9.Size = new System.Drawing.Size(40, 13);
+            this.lbl_tafel9.Size = new System.Drawing.Size(57, 20);
             this.lbl_tafel9.TabIndex = 20;
             this.lbl_tafel9.Text = "Tafel 9";
             // 
             // lbl_tafel10
             // 
             this.lbl_tafel10.AutoSize = true;
-            this.lbl_tafel10.Location = new System.Drawing.Point(586, 162);
+            this.lbl_tafel10.Location = new System.Drawing.Point(666, 321);
             this.lbl_tafel10.Name = "lbl_tafel10";
-            this.lbl_tafel10.Size = new System.Drawing.Size(46, 13);
+            this.lbl_tafel10.Size = new System.Drawing.Size(66, 20);
             this.lbl_tafel10.TabIndex = 21;
             this.lbl_tafel10.Text = "Tafel 10";
             // 
@@ -262,6 +262,7 @@
             this.lvOverzicht.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnTafelNummer,
             this.columnStatus});
+            this.lvOverzicht.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lvOverzicht.HideSelection = false;
             this.lvOverzicht.Location = new System.Drawing.Point(927, 83);
             this.lvOverzicht.Name = "lvOverzicht";
@@ -288,7 +289,7 @@
             this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Home.Location = new System.Drawing.Point(1177, 12);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(75, 23);
+            this.btn_Home.Size = new System.Drawing.Size(75, 27);
             this.btn_Home.TabIndex = 23;
             this.btn_Home.Text = "Home";
             this.btn_Home.UseVisualStyleBackColor = false;
@@ -296,6 +297,7 @@
             // 
             // GroupBox
             // 
+            this.GroupBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.GroupBox.Controls.Add(this.tafel1);
             this.GroupBox.Controls.Add(this.tafel2);
             this.GroupBox.Controls.Add(this.tafel3);
@@ -316,9 +318,10 @@
             this.GroupBox.Controls.Add(this.lbl_tafel3);
             this.GroupBox.Controls.Add(this.lbl_tafel1);
             this.GroupBox.Controls.Add(this.lbl_tafel2);
-            this.GroupBox.Location = new System.Drawing.Point(194, 242);
+            this.GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.GroupBox.Location = new System.Drawing.Point(29, 109);
             this.GroupBox.Name = "GroupBox";
-            this.GroupBox.Size = new System.Drawing.Size(654, 180);
+            this.GroupBox.Size = new System.Drawing.Size(871, 426);
             this.GroupBox.TabIndex = 24;
             this.GroupBox.TabStop = false;
             this.GroupBox.Text = "Tafels:";
@@ -326,34 +329,40 @@
             // btn_refresh
             // 
             this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_refresh.BackColor = System.Drawing.Color.SkyBlue;
+            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_refresh.Location = new System.Drawing.Point(1101, 541);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(151, 35);
             this.btn_refresh.TabIndex = 25;
             this.btn_refresh.Text = "Refresh Orders";
-            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_Afrekenen
             // 
             this.btn_Afrekenen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Afrekenen.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_Afrekenen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_Afrekenen.Location = new System.Drawing.Point(927, 540);
             this.btn_Afrekenen.Name = "btn_Afrekenen";
             this.btn_Afrekenen.Size = new System.Drawing.Size(151, 35);
             this.btn_Afrekenen.TabIndex = 26;
             this.btn_Afrekenen.Text = "Afrekenen";
-            this.btn_Afrekenen.UseVisualStyleBackColor = true;
+            this.btn_Afrekenen.UseVisualStyleBackColor = false;
             this.btn_Afrekenen.Click += new System.EventHandler(this.btn_Afrekenen_Click);
             // 
             // btn_Annuleren
             // 
             this.btn_Annuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Annuleren.BackColor = System.Drawing.Color.Red;
+            this.btn_Annuleren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_Annuleren.Location = new System.Drawing.Point(1013, 582);
             this.btn_Annuleren.Name = "btn_Annuleren";
             this.btn_Annuleren.Size = new System.Drawing.Size(151, 35);
             this.btn_Annuleren.TabIndex = 27;
             this.btn_Annuleren.Text = "Annuleren";
-            this.btn_Annuleren.UseVisualStyleBackColor = true;
+            this.btn_Annuleren.UseVisualStyleBackColor = false;
             this.btn_Annuleren.Click += new System.EventHandler(this.btn_Annuleren_Click);
             // 
             // Tafeloverzicht
