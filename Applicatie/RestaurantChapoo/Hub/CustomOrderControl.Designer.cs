@@ -64,6 +64,7 @@
             this.col_Item,
             this.col_Amount});
             this.lv_menuItems.Enabled = false;
+            this.lv_menuItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_menuItems.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lv_menuItems.HideSelection = false;
             this.lv_menuItems.Location = new System.Drawing.Point(3, 51);
